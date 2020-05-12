@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/55fcd42dc6.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/palette.css">
+</head>
+
+<body>
+    <!-- Menu lateral escuro -->
+    <div class="menu-icons bg-gray-color">
+        <div class="logo-g">
+            <a href="#!" onclick="toggleSidebar()">
+                <img src="image/logo-primary.png" alt="" onclick="closeNav()">
+            </a>
+        </div>
+        <div class="nav-icon">
+            <ul>
+                <li><a href="#!"><img src="image/icons/portfolio-white.png" alt=""></a></li>
+                <li><a href="feedGeral.html"><img src="image/icons/feed-white.png" alt=""></a></li>
+                <li><a href="#!"><img src="image/icons/promocao-white.png" alt=""></a></li>
+                <li><a href="#!"><img src="image/icons/solicitacao-white.png" alt=""></a></li>
+                <li><a href="#!"><img src="image/icons/calendario-white.png" alt=""></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Menu lateral claro -->
+    <div class="bg-primary-color" id="side-bar">
+        <div class="logo-growing">
+            <a href="#!">
+                <img src="image/growing-logo-white.png" alt="">
+            </a>
+        </div>
+        <div class="nav-text">
+            <ul>
+                <li><a href="feedGeralPortfolio.html">Portfólio</a></li>
+                <li><a href="feedGeral.html">Feed geral</a></li>
+                <li><a href="#!">Promoções</a></li>
+                <li><a href="#!">Solicitações</a></li>
+                <li><a href="agenda.html">Agenda</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Main -->
+    <div class="bg-ligth-color" id="main">
+        <div class="header-corpo">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 nav-header shadow-1">
+                    <div class="row">
+                        <div class="col-md-6 search-input-sm">
+                            <form action="#!" method="post">
+                                <div class="search-header">
+                                    <input class="searching" type="search" name="" id="" placeholder="Busque aqui">
+                                    <button type="submit"><img src="image/icons/procurar-primary.png" alt=""
+                                            id='icon-search'></button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="nav-header-menu">
+                                <ul>
+                                    <li><a href="calendario.html"><img src="image/icons/calendario-gray.png" alt=""></a></li>
+                                    <li><a href="chat.html"><img src="image/icons/bate-papo-gray.png" alt=""></a></li>
+                                    <li><a href="carrinho.html"><img src="image/icons/supermercado-primary.png" alt=""></a></li>
+                                    <li><a href="#!"><img src="image/icons/sino-primary.png" alt=""></a></li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3 avatar-hd-sm">
+                            <a href="#!">
+                                <div class="d-flex flex-row bd-highlight mb-3">
+                                    <div class="usuario-header p-2 bd-highlight">usuario@dominio.com.br</div>
+                                    <div class="usuario-header-div p-2 bd-highlight"></div>
+
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--Cabecalho carrinho-->
+        <section>
+            <div class="col-md-12 col-sm-12 card-carrinho-cabecalho">
+                <h2 class="text-color-primary">Carrinho de compras</h2>
+            </div>
+            <div class="col-md-12">
+                <div class="container-progresso">
+                    <ul class="barra-progresso">
+                        <li class="ativo">Passo 1</li>
+                        <li>Passo 2</li>
+                        <li>Passo 3</li>
+                    </ul>
+                </div>
+            </div>
+        </section><!-- Fim Cabecalho-->
+        <!-- Bloco Duplo-->
+        <section class="row">
+            <!-- Bloco col-9 -->
+            <div class="segura-section3 card-ag-ca col-md-9">
+                <!-- Bloco produtos listados -->
+                <div class="col-md-12">
+                    <!-- Lista dos produtos comprados -->
+                    <div class="agenda-hoje">
+                        <div class="col-md-12 col-sm-12 row item-agenda">
+                            <div class="col-md-1 col-sm-3 separa-item-carrinho">
+                                <div>WRT727</div>
+                            </div>
+                            <div class="col-md-1 col-sm-3 agendaPic separa-item-carrinho">
+                                <img src="image/produtos/produto-um.png" alt="Foto cliente">
+                            </div>
+                            <div class="col-md-5 col-sm-6 separa-item-carrinho">
+                                <div><a href="produtos.html" class="link-primary">Descrição do produto comprado</a></div>
+                            </div>
+                            <div class="col-md-2 col-sm-4 separa-item-carrinho">
+                                <div>R$ 150,20</div>
+                            </div>
+                            <div class="col-md-1 col-sm-4 separa-item-carrinho">
+                                <div>
+                                    <input type="number" name="quantidade-itens" id="quantidade-itens" min="1" max="99"
+                                        maxlength="2">
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-4 separa-item-carrinho">
+                                <div>R$ 450,60</div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 row item-agenda">
+                            <div class="col-md-1 col-sm-3 separa-item-carrinho">
+                                <div>WRT727</div>
+                            </div>
+                            <div class="col-md-1 col-sm-3 agendaPic separa-item-carrinho">
+                                <img src="image/produtos/produto-um.png" alt="Foto cliente">
+                            </div>
+                            <div class="col-md-5 col-sm-6 separa-item-carrinho">
+                                <div><a href="produtos.html" class="link-primary">Descrição do produto comprado</a></div>
+                            </div>
+                            <div class="col-md-2 col-sm-4 separa-item-carrinho">
+                                <div>R$ 150,20</div>
+                            </div>
+                            <div class="col-md-1 col-sm-4 separa-item-carrinho">
+                                <div>
+                                    <input type="number" name="quantidade-itens" id="quantidade-itens" min="1" max="99"
+                                        maxlength="2">
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-4 separa-item-carrinho">
+                                <div>R$ 450,60</div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 row item-agenda">
+                            <div class="col-md-1 col-sm-3 separa-item-carrinho">
+                                <div>WRT727</div>
+                            </div>
+                            <div class="col-md-1 col-sm-3 agendaPic separa-item-carrinho">
+                                <img src="image/produtos/produto-um.png" alt="Foto cliente">
+                            </div>
+                            <div class="col-md-5 col-sm-6 separa-item-carrinho">
+                                <div><a href="produtos.html" class="link-primary">Descrição do produto comprado</a></div>
+                            </div>
+                            <div class="col-md-2 col-sm-4 separa-item-carrinho">
+                                <div>R$ 150,20</div>
+                            </div>
+                            <div class="col-md-1 col-sm-4 separa-item-carrinho">
+                                <div>
+                                    <input type="number" name="quantidade-itens" id="quantidade-itens" min="1" max="99"
+                                        maxlength="2">
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-4 separa-item-carrinho">
+                                <div>R$ 450,60</div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 row item-agenda">
+                            <div class="col-md-1 col-sm-3 separa-item-carrinho">
+                                <div>WRT727</div>
+                            </div>
+                            <div class="col-md-1 col-sm-3 agendaPic separa-item-carrinho">
+                                <img src="image/produtos/produto-um.png" alt="Foto cliente">
+                            </div>
+                            <div class="col-md-5 col-sm-6 separa-item-carrinho">
+                                <div><a href="produtos.html" class="link-primary">Descrição do produto comprado</a></div>
+                            </div>
+                            <div class="col-md-2 col-sm-4 separa-item-carrinho">
+                                <div>R$ 150,20</div>
+                            </div>
+                            <div class="col-md-1 col-sm-4 separa-item-carrinho">
+                                <div>
+                                    <input type="number" name="quantidade-itens" id="quantidade-itens" min="1" max="99"
+                                        maxlength="2">
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-4 separa-item-carrinho">
+                                <div>R$ 450,60</div>
+                            </div>
+                        </div>
+                    </div><!--Fim produtos comprados -->
+                </div>
+                <!-- Bloco descontos -->
+                <div class="col-md-12">
+                    <div class="col-md-12 row bloco-d-frete">
+                        <div class="col-md-6 row desconto-frete">
+                            <div class="desconto-frete-titulo">
+                                <p>Cupom de desconto: </p>
+                            </div>
+                            <div class="desconto-frete-input">
+                                <input type="text" class="cupom" maxlength="15" size="15">
+                                <button class="botao-desconto-frete">Aplicar</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 row desconto-frete">
+                            <div class="desconto-frete-titulo">
+                                <p>Calculo de frete: </p>
+                            </div>
+                            <div class="desconto-frete-input">
+                            <input type="text" class="CEP" placeholder="00000000" maxlength="8" size="10">
+                            <button class="botao-desconto-frete">Aplicar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Endereço -->
+                <div class="col-md-12">
+                    <div>
+                        <h6>Endereço de entrega</h6>
+                    </div>
+                    <div class="col-md-12 row bloco-endereco">
+                        <div class="col-md-9">
+                            <input type="text" name="logradouro" id="" placeholder="Logradouro..." size="70" maxlength="">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="numero" id="" placeholder="Nº" size="15" maxlength="">
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" name="bairro" id="" placeholder="Bairro..." size="70" maxlength="">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="cep" id="" placeholder="CEP..." size="15" maxlength="8">
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" name="cidade" id="" placeholder="Cidade..." size="70" maxlength="">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="uf" id="" placeholder="UF..." size="15" maxlength="2">
+                        </div>
+                        <div class="col-md-12">
+                            <input type="text" name="complemento" id="" placeholder="Complemento..." size="70" maxlength="140">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bloco col-3 -->
+            <div class="segura-section3 card-ag-ca col-md-3 col-sm-12">
+                <br>
+                <!-- Lista agendar lateral -->
+                <div class="row agendar-servico">
+                    <!-- Bloco total -->
+                    <div class="col-md-11 alinhar-lateral">
+                        <!-- Card total-->
+                        <div class="col-md-12 calendario-corpo">
+                            <div class="row">
+                                <div class="col-md-4 compra-titulo">
+                                    <p>sub total</p>
+                                    <p>desconto</p>
+                                    <p>valor frete</p>
+                                </div>
+                                <div class="col-md-6 compra-valor">
+                                    <p class="text-color-primary">R$ 1.802,40</p>
+                                    <p>R$ 0,00</p>
+                                    <p>R$ 0,00</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-3 compra-titulo">
+                                    <p>total</p>
+                                </div>
+                                <div class="col-md-7 compra-valor">
+                                    <p class="valor-destaque text-color-primary">R$ 1.802,40</p>
+                                </div>
+                            </div>
+                            <a href="feedGeral.html" class="botao-carrinho col-md-12" role="button">Finalizar compra</a>
+                            <!--<button type="submit" class="botao-carrinho col-md-12">Finalizar compra</button>-->
+                        </div>
+                        <!--Fim card total-->
+                    </div>
+                </div>
+            </div><!-- Fim col-3 -->
+        </section>
+    </div><!-- Fim Main -->
+
+    <!-- Scripts para Bootstrap 4-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+
+    <!-- Jquary e script para scroll nav suave-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/my-scroll.js"></script>
+    <script src="js/nav-color.js"></script>
+    <script src="js/side-menu.js"></script>
+
+
+
+    <!-- Fim de pagina -->
+</body>
+
+</html>
