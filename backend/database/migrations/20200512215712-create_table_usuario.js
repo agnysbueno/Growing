@@ -49,8 +49,6 @@ module.exports = {
           type: Sequelize.STRING(500),
           allowNull: true
         }
-
-
       }
     );
   },
