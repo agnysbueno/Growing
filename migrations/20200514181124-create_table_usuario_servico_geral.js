@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable(
-      'imagem_portfolio',
+      'usuario_servico_geral',
       {
         id: {
           type: Sequelize.INTEGER,
@@ -11,14 +11,20 @@ module.exports = {
           primaryKey: true,
           autoIncrement: true
         },
-        imagem: {
-          type: Sequelize.STRING(200),
-          allowNull: false
-        },
-        fk_registro_portfolio: {
+        fk_usuario: {
           type: Sequelize.INTEGER,
           references: {
-            model: 'registro_portfolio',
+            model: 'usuario',
+            key: 'id'
+          },
+          onUpdate: 'CASCADE',
+          onDelete: 'CASCADE',
+          allowNull: false
+        },
+        fk_servico: {
+          type: Sequelize.INTEGER,
+          references: {
+            model: 'servico_geral',
             key: 'id'
           },
           onUpdate: 'CASCADE',
@@ -30,6 +36,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('imagem_portfolio');
+    return queryInterface.dropTable('usuario_servico_geral');
   }
 };
