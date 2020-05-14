@@ -18,7 +18,7 @@ module.exports = {
             key: 'id'
           },
           onUpdate: 'CASCADE',
-          onDelete: 'SET NULL',
+          onDelete: 'CASCADE',
           allowNull: false
         },
         fk_servico: {
@@ -28,7 +28,7 @@ module.exports = {
             key: 'id'
           },
           onUpdate: 'CASCADE',
-          onDelete: 'SET NULL',
+          onDelete: 'CASCADE',
           allowNull: false
         }
       }
