@@ -18,11 +18,11 @@ const Usuario = (sequelize, DataTypes) => {
             },
             genero: {
                 type: Sequelize.STRING(1),
-                allowNull: false
+                allowNull: true
             },
             cpf: {
                 type: Sequelize.STRING(14),
-                allowNull: false,
+                allowNull: true,
                 unique: true
             },
             data_nascimento: {
@@ -53,36 +53,36 @@ const Usuario = (sequelize, DataTypes) => {
         }
     );
 
-    usuario.associate = (models) => {
+    // usuario.associate = (models) => {
         
-        usuario.hasMany(models.Endereco, {
-            foreignKey:'fk_usuario', as: 'enderecos'
-        });
+    //     usuario.hasMany(models.Endereco, {
+    //         foreignKey:'fk_usuario', as: 'enderecos'
+    //     });
 
-        usuario.hasMany(models.Contato, {
-            foreignKey:'fk_usuario', as: 'contatos'
-        });
+    //     usuario.hasMany(models.Contato, {
+    //         foreignKey:'fk_usuario', as: 'contatos'
+    //     });
 
-        usuario.hasOne(models.DadoProfissional, {
-            foreignKey:'fk_usuario', as: 'dado profissional'
-        });
+    //     usuario.hasOne(models.DadoProfissional, {
+    //         foreignKey:'fk_usuario', as: 'dado profissional'
+    //     });
 
-        usuario.hasMany(models.Post, {
-            foreignKey:'fk_usuario', as: 'posts'
-        });
+    //     usuario.hasMany(models.Post, {
+    //         foreignKey:'fk_usuario', as: 'posts'
+    //     });
 
-        usuario.hasMany(models.RegistroPortfolio, {
-            foreignKey:'fk_usuario', as: 'registros'
-        });
+    //     usuario.hasMany(models.RegistroPortfolio, {
+    //         foreignKey:'fk_usuario', as: 'registros'
+    //     });
 
-        usuario.hasMany(models.Compromisso, {
-            foreignKey:'fk_cliente', as: 'compromissos'
-        });
+    //     usuario.hasMany(models.Compromisso, {
+    //         foreignKey:'fk_cliente', as: 'compromissos'
+    //     });
 
-        usuario.hasMany(models.ServicosGerais, {
-            foreignKey:'fk_usuario', as: 'preferencias'
-        });
-    };
+    //     usuario.hasMany(models.ServicosGerais, {
+    //         foreignKey:'fk_usuario', as: 'preferencias'
+    //     });
+    // };
 
     return usuario;
 }

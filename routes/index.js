@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+const homeController = require('../controllers/homeController');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/', homeController.index);
+router.get('/cadastro', homeController.cadastro);
+router.post('/cadastro', homeController.cadUsuario);
 
 module.exports = router;

@@ -21,11 +21,11 @@ module.exports = {
         },
         genero: {
           type: Sequelize.STRING(1),
-          allowNull: false
+          allowNull: true
         },
         cpf: {
           type: Sequelize.STRING(14),
-          allowNull: false,
+          allowNull: true,
           unique: true
         },
         data_nascimento: {

@@ -185,6 +185,12 @@ header #main-button {
     color: gray;
 }
 
+#logotipo a{
+    text-decoration: none;
+    font-size: 100px;
+    color: #422f33;
+}
+
 .briefing {
     width: 95%;
     margin-top: 32%;
