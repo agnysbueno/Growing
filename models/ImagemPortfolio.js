@@ -14,12 +14,6 @@ const ImagemPortfolio = (sequelize, DataTypes) => {
             },
             fk_registro_portfolio: {
               type: Sequelize.INTEGER,
-              references: {
-                model: 'registro_portfolio',
-                key: 'id'
-              },
-              onUpdate: 'CASCADE',
-              onDelete: 'CASCADE',
               allowNull: false
             }
         },

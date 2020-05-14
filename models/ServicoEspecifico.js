@@ -1,7 +1,22 @@
 const ServicoEspecifico = (sequelize, DataTypes) => {
     let servicoEspecifico = sequelize.define(
         'ServicoEspecifico',
-,
+        {
+            id: {
+              type: Sequelize.INTEGER,
+              allowNull: false,
+              primaryKey: true,
+              autoIncrement: true
+            },
+            servico: {
+              type: Sequelize.STRING(100),
+              allowNull: false
+            },
+            fk_servico_geral: {
+              type: Sequelize.INTEGER,
+              allowNull: false
+            }
+        },
         { 
             tableName: "servico_especifico",
             timestamps: false 

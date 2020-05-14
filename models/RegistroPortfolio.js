@@ -14,12 +14,6 @@ const RegistroPortfolio = (sequelize, DataTypes) => {
             },
             fk_usuario: {
               type: Sequelize.INTEGER,
-              references: {
-                model: 'usuario',
-                key: 'id'
-              },
-              onUpdate: 'CASCADE',
-              onDelete: 'CASCADE',
               allowNull: false
             }
         },
