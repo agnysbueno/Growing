@@ -79,19 +79,19 @@ const Usuario = (sequelize, DataTypes) => {
             foreignKey:'fk_usuario', as: 'registros'
         });
 
-        usuario.hasMany(models.ServicoGeral, {
+        usuario.belongsToMany(models.ServicoGeral, {
             through: "UsuarioServicoGeral",
             foreignKey:'fk_usuario',
             as: 'servicos_gerais'
         });
 
-        usuario.hasMany(models.ServicoEspecifico, {
+        usuario.belongsToMany(models.ServicoEspecifico, {
             through: "UsuarioServicoEspecifico",
             foreignKey:'fk_usuario',
             as: 'servicos_especificos'
         });
 
-        usuario.hasMany(models.Produto, {
+        usuario.belongsToMany(models.Produto, {
             through: "UsuarioProduto",
             foreignKey:'fk_usuario',
             as: 'produtos'
