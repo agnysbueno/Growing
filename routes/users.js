@@ -25,6 +25,7 @@ const VerificaUsuarioLogado = require('../middlewares/VerificaUsuarioLogado');
 
 /* GET users listing. */
 router.get('/', VerificaUsuarioLogado, usuariosController.perfil);
+router.post('/', VerificaUsuarioLogado, usuariosController.atualizar)
 
 //Serviços
 router.get('/usuarioServico', servicoController.servico);
