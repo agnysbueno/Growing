@@ -1,6 +1,6 @@
 
 .bg-primary-color { background-color: #9F6F78 }
-.bg-ligth-color { background-color: #F3EDEE }
+.bg-ligth-color { background-color: rgb(255, 247, 247) }
 .bg-gray-color { background-color: #383737 }
 .bg-gradiente { background-image: linear-gradient(#FFFFFF, #9F6F78) }
 
@@ -10,3 +10,4 @@
 .text-color-gray { color: #383737 }
 
 .icon-color-white { color:white}
+.icon-color-primary { color:#9F6F78}

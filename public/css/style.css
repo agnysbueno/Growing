@@ -6,6 +6,7 @@ p,
 a {
     font-family: 'Gotham', 'Arial Narrow', Arial, Helvetica, sans-serif;
     text-decoration: none;
+    
 }
 
 a:hover{
@@ -407,7 +408,9 @@ i {
     z-index: 10;
     height: 100%;
     left: 0;
+    border-right: solid 2px #f8f4f5;
 }
+
 
 #side-bar {
     position: fixed;
@@ -436,17 +439,14 @@ i {
 
 }
 
-
-
 .shadow-1 {
     padding: 10px;
-    box-shadow: 3px 8px 4px #888888;
+    box-shadow: 3px 1px 1px #ece7e8;
 }
 
 .logo-g {
     width: 2.5%;
     height: 45px;
-    padding-top: 60px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -464,7 +464,6 @@ i {
 
 .logo-growing {
     width: 85px;
-    padding-top: 67px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -498,7 +497,8 @@ i {
 
 .nav-text {
     width: 100%;
-    padding-top: 73px;
+    padding-top: 100px;
+
 }
 
 .nav-text ul {
@@ -514,8 +514,8 @@ i {
 
 .nav-text ul li a {
     text-decoration: none;
-    color: white;
-    font-weight: bold;
+    color: #9f6f78;
+    font-weight: normal;
     display: block;
     width: 100%;
 }
