@@ -3,17 +3,17 @@ const ImagemPortfolio = (sequelize, DataTypes) => {
         'ImagemPortfolio',
         {
             id: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false,
               primaryKey: true,
               autoIncrement: true
             },
             imagem: {
-              type: Sequelize.STRING(200),
+              type: DataTypes.STRING(200),
               allowNull: false
             },
             fk_registro_portfolio: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false
             }
         },

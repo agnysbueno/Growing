@@ -3,29 +3,29 @@ const UsuarioServicoEspecifico = (sequelize, DataTypes) => {
         'UsuarioServicoEspecifico',
         {
             id: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false,
               primaryKey: true,
               autoIncrement: true
             },
             fk_usuario: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false
             },
             fk_servico: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false
             },
             preco: {
-              type: Sequelize.DOUBLE(6,2),
+              type: DataTypes.DOUBLE(6,2),
               allowNull: false
             },
             imagem: {
-              type: Sequelize.STRING(200),
+              type: DataTypes.STRING(200),
               allowNull: false
             },
             descricao: {
-              type: Sequelize.STRING(500),
+              type: DataTypes.STRING(500),
               allowNull: true
             }
         },

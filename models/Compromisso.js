@@ -3,37 +3,37 @@ const Compromisso = (sequelize, DataTypes) => {
         'Compromisso',
         {
             id: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false,
               primaryKey: true,
               autoIncrement: true
             },
             fk_usuario_consumidor: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false
             },
             fk_usuario_prestador: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false
             },
             fk_servico: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false
             },
             fk_avaliacao: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false
             },
             horario_inicio: {
-              type: Sequelize.DATE,
+              type: DataTypes.DATE,
               allowNull: false
             },
             horario_fim: {
-              type: Sequelize.DATE,
+              type: DataTypes.DATE,
               allowNull: false
             },
             observacoes: {
-              type: Sequelize.STRING(500),
+              type: DataTypes.STRING(500),
               allowNull: true
             }
         }, 

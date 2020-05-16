@@ -3,17 +3,17 @@ const RegistroPortfolio = (sequelize, DataTypes) => {
         'RegistroPortfolio',
         {
             id: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false,
               primaryKey: true,
               autoIncrement: true
             },
             descricao: {
-              type: Sequelize.STRING(300),
+              type: DataTypes.STRING(300),
               allowNull: true
             },
             fk_usuario: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false
             }
         },

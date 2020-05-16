@@ -3,17 +3,17 @@ const ServicoEspecifico = (sequelize, DataTypes) => {
         'ServicoEspecifico',
         {
             id: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false,
               primaryKey: true,
               autoIncrement: true
             },
             servico: {
-              type: Sequelize.STRING(100),
+              type: DataTypes.STRING(100),
               allowNull: false
             },
             fk_servico_geral: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false
             }
         },

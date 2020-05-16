@@ -3,25 +3,25 @@ const Post = (sequelize, DataTypes) => {
         'Post',
         {
             id: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false,
               primaryKey: true,
               autoIncrement: true
             },
             texto: {
-              type: Sequelize.STRING(500),
+              type: DataTypes.STRING(500),
               allowNull: false
             },
             data_postagem: {
-              type: Sequelize.DATE,
+              type: DataTypes.DATE,
               allowNull: false
             },
             imagem: {
-              type: Sequelize.STRING(200),
+              type: DataTypes.STRING(200),
               allowNull: true
             },
             fk_usuario: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false
             }
         },

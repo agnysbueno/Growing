@@ -3,29 +3,29 @@ const Comentario = (sequelize, DataTypes) => {
         'Comentario',
         {
             id: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false,
               primaryKey: true,
               autoIncrement: true
             },
             texto: {
-              type: Sequelize.STRING(500),
+              type: DataTypes.STRING(500),
               allowNull: false
             },
             data_comentario: {
-              type: Sequelize.DATE,
+              type: DataTypes.DATE,
               allowNull: false
             },
             imagem: {
-              type: Sequelize.STRING(200),
+              type: DataTypes.STRING(200),
               allowNull: true
             },
             fk_post: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false
             },
             fk_usuario: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false
             }
         },

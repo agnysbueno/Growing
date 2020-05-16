@@ -3,49 +3,49 @@ const Endereco = (sequelize, DataTypes) => {
         'Endereco',
         {
             id: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false,
               primaryKey: true,
               autoIncrement: true
             },
             tipo_endereco: {
-              type: Sequelize.STRING(30),
+              type: DataTypes.STRING(30),
               allowNull: false
             },
             tipo_logradouro: {
-              type: Sequelize.STRING(20),
+              type: DataTypes.STRING(20),
               allowNull: false
             },
             logradouro: {
-              type: Sequelize.STRING(30),
+              type: DataTypes.STRING(30),
               allowNull: false
             },
             numero: {
-              type: Sequelize.STRING(10),
+              type: DataTypes.STRING(10),
               allowNull: true
             },
             complemento: {
-              type: Sequelize.STRING(50),
+              type: DataTypes.STRING(50),
               allowNull: true
             },
             bairro: {
-              type: Sequelize.STRING(40),
+              type: DataTypes.STRING(40),
               allowNull: false
             },
             cep: {
-              type: Sequelize.STRING(9),
+              type: DataTypes.STRING(9),
               allowNull: false
             },
             municipio: {
-              type: Sequelize.STRING(30),
+              type: DataTypes.STRING(30),
               allowNull: false
             },
             uf: {
-              type: Sequelize.STRING(2),
+              type: DataTypes.STRING(2),
               allowNull: false
             },
             fk_usuario: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false
             }
         },

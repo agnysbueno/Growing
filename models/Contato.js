@@ -3,25 +3,25 @@ const Contato = (sequelize, DataTypes) => {
         'Contato',
         {
             id: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false,
               primaryKey: true,
               autoIncrement: true
             },
             tipo_contato: {
-              type: Sequelize.STRING(30),
+              type: DataTypes.STRING(30),
               allowNull: false
             },
             telefone: {
-              type: Sequelize.STRING(15),
+              type: DataTypes.STRING(15),
               allowNull: true
             },
             email: {
-              type: Sequelize.STRING(60),
+              type: DataTypes.STRING(60),
               allowNull: true
             },
             fk_usuario: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               allowNull: false
             }
         },
