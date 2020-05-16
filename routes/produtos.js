@@ -16,20 +16,18 @@ let imagens = multer.diskStorage({
 let uploadImagens = multer({iamgens:imagens});
 
 //Controllers
-const usuariosController = require('../controllers/usuariosController');
-const servicoController = require('../controllers/servicoController');
 const produtoController = require('../controllers/produtoController');
 
 //Middlewares 
 const VerificaUsuarioLogado = require('../middlewares/VerificaUsuarioLogado');
 
-/* GET users listing. */
-router.get('/', VerificaUsuarioLogado, usuariosController.perfil);
-
-//Serviços
-router.get('/usuarioServico', servicoController.servico);
-
 //Produtos
-router.get('/usuarioProduto', produtoController.produto);
+router.get('/mostrarProdutos', produtoController.mostrarProdutos); //Mostra todos
+router.post('/criarProduto', produtoController.criarProduto); //Cadastrar produto por form
+router.post('/salvarProduto', produtoController.salvarProduto); //Salva o form de cadastro
+router.get('/sucessoProduto', produtoController.sucessoProduto); //Mensagem de Sucesso ou erro.
+router.get('/verProduto', produtoController.verProduto); //Ver um produto específico
+router.put('/editarProduto', produtoController.editarProduto); //Ver form edição de produto
+router.delete('/deletarProduto/:id', produtoController.deletarProduto); //Deleta um produto
 
 module.exports = router;
