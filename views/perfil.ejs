@@ -3,17 +3,42 @@
 <div class="row">
     <div class="col-md-8 col-sm-12">
         <div id='capa-usuario' class="bg-gradiente">
-            <h2>Teste</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="perfil-usuario" id='perfil-capa-img'>
+                        <% if(usuario.foto_perfil == '') { %>
+                            <img src="<%=usuario.foto_prefil %>">
+                        <% } else { %>
+                            <img src="./images/usuario.png">
+                        <% } %>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h2><%=usuario.nome_completo %> - <a href="#!"><i class="fas fa-user-edit"></i></a></h2>
+                    <p>
+                        <%=usuario.descricao_bio%>
+                    </p>
+                </div>
+
+            </div>
         </div>
         <div class="row row-status">
-            <div class="col-md-5" id='preferencias'>
-                
+            <div class="col-md-6">
+                <div id="preferencias">
+                    <p>Preferencias</p>
+
+                </div>
             </div>
-            <div class="col-md-4">
-        
+            <div class="col-md-3">
+                <div id='prod-servicos'>
+                    <p>Produtos e Serviços</p>
+
+                </div>
             </div>
-            <div class="col-md-4">
-        
+            <div class="col-md-3">
+                <div id='avaliacao-user' class="bg-gradiente">
+
+                </div>
             </div>
         
         </div>

@@ -17,10 +17,17 @@ let uploadImagens = multer({iamgens:imagens});
 
 //Controllers
 const homeController = require('../controllers/homeController');
+const authController = require('../controllers/authController');
 
-/* GET home page. */
+/* Cadastro de . */
 router.get('/', homeController.index);
+
+//Cadastro de usuários
 router.get('/cadastro', homeController.cadastro);
 router.post('/cadastro', homeController.cadUsuario);
+
+//Login
+router.get('/login', authController.showLogin);
+router.post('/login', authController.login);
 
 module.exports = router;

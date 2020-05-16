@@ -52,8 +52,8 @@ main {
 }
 
 .perfil-usuario img{
-    width: 170px;
-    height: 170px;
+    width: 173px;
+    height: 173px;
     border-radius: 100%;
 }
 
@@ -987,7 +987,7 @@ i {
 /* Perfil Usuario - David */
 
 #capa-usuario{
-    width: 850px;
+    width: 900px;
     height: 230px;
     border-radius: 7px;
     margin-top: 80px;
@@ -995,16 +995,43 @@ i {
     padding: 5px;
 }
 
+#capa-usuario h2{
+    margin-top: 30px;
+}
+
+#perfil-capa-img{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 .row-status{
+    width: 900px;
     margin-top: 5px;
     margin-left: 10px;
 }
 
 #preferencias{
-    padding: 5px;
+    margin-left: -15px;
+    margin-right: -13px;
     border-radius: 7px;
     border: solid 2px #9F6F78;
     background-color: white;
+    height: 130px;
+}
+
+#prod-servicos{
+    margin-right: -13px;
+    border-radius: 7px;
+    border: solid 2px #9f6f78;
+    background-color: white;
+    height: 130px;
+}
+
+#avaliacao-user{
+    margin-right: -13px;
+    border-radius: 7px;
     height: 130px;
 }
 

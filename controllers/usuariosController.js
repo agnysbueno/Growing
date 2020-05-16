@@ -1,6 +1,7 @@
 const usuariosController = {
     perfil:(req, res) =>{
-        res.render('perfil', {title: 'Usuário'});
+        let usuario = req.session.usuario;
+        res.render('perfil', {title: 'Usuário', usuario});
     }
 }
 

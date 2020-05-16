@@ -19,10 +19,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(session({
   secret:'growing',
-  resave:false,
-  saveUninitialized:true,
-  cookie:{secure:true},
-  maxAge: 3600
+  resave: true,
+  saveUninitialized: true,
+  cookie: { maxAge: 3600000 },
 }))
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
