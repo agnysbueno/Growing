@@ -110,7 +110,7 @@ nav a:hover {
     width: 4w;
     height: 7vh;
     transition: 250ms ease;
-    background-image: url('../image/logo-gray.png');
+    background-image: url('../images/logo-gray.png');
     background-repeat: no-repeat;
     background-size: 5vh;
 }
@@ -327,7 +327,7 @@ form .btn-ligth {
 /* Section Login */
 
 #login {
-    background-image: url('../image/background-transp1.png');
+    background-image: url('../images/background-transp1.png');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -372,7 +372,7 @@ i {
 /* Section Cadastro */
 
 #cadastro {
-    background-image: url('../image/background-transp1.png');
+    background-image: url('../images/background-transp1.png');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -606,7 +606,7 @@ i {
     height: 32px;
     border-radius: 100%;
     background-color: #9F6F78;
-    background-image: url('../image/icons/do-utilizador-white.png');
+    background-image: url('../images/icons/do-utilizador-white.png');
     background-repeat: no-repeat;
     background-size: 21px;
     background-position: center;
@@ -983,6 +983,33 @@ i {
     background-repeat: no-repeat;
     height: 100vh;
 }
+
+/* Perfil Usuario - David */
+
+#capa-usuario{
+    width: 850px;
+    height: 230px;
+    border-radius: 7px;
+    margin-top: 80px;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.row-status{
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+#preferencias{
+    padding: 5px;
+    border-radius: 7px;
+    border: solid 2px #9F6F78;
+    background-color: white;
+    height: 130px;
+}
+
+
+
 
 /* Perfil Usuarios - Amanda *-* */
 
