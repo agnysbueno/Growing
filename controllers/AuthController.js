@@ -6,25 +6,6 @@ const AuthController = {
         res.render('login');
     },
 
-    showRegistro: (req,res) => {
-        res.render('auth/register');
-    },
-
-    showHome: async (req,res) => {
-        let posts = await Post.findAll({
-            include: [
-                {   
-                    model:Comentario,
-                    as: 'comentarios',
-                    include: 'usuario'
-                 }, 
-                'usuario'
-            ] 
-        });
-
-        res.render('index', {posts});
-    },
-
     login: async (req, res) => {
         //recebendo as informações do body
         const { email, senha } = req.body;
