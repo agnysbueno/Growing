@@ -12,6 +12,7 @@ module.exports = {
 
     var opcoesContato = ['Residencial', 'Comercial', 'Pessoal'];
 
+    var fakeId = 0;
     
     for (let i=0; i <= 200; i++) {
 
@@ -20,12 +21,14 @@ module.exports = {
       var fakeTelefone = `(${fakeDDD}) 9${fakeNumber.slice(0, 4)}-${fakeNumber.slice(4, 8)}`
 
       fakeContato = {
+        id: fakeId,
         tipo_contato: faker.random.arrayElement(opcoesContato),
         telefone: fakeTelefone,
         email: faker.internet.email(),
-        fk_usuario: faker.random.number({'min': 52, 'max': 204}),
+        fk_usuario: faker.random.number({'min': 1, 'max': 200}),
       }
       contatos.push(fakeContato);
+      fakeId+=1;
     }
     
     return queryInterface.bulkInsert('contato', contatos, {});
