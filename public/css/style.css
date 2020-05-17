@@ -1034,10 +1034,15 @@ i {
     border-radius: 7px;
     height: 130px;
 }
-
-
-
-
+#btnImgPerfil {
+    top: -25px;
+    left: 120px;
+    position: relative;
+    border-radius: 100%;
+    border: 0;
+    width: 45px;
+    height: 45px;
+}
 /* Perfil Usuarios - Amanda *-* */
 
 .perfilHeader {
