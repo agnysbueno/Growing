@@ -1,4 +1,4 @@
-const {UsuarioServicoEspecifico} = require("../models");
+const {sequelize, UsuarioServicoEspecifico} = require("../models");
 const servicoController = {
     mostrarServicos: async (req, res) =>{
         let {id} = req.params; //pega id do usuario profissional que está renderizado na pagina.
@@ -14,7 +14,7 @@ const servicoController = {
         res.render('criarServico', {title: 'Criar'});
     },
 
-    salvarServico: (req, res) => {
+    salvarServico: async(req, res) => {
         let usuario = req.session.usuario;
         let {fk_servico, preco, imagem, descricao} = req.params;
         let registro = await UsuarioServicoEspecifico.create({
@@ -36,7 +36,7 @@ const servicoController = {
         }).then(result => { res.send(result)});
     },
 
-    editarServico:(req, res) => {
+    editarServico: async(req, res) => {
         let {id} = req.params;
         let {fk_servico, preco, imagem, descricao} = req.params;
         let registro = await UsuarioServicoEspecifico.update({

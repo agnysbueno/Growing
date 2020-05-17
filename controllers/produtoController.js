@@ -1,4 +1,4 @@
-const {UsuarioProduto} = require("../models");
+const {sequelize, UsuarioProduto} = require("../models");
 const produtoController = {
     mostrarProdutos: async (req, res) =>{
         let {id} = req.params; //pega id do usuario profissional que está renderizado na pagina.
@@ -14,7 +14,7 @@ const produtoController = {
         res.render('criarProduto', {title: 'Criar'});
     },
 
-    salvarProduto: (req, res) => {
+    salvarProduto: async(req, res) => {
         let usuario = req.session.usuario;
         let {fk_produto, preco, imagem, descricao} = req.params;
         let registro = await UsuarioProduto.create({
@@ -36,7 +36,7 @@ const produtoController = {
         }).then(result => { res.send(result)});
     },
 
-    editarProduto:(req, res) => {
+    editarProduto:async(req, res) => {
         let {id} = req.params;
         let {fk_produto, preco, imagem, descricao} = req.params;
         let registro = await UsuarioProduto.update({
