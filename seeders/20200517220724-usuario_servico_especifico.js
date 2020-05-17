@@ -16,7 +16,7 @@ module.exports = {
       fakeUsuarioServicoEspecifico = {
         id: fakeId,
         fk_usuario: faker.random.number({'min': 1, 'max': 200}),
-        fk_servico: faker.random.number({'min': 1, 'max': 17}),
+        fk_servico: faker.random.number({'min': 1, 'max': 77}),
         preco: faker.finance.amount(5.00,1999,2),
         imagem: faker.image.fashion(),
         descricao: faker.lorem.paragraphs(1),
