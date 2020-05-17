@@ -29,7 +29,7 @@ module.exports = {
           unique: true
         },
         data_nascimento: {
-          type: Sequelize.DATEONLY,
+          type: Sequelize.DATE,
           allowNull: true
         },
         email: {
