@@ -17,8 +17,6 @@ let uploadImagens = multer({iamgens:imagens});
 
 //Controllers
 const usuariosController = require('../controllers/usuariosController');
-const servicoController = require('../controllers/servicoController');
-const produtoController = require('../controllers/produtoController');
 
 //Middlewares 
 const VerificaUsuarioLogado = require('../middlewares/VerificaUsuarioLogado');
@@ -27,10 +25,5 @@ const VerificaUsuarioLogado = require('../middlewares/VerificaUsuarioLogado');
 router.get('/', VerificaUsuarioLogado, usuariosController.perfil);
 router.post('/', VerificaUsuarioLogado, usuariosController.atualizar)
 
-//Serviços
-router.get('/usuarioServico', servicoController.servico);
-
-//Produtos
-router.get('/usuarioProduto', produtoController.produto);
 
 module.exports = router;
