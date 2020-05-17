@@ -24,4 +24,5 @@ router.get('/', VerificaUsuarioLogado, usuariosController.perfil);
 router.post('/', VerificaUsuarioLogado, usuariosController.atualizar)
 router.post('/imgperfil', VerificaUsuarioLogado, upload.any(), usuariosController.atualPerfil)
 
+
 module.exports = router;
