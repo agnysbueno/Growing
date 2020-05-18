@@ -7,7 +7,7 @@
                 <div class="col-md-3">
                     <div class="perfil-usuario" id='perfil-capa-img'>
                         <% if(usuario[0].foto_perfil != '') { %>
-                            <img src="<%=usuario[0].foto_perfil %>">
+                            <img src="<%=usuario[0].foto_perfil %>" id='imagenPerfildin'>
                         <% } else { %>
                             <img src="./images/usuario.png" id='imagenPerfil'>
                         <% } %>
@@ -147,11 +147,11 @@
              <div class="form-group">
                 <div class="row">
                     <div class='col-md-12'>
-                        <div class="perfil-usuario" id='perfil-capa-img'>
+                        <div class="perfil-usuario" id='atual-perfil-img'>
                             <% if(usuario[0].foto_perfil != '') { %>
-                                <img src="<%=usuario[0].foto_perfil %>">
+                                <img src="<%=usuario[0].foto_perfil %>" id='imagenPerfilDinDois'>
                             <% } else { %>
-                                <img src="./images/usuario.png" id='imagenPerfildois'>
+                                <img src="./images/usuario.png" id='imagenPerfilDois'>
                             <% } %>
                         </div>
                     </div>

@@ -1,3 +1,4 @@
+
 function update(e) {
    
     let id = formPerfil.id.value;
@@ -28,6 +29,10 @@ function update(e) {
 
 
 function atualPerfil(e){
+    let imag1 = document.getElementById('imagenPerfildin');
+    let imag12 = document.getElementById('imagenPerfil');
+    let imag2 = document.getElementById('imagenPerfilDinDois');
+    let imag22 = document.getElementById('imagenPerfilDois');
     //let id = e; 
     let form = formImagePerfil;
     let dados = new FormData(form);
@@ -41,14 +46,27 @@ function atualPerfil(e){
         cache: false,
         data: dados,
         success: function (data) {
-            let imag1 = document.getElementById('imagenPerfil');
-            imag1.src = data[0].foto_perfil;
-            let imag2 = document.getElementById('imagenPerfildois');
-            imag2.src = data[0].foto_perfil;
+            apagaImg(data[0].foto_perfil);
         },
         erro: function (ex){
             alert('Falha ao atualizar imagem! ' + ex)
         }
 
     });
+}
+
+const apagaImg = (e) => {
+    let divImgPerfil = document.getElementById('perfil-capa-img');
+    let divImgPefilAlter = document.getElementById('atual-perfil-img');
+    divImgPerfil.innerText = '';
+    divImgPefilAlter.innerText = '';
+
+    let perfilPrinc = document.createElement('img');
+    perfilPrinc.setAttribute('src', e);
+
+    let perfilAlter = document.createElement('img');
+    perfilAlter.setAttribute('src', e);
+
+    divImgPerfil.appendChild(perfilPrinc);
+    divImgPefilAlter.appendChild(perfilAlter);
 }
