@@ -1,0 +1,32 @@
+.menu_susp {
+    width: 300px;
+    height: auto;
+    background: white;
+    position: absolute;
+    z-index: 100;
+    top: 70%;
+    margin-left: auto; /* metade do tamanho (negativo) */
+    margin-right: auto;
+    border-top: 2px solid #9F6F78;
+    border-radius: 1px;
+    background: #fffcfc;
+    box-shadow: 2px 2px 2px 2px #888888;
+    display: none;
+}
+
+.tag-transparente{
+    background: #FFFFFF;
+    border: 2px solid #9F6F78;
+    box-sizing: border-box;
+    border-radius: 50px;
+
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: 325;
+    font-size: 10px;
+    line-height: 18px;
+    padding: 3px;
+    /* identical to box height */
+
+    color: #9F6F78;
+}

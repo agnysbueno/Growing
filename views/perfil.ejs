@@ -27,7 +27,13 @@
         <div class="row row-status">
             <div class="col-md-6">
                 <div id="preferencias">
-                    <p>Preferencias</p>
+                    <div>
+                        <p>Preferencias <a href="#!" data-toggle="modal" data-target="#modalPreferencias"><i class="fas fa-plus"></i></a></p>
+                        
+
+                    </div>
+                    
+                    <!-- <button onclick="consServGerais()">Servicos</button> -->
 
                 </div>
             </div>
@@ -63,7 +69,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="/" class="form-horizontal" id='formPerfil'>
+          <form class="form-horizontal" id='formPerfil'>
              <div class="form-group">
                 <div class="row">
                     <div class="col-md-12"><input type="hidden" value="<%=usuario[0].id %>" name="id">
@@ -160,10 +166,49 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn bg-primary-color icon-color-white" onclick="atualPerfil('<%=usuario[0].id %>')" data-dismiss="modal">Atualizar Imagem</button>
+          <button type="button" class="btn bg-primary-color icon-color-white" onclick="atualPerfil('<%=usuario[0].id %>')">Atualizar Imagem</button>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Preferencias -->
+  <div class="modal fade" id="modalPreferencias" tabindex="-1" role="dialog" aria-labelledby="modalPreferenciasLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-color-primary" id="modalPreferenciasLabel">Preferencias</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <div class="row">
+                      <div class='col-md-12'>
+                         <input type="text" id='pesqServico' class="form-control" placeholder="Serviço..." />
+                         <div id="menu_pref" class="menu_susp"><input id='id_user' type="hidden" value="<%=usuario[0].id %>" />
+                            <ul class="list-group" id="lista_servicos"></ul>
+                            <div class="u-footer--bottom-fixed" style="text-align:right">
+                                <button class="btn btn-danger btn-sm" type="button" style="margin-top:5px; margin-bottom:5px; margin-right:5px" onclick="clouseMenuServicos()"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12" id="cloud_tag">
+                        <!-- <span class="tag-transparente">Primary</span> -->
+
+                      </div>
+                  </div>
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn bg-primary-color icon-color-white" onclick="atualPerfil('<%=usuario[0].id %>')">Inserir</button>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+  
 
 <%- include('./shared/footer') %>
