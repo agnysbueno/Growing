@@ -13,9 +13,12 @@ module.exports = {
     var fakeUsuario = {};
     
     var opcoesGenero = ['F', 'M', 'O']
+
+    var fakeId = 0;
     
-    for (let i=0; i <= 50; i++) {
+    for (let i=0; i <= 200; i++) {
       fakeUsuario = {
+        id: fakeId,
         nome_completo: faker.name.findName(),
         nome_social: faker.name.firstName(),
         genero:faker.random.arrayElement(opcoesGenero),
@@ -27,6 +30,7 @@ module.exports = {
         descricao_bio: faker.lorem.paragraphs(1)
       }
       usuarios.push(fakeUsuario);
+      fakeId+=1
     }
     
     return queryInterface.bulkInsert('usuario', usuarios, {});
