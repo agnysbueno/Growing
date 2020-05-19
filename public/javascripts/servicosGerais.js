@@ -4,19 +4,13 @@ const consServGerais = (e, u) => {
         url: '/users/servicos',
         data: { servico: e },
         success: function (data) {
-            // let i = 0;
-            // $(data).each(function () {
-            //     console.log(data[i].servico);
-            //     i++;
-            // });
-            let menu_pref = document.getElementById('menu_pref');
-            let listaServicos = document.getElementById('lista_servicos');
             
-            menu_pref.style.display = 'block';
-            listaServicos.innerText = '';
+            //let listaServicos = document.getElementById('lista_servicos');
+            let cloudTag = document.getElementById('cloud_tag');
+            cloudTag.innerText = '';
             for(let serv of data){
-                let row = document.createElement('li');
-                row.setAttribute('class', 'list-group-item');
+                let row = document.createElement('span');
+                row.setAttribute('class', 'tag-transparente');
                 
                 let link = document.createElement('a');
                 link.setAttribute('href', '#!');
@@ -24,7 +18,7 @@ const consServGerais = (e, u) => {
                 link.innerText = serv.servico;
                 
                 row.appendChild(link);
-                listaServicos.appendChild(row);
+                cloudTag.appendChild(row);
 
             }
         },
@@ -45,7 +39,7 @@ const inserirServico = (u, s) => {
         url: '/users/inserirServico',
         data: { fk_usuario: u, fk_servico: s },
         success: function (data) {
-            let cloudTag = document.getElementById('cloud_tag');
+            //let cloudTag = document.getElementById('cloud_tag');
             let divPref = document.getElementById('divPref');
             for(let tagCl of data){
                 let tag = document.createElement('span');
@@ -58,7 +52,7 @@ const inserirServico = (u, s) => {
                 i.setAttribute('class', 'fas fa-times');
 
                 tag.appendChild(i);
-                cloudTag.appendChild(tag);
+                //cloudTag.appendChild(tag);
                 divPref.appendChild(tag);
             }
            

@@ -1050,6 +1050,15 @@ i {
     margin: 5px;
 }
 
+#cloud_tag{
+    padding: 10px;
+}
+
+#cloud_tag a{
+    text-decoration: none;
+    color: #9F6F78;
+}
+
 
 /* Perfil Usuarios - Amanda *-* */
 

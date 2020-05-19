@@ -188,16 +188,20 @@
                   <div class="row">
                       <div class='col-md-12'>
                          <input type="text" id='pesqServico' class="form-control" placeholder="Serviço..." />
-                         <div id="menu_pref" class="menu_susp"><input id='id_user' type="hidden" value="<%=usuario[0].id %>" />
+                         <input id='id_user' type="hidden" value="<%=usuario[0].id %>" />
+                         <!-- <div id="menu_pref" class="menu_susp">
                             <ul class="list-group" id="lista_servicos"></ul>
                             <div class="u-footer--bottom-fixed" style="text-align:right">
                                 <button class="btn btn-danger btn-sm" type="button" style="margin-top:5px; margin-bottom:5px; margin-right:5px" onclick="clouseMenuServicos()"><i class="fa fa-times"></i></button>
                             </div>
-                        </div>
+                        </div> -->
                       </div>
-                      <div class="col-md-12" id="cloud_tag">
+                      <div class="col-md-12">
+                        <div id='cloud_tag' class="row"></div>
                         <!-- <span class="tag-transparente">Primary</span> -->
-
+                        <!-- <ul class="list-group" id='lista_servicos'>
+                          <li class="list-group-item">Lista</li>
+                        </ul> -->
                       </div>
                   </div>
                 

@@ -16,8 +16,10 @@ function update(e) {
         success: function (data) {
             //formPerfil.foto_perfil.value = data[0].foto_perfil;
             let nomeUsuario = document.getElementById('nomeUsuario');
+            let descriBio = document.getElementById('pDescricao');
             nomeUsuario.innerText = data[0].nome_completo;
-            nomeUsuario.innerHTML += " - <a href='#!' data-toggle='modal' data-target='#editPerfil'><i class='fas fa-user-edit'></i></a>" 
+            nomeUsuario.innerHTML += " - <a href='#!' data-toggle='modal' data-target='#editPerfil'><i class='fas fa-user-edit'></i></a>";
+            descriBio.innerText = data[0].descricao_bio;
         },
         erro: function (ex){
             alert('Falha ao atualizar imagem! ' + ex)
