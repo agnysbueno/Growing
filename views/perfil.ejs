@@ -27,16 +27,16 @@
         <div class="row row-status">
             <div class="col-md-6">
                 <div id="preferencias">
-                    <div>
-                        <p>Preferencias <a href="#!" data-toggle="modal" data-target="#modalPreferencias"><i class="fas fa-plus"></i></a></p>
-                        
-
-                    </div>
-                    
+                  <p>Preferencias <a href="#!" data-toggle="modal" data-target="#modalPreferencias"><i class="fas fa-plus"></i></a></p>
+                  <div>
+                    <% for(let pref of preferencias) {%>
+                      <span class="tag-transparente"><%=pref.ServicoGeral.servico %></span>
+                    <% } %>
+                  </div>
+                </div>    
                     <!-- <button onclick="consServGerais()">Servicos</button> -->
-
-                </div>
             </div>
+        
             <div class="col-md-3">
                 <div id='prod-servicos'>
                     <p>Produtos e Serviços</p>

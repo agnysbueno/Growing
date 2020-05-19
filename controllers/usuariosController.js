@@ -5,7 +5,8 @@ const usuariosController = {
     perfil: async(req, res) =>{
         let usuarioLog = req.session.usuario;
         let usuario = await Usuario.findAll({ where: { id: usuarioLog.id }});
-        res.render('perfil', {title: 'Usuário', usuario});
+        let preferencias = await UsuarioServicoGeral.findAll({include:'ServicoGeral'}, { where: { id: usuarioLog.id } });
+        res.render('perfil', {title: 'Usuário', usuario, preferencias});
     }, 
     atualizar:async(req, res) =>{
         let { id, nome_completo, nome_social, genero, cpf, data_nascimento, descricao_bio } = req.body;

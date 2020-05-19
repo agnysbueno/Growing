@@ -34,7 +34,7 @@ const UsuarioServicoEspecifico = (sequelize, DataTypes) => {
             timestamps: false 
         }
     );
-
+   
     return usuarioServicoEspecifico;
 }
 

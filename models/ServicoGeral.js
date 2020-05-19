@@ -23,7 +23,7 @@ const ServicoGeral = (sequelize, DataTypes) => {
         
         servicoGeral.belongsToMany(models.Usuario, {
             through: "UsuarioServicoGeral",
-            foreignKey:'fk_servico',
+            foreignKey:'fk_usuario',
             as: 'usuario'
         });
 

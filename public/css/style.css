@@ -1019,6 +1019,7 @@ i {
     border: solid 2px #9F6F78;
     background-color: white;
     height: 130px;
+    padding: 10px;
 }
 
 #prod-servicos{
@@ -1027,6 +1028,7 @@ i {
     border: solid 2px #9f6f78;
     background-color: white;
     height: 130px;
+    padding: 10px;
 }
 
 #avaliacao-user{
@@ -1044,7 +1046,9 @@ i {
     height: 45px;
 }
 
-
+/* #pref-interna{
+    margin: 10px;
+} */
 
 
 /* Perfil Usuarios - Amanda *-* */

@@ -22,7 +22,10 @@ const UsuarioServicoGeral = (sequelize, DataTypes) => {
             timestamps: false 
         }
     );
-
+    usuarioServicoGeral.associate = (models) =>{
+      usuarioServicoGeral.belongsTo(models.ServicoGeral, {foreignKey: 'fk_servico', as:'ServicoGeral'});
+      //usuarioServicoEspecifico.belongsTo(models.Usuario, {foreignKey:'fk_usuario', as: 'usuario'});
+    }
     return usuarioServicoGeral;
 }
 
