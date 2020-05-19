@@ -1018,7 +1018,7 @@ i {
     border-radius: 7px;
     border: solid 2px #9F6F78;
     background-color: white;
-    height: 130px;
+    min-height: 130px;
     padding: 10px;
 }
 
@@ -1046,9 +1046,9 @@ i {
     height: 45px;
 }
 
-/* #pref-interna{
-    margin: 10px;
-} */
+#divPref{
+    margin: 5px;
+}
 
 
 /* Perfil Usuarios - Amanda *-* */

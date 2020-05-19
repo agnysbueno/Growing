@@ -27,6 +27,7 @@ router.post('/imgperfil', VerificaUsuarioLogado, upload.any(), usuariosControlle
 //Serviços Gerais
 router.post('/servicos', VerificaUsuarioLogado, usuariosController.preferencias);
 router.post('/inserirServico', VerificaUsuarioLogado, usuariosController.inserirPreferencias);
+router.post('/deletePreferencias', VerificaUsuarioLogado, usuariosController.apagarPreferencias);
 
 
 module.exports = router;

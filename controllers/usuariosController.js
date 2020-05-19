@@ -5,7 +5,7 @@ const usuariosController = {
     perfil: async(req, res) =>{
         let usuarioLog = req.session.usuario;
         let usuario = await Usuario.findAll({ where: { id: usuarioLog.id }});
-        let preferencias = await UsuarioServicoGeral.findAll({include:'ServicoGeral'}, { where: { id: usuarioLog.id } });
+        let preferencias = await UsuarioServicoGeral.findAll({include:'ServicoGeral', where: {fk_usuario: usuarioLog.id}});
         res.render('perfil', {title: 'Usuário', usuario, preferencias});
     }, 
     atualizar:async(req, res) =>{
@@ -34,22 +34,15 @@ const usuariosController = {
     },
     inserirPreferencias: async(req, res) => {
         let { fk_usuario, fk_servico } = req.body;
-        await UsuarioServicoGeral.create({ fk_usuario, fk_servico})
-        let servicosGerais = await UsuarioServicoGeral.findAll(
-            {
-                include:
-                [
-                    {
-                        model:ServicoGeral,
-                        as:'servico_geral',
-                        include:'usuario'
-                    },
-                'usuario'
-                ]
-            }
-            
-        );       
-        res.send(servicosGerais);
+        let novaPref = await UsuarioServicoGeral.create({ fk_usuario, fk_servico}, {include:'ServicoGeral'});
+        let preferencias = await UsuarioServicoGeral.findAll({include:'ServicoGeral', where: { id: novaPref.id } });
+        res.send(preferencias);
+    },
+    apagarPreferencias: async(req, res) => {
+        let { id } = req.body;
+        await UsuarioServicoGeral.destroy({ where: { id } });
+        let preferencias = await UsuarioServicoGeral.findAll({include:'ServicoGeral'}, { where: { id } });
+        res.send(preferencias);
     }
 }
 
