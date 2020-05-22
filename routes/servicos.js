@@ -22,6 +22,7 @@ const servicoController = require('../controllers/servicoController');
 const VerificaUsuarioLogado = require('../middlewares/VerificaUsuarioLogado');
 
 //Servicos
+router.get('/', servicoController.perfilCon); //Mostra todos
 router.get('/mostrarServicos', servicoController.mostrarServicos); //Mostra todos
 router.get('/criarServico', servicoController.criarServico); //Cadastrar Servico por form
 router.post('/salvarServico', servicoController.salvarServico); //Salva o form de cadastro
