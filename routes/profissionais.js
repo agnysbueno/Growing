@@ -23,7 +23,6 @@ const VerificaUsuarioLogado = require('../middlewares/VerificaUsuarioLogado');
 
 //Profissionals
 router.get('/', VerificaUsuarioLogado, profissionalController.perfilPro); //Mostra todos
-router.get('/criarProfissional', profissionalController.criarProfissional); //Cadastrar profissional por form
 router.post('/salvarProfissional', profissionalController.salvarProfissional); //Salva o form de cadastro
 router.get('/sucessoProfissional', profissionalController.sucessoProfissional); //Mensagem de Sucesso ou erro.
 router.get('/verProfissional', profissionalController.verProfissional); //Ver um profissional específico

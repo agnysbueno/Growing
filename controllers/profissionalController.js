@@ -18,16 +18,13 @@ const ProfissionalController = {
         res.send('perfilProfissional', {Profissional});
     },
 
-    criarProfissional: (req, res) => { //Renderiza um form
-        res.send('criarProfissional', {title: 'Criar'});
-    },
-
     salvarProfissional: async(req, res) => {
         let usuario = req.session.usuario;
-        let {fk_Profissional, preco, imagem, descricao} = req.params;
+        let  { cnpj, razao_social, nome_fantasia, inscricao_estadual, inscricao_municipal} = req.body;
         let registro = await DadoProfissional.create({
-            fk_usuario: usuario.id, fk_Profissional, preco, imagem, descricao
+            cnpj, razao_social, nome_fantasia, inscricao_estadual, inscricao_municipal, fk_usuario: usuario.id
         });
+        console.log(registro);
         res.send('salvarProfissional', {registro});
     },
 

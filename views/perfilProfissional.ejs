@@ -59,19 +59,23 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div id='avaliacao-user' class="bg-gradiente">
-                    <button href="#!" id='btnMudarPerfil' data-toggle="modal" data-target="#mudarPerfil"><i class="far fa-clipboard fa-1x"></i></button>
+                <div id='btn-config-prof' class="bg-gradiente">
+                    <!--<button href="#!" id='btnMudarPerfil' data-toggle="modal" data-target="#mudarPerfil"><i class="far fa-clipboard fa-1x"></i></button>-->
                     <p id='btnMudarPerfil2'>Mudar tipo de perfil - <a href="#!" data-toggle="modal" data-target="#mudarPerfil"><i class="far fa-clipboard fa-1x"></i></a></p>
                 </div>
             </div>
         
         </div> <!--Fim da duplicação-->
     </div>
-
-    <!-- <div class="col-md-4">
-
-    </div> -->
-
+<!--
+    <div class="col-md-4" style="color: aquamarine;">
+     
+            <div id='btn-config-prof2' class="col-md-12 bg-gradiente">
+                <p id='btnMudarPerfil2'>Mudar tipo de perfil - <a href="#!" data-toggle="modal" data-target="#mudarPerfil"><i class="far fa-clipboard fa-1x"></i></a></p>
+            </div>
+ 
+    </div>
+-->
 </div>
 </div>
 <!-- Editar perfil -->
@@ -200,28 +204,28 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="/" class="form-horizontal" id='formMudarP'>
+          <form action="/salvarProfissional" class="form-horizontal" id='formMudarP'>
              <div class="form-group">
                 <div class="row">
                     <div class="col-md-12"><input type="hidden" value="<%=usuario[0].id %>" name="profId">
                         <label for="nome">CNPJ</label>
-                        <input type="text" name="cnpj" id="" class="form-control" placeholder="00.000.000/0000-00" value="<%= DadoProfissional[0].cnpj %>" required>
+                        <input type="text" name="cnpj" id="cnpj" class="form-control" placeholder="00.000.000/0000-00" value="***DadoProfissional[0].cnpj %>">
                     </div>
                     <div class="col-md-12">
                         <label for="nome">Razão social</label>
-                        <input type="text" name="razao_social" id="" class="form-control" placeholder="Razão Social..." value="<%= DadoProfissional[0].razao_social %>">
+                        <input type="text" name="razao_social" id="razao_social" class="form-control" placeholder="Razão Social..." value="***DadoProfissional[0].razao_social %>">
                     </div>
                     <div class="col-md-12">
                         <label for="nome">Nome fantasia</label>
-                        <input type="text" name="nome_fantasia" id="" class="form-control" placeholder="Nome fantasia ..." value="<%= DadoProfissional[0].nome_fantasia %>">
+                        <input type="text" name="nome_fantasia" id="nome_fantasia" class="form-control" placeholder="Nome fantasia ..." value="***DadoProfissional[0].nome_fantasia %>">
                     </div>
                     <div class="col-md-12">
                         <label for="nome">Inscrição estadual</label>
-                        <input type="text" name="inscricao_estadual" id="" class="form-control" placeholder="Inscrição estadual ..." value="<%= DadoProfissional[0].inscricao_estadual %>">
+                        <input type="text" name="inscricao_estadual" id="inscricao_estadual" class="form-control" placeholder="Inscrição estadual ..." value="***DadoProfissional[0].inscricao_estadual %>">
                     </div>
                     <div class="col-md-12">
                         <label for="nome">Inscrição municipal</label>
-                        <input type="text" name="inscricao_municipal" id="" class="form-control" placeholder="Inscrição municipal ..." value="<%= DadoProfissional[0].inscricao_municipal %>">
+                        <input type="text" name="inscricao_municipal" id="inscricao_municipal" class="form-control" placeholder="Inscrição municipal ..." value="***DadoProfissional[0].inscricao_municipal %>">
                     </div>
                     
                 </div>
@@ -230,7 +234,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn bg-primary-color icon-color-white" onclick="update('<%= DadoProfissional[0].fk_usuario %>')" data-dismiss="modal">Mudar Perfil</button>
+          <button type="button" class="btn bg-primary-color icon-color-white" onclick="mudarP('<%=usuario[0].id %>')" data-dismiss="modal">Mudar Perfil</button>
         </div>
       </div>
     </div>

@@ -1196,6 +1196,9 @@ a:active {
 /* Fim perfil usuarios */
 
 /*Comeco calendario e Agenda - Mike -*/
+.btn-config-prof2 {
+    margin-top: 70px;
+}
 
 .alternar-pagina {
     text-align: center;
