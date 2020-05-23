@@ -9,16 +9,17 @@ const ProfissionalController = {
     mostrarProfissionais: async (req, res) =>{
         let usuarioLog = req.session.usuario; // Ta dando usuario is not defined (¬_¬)
         console.log("UsuarioLog é" + usuarioLog);
+        let id = usuarioLog.id;
         let Profissional = await DadoProfissional.findAll({
             where: {
-                fk_usuario:usuarioLog.id
+                fk_usuario: id
             }
         })
-        res.render('perfilProfissional', {Profissional});
+        res.send('perfilProfissional', {Profissional});
     },
 
     criarProfissional: (req, res) => { //Renderiza um form
-        res.render('criarProfissional', {title: 'Criar'});
+        res.send('criarProfissional', {title: 'Criar'});
     },
 
     salvarProfissional: async(req, res) => {
@@ -27,7 +28,7 @@ const ProfissionalController = {
         let registro = await DadoProfissional.create({
             fk_usuario: usuario.id, fk_Profissional, preco, imagem, descricao
         });
-        res.render('salvarProfissional', {registro});
+        res.send('salvarProfissional', {registro});
     },
 
     sucessoProfissional: (req, res) => {
@@ -51,7 +52,7 @@ const ProfissionalController = {
         },{
             where: { id }
         });
-        res.render('editarProfissional', {registro});
+        res.send('editarProfissional', {registro});
     },
 
     deletarProfissional: async (req, res) => {

@@ -22,7 +22,7 @@ const profissionalController = require('../controllers/profissionalController');
 const VerificaUsuarioLogado = require('../middlewares/VerificaUsuarioLogado');
 
 //Profissionals
-router.get('/', VerificaUsuarioLogado, profissionalController.mostrarProfissionais); //Mostra todos
+router.get('/', VerificaUsuarioLogado, profissionalController.perfilPro); //Mostra todos
 router.get('/criarProfissional', profissionalController.criarProfissional); //Cadastrar profissional por form
 router.post('/salvarProfissional', profissionalController.salvarProfissional); //Salva o form de cadastro
 router.get('/sucessoProfissional', profissionalController.sucessoProfissional); //Mensagem de Sucesso ou erro.
