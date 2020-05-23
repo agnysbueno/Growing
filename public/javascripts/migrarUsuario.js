@@ -1,23 +1,23 @@
 function update(e) {
-    let mudarPerfil = document.getElementById(mudarPerfil);
-    // let id = mudarPerfil.id.value;
-    let cnpj = mudarPerfil.cnpj.value;
-    let razao_social = mudarPerfil.razao_social.value;
-    let nome_fantasia = mudarPerfil.nome_fantasia.value;
-    let inscricao_estadual = mudarPerfil.inscricao_estadual.value;
-    let inscricao_municipal = mudarPerfil.inscricao_municipal.value;
-    let fk_usuario = mudarPerfil.fk_usuario.value;
+    let formMudarP = document.getElementById(formMudarP);
+    // let id = formMudarP.id.value;
+    let cnpj = formMudarP.cnpj.value;
+    let razao_social = formMudarP.razao_social.value;
+    let nome_fantasia = formMudarP.nome_fantasia.value;
+    let inscricao_estadual = formMudarP.inscricao_estadual.value;
+    let inscricao_municipal = formMudarP.inscricao_municipal.value;
+    let fk_usuario = formMudarP.fk_usuario.value;
 
     $.ajax({
         type: 'POST',
-        url: "/servicos",
+        url: "/profissionais",
         contentType: false,
         cache: false,
         data: { cnpj, razao_social, nome_fantasia, inscricao_estadual, inscricao_municipal, fk_usuario },
         success: function (data) {
             //alert('Atualizado com sucesso!');
-            //$('#mudarPerfil').modal('hide');
-            //document.getElementById('mudarPerfil').setAttribute('data-dismiss', 'modal');
+            //$('#formMudarP').modal('hide');
+            //document.getElementById('formMudarP').setAttribute('data-dismiss', 'modal');
             //location.reload();
             let nomeUsuario = document.getElementById('nomeUsuario');
             nomeUsuario.innerText = data[0].nome_fantasia;

@@ -3,7 +3,7 @@ const servicoController = {
     perfilCon: async(req, res) =>{
         let usuarioLog = req.session.usuario;
         let usuario = await Usuario.findAll({ where: { id: usuarioLog.id }});
-        res.render('perfilConsumidor', {title: 'Consumidor', usuario});
+        res.render('perfil', {title: 'Consumidor', usuario});
     },
 
     mostrarServicos: async (req, res) =>{
