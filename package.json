@@ -24,5 +24,18 @@
   },
   "devDependencies": {
     "sequelize-cli": "^5.5.1"
-  }
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agnysbueno/growing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agnysbueno/growing/issues"
+  },
+  "homepage": "https://github.com/agnysbueno/growing#readme",
+  "description": ""
 }

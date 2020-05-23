@@ -1059,6 +1059,12 @@ i {
     color: #9F6F78;
 }
 
+.foto-post img {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+}
+
 
 /* Perfil Usuarios - Amanda *-* */
 
