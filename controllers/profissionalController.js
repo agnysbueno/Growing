@@ -1,15 +1,14 @@
 const {sequelize, DadoProfissional, Usuario} = require("../models");
 const ProfissionalController = {
     perfilPro: async(req, res) =>{ //por aqui ta dando DadoProfissional is undefined (¬_¬)
-        let usuarioLog = req.session.usuario;
-        let usuario = await Usuario.findAll({ where: { id: usuarioLog.id }});
+        let { id } = req.session.usuario;
+        let usuario = await Usuario.findAll({ where: { id }});
         res.render('perfilProfissional', {title: 'Profissional', usuario});
     },
 
     mostrarProfissionais: async (req, res) =>{
-        let usuarioLog = req.session.usuario; // Ta dando usuario is not defined (¬_¬)
-        console.log("UsuarioLog é" + usuarioLog);
-        let id = usuarioLog.id;
+        let { id } = req.session.usuario; // Ta dando usuario is not defined (¬_¬)
+        console.log("UsuarioLog é" + id);
         let Profissional = await DadoProfissional.findAll({
             where: {
                 fk_usuario: id
@@ -19,10 +18,10 @@ const ProfissionalController = {
     },
 
     salvarProfissional: async(req, res) => {
-        let usuario = req.session.usuario;
+        let { id } = req.session.usuario;
         let  { cnpj, razao_social, nome_fantasia, inscricao_estadual, inscricao_municipal} = req.body;
         let registro = await DadoProfissional.create({
-            cnpj, razao_social, nome_fantasia, inscricao_estadual, inscricao_municipal, fk_usuario: usuario.id
+            cnpj, razao_social, nome_fantasia, inscricao_estadual, inscricao_municipal, fk_usuario: id
         });
         console.log(registro);
         res.send('salvarProfissional', {registro});
