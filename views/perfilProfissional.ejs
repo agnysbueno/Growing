@@ -7,7 +7,7 @@
                 <div class="col-md-3">
                     <div class="perfil-usuario" id='perfil-capa-img'>
                         <% if(usuario[0].foto_perfil != '') { %>
-                            <img src="<%=usuario[0].foto_perfil %>" id='imagenPerfildin'>
+                            <img src="<%=usuario[0].foto_perfil %>">
                         <% } else { %>
                             <img src="./images/usuario.png" id='imagenPerfil'>
                         <% } %>
@@ -27,17 +27,10 @@
         <div class="row row-status">
             <div class="col-md-6">
                 <div id="preferencias">
-                  <p>Preferencias <a href="#!" data-toggle="modal" data-target="#modalPreferencias"><i class="fas fa-plus"></i></a></p>
-                    <div id='divPref' class="row">
-                      <% for(let pref of preferencias) {%>
-                        <span id='spn_<%=pref.id %>' class="tag-transparente"><%=pref.ServicoGeral.servico %> <a href="#!" onclick="apagarPref('<%=pref.id %>')"><i class="fas fa-times"></i></a></span>
-                      <% } %>
+                    <p>Preferencias</p>
 
-                    </div>
-                </div>    
-                    <!-- <button onclick="consServGerais()">Servicos</button> -->
+                </div>
             </div>
-        
             <div class="col-md-3">
                 <div id='prod-servicos'>
                     <p>Produtos e Serviços</p>
@@ -46,43 +39,44 @@
             </div>
             <div class="col-md-3">
                 <div id='avaliacao-user' class="bg-gradiente">
-
+                    
                 </div>
             </div>
         
         </div>
+        <!-- Duplicação Só pra eu não mexer no arquivo errado -->
+        <div class="row row-status">
+            <div class="col-md-6">
+                <div id="preferencias">
+                    <p>Duplicação</p>
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div id='prod-servicos'>
+                    <p>É ta duplicado mesmo</p>
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div id='btn-config-prof' class="bg-gradiente">
+                    <!--<button href="#!" id='btnMudarPerfil' data-toggle="modal" data-target="#mudarPerfil"><i class="far fa-clipboard fa-1x"></i></button>-->
+                    <p id='btnMudarPerfil2'>Mudar tipo de perfil - <a href="#!" data-toggle="modal" data-target="#mudarPerfil"><i class="far fa-clipboard fa-1x"></i></a></p>
+                </div>
+            </div>
+        
+        </div> <!--Fim da duplicação-->
     </div>
-
-    <div class="col-md-4">
-
+<!--
+    <div class="col-md-4" style="color: aquamarine;">
+     
+            <div id='btn-config-prof2' class="col-md-12 bg-gradiente">
+                <p id='btnMudarPerfil2'>Mudar tipo de perfil - <a href="#!" data-toggle="modal" data-target="#mudarPerfil"><i class="far fa-clipboard fa-1x"></i></a></p>
+            </div>
+ 
     </div>
-
+-->
 </div>
-
-<div class="row">
-  <div class="col-md-8">
-      <div class="card">
-          <div class="card-header">
-              Criar Publicação
-          </div>
-          <div class="card-body">
-              <div class="col-md-3" style="display: inline-block;">
-                  <div class="foto-post">
-                      <img src="<%=usuario[0].foto_perfil %>">
-                  </div>
-              </div>
-              <div class="col-md-8" style="display: inline;">
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-outline-dark btn-lg botao-post" data-toggle="modal"
-                      data-target="#exampleModal">
-                      No que você está pensando, <%=usuario[0].nome_completo %>?
-                  </button>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
-
 </div>
 <!-- Editar perfil -->
 <div class="modal fade" id="editPerfil" tabindex="-1" role="dialog" aria-labelledby="editPerfilLabel" aria-hidden="true">
@@ -95,7 +89,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form class="form-horizontal" id='formPerfil'>
+          <form action="/" class="form-horizontal" id='formPerfil'>
              <div class="form-group">
                 <div class="row">
                     <div class="col-md-12"><input type="hidden" value="<%=usuario[0].id %>" name="id">
@@ -109,10 +103,29 @@
                     <div class="col-md-12">
                         <label for="genero">Genero</label>
                         <select name="genero" id="" class="form-control">
+                            <% if(usuario[0].genero == "M") { %>
                                 <option value="">Selecione...</option>
-                                <option value="M" <%=usuario[0].genero == "M" ? 'selected' : '' %>>Maculino</option>
-                                <option value="F" <%=usuario[0].genero == "F" ? 'selected' : '' %>>Feminio</option>
-                                <option value="O" <%=usuario[0].genero == "O" ? 'selected' : '' %>>Outro</option>
+                                <option value="M" selected>Masculino</option>
+                                <option value="F">Feminino</option>
+                                <option value="O">Outro</option>
+                       
+                            <% } else if(usuario[0].genero == "F") { %>
+                                <option value="">Selecione...</option>
+                                <option value="M">Masculino</option>
+                                <option value="F" selected>Feminino</option>
+                                <option value="O">Outro</option>
+           
+                            <% } else if(usuario[0].genero == "O") { %>
+                                <option value="">Selecione...</option>
+                                <option value="M">Masculino</option>
+                                <option value="F">Feminino</option>
+                                <option value="O" selected>Outro</option>
+                            <% } else {%>
+                                <option value="">Selecione...</option>
+                                <option value="M">Masculino</option>
+                                <option value="F">Feminino</option>
+                                <option value="O">Outro</option>
+                            <% } %>
                         </select>
                     </div>
                     <div class="col-md-6">
@@ -154,11 +167,11 @@
              <div class="form-group">
                 <div class="row">
                     <div class='col-md-12'>
-                        <div class="perfil-usuario" id='atual-perfil-img'>
+                        <div class="perfil-usuario" id='perfil-capa-img'>
                             <% if(usuario[0].foto_perfil != '') { %>
-                                <img src="<%=usuario[0].foto_perfil %>" id='imagenPerfilDinDois'>
+                                <img src="<%=usuario[0].foto_perfil %>">
                             <% } else { %>
-                                <img src="./images/usuario.png" id='imagenPerfilDois'>
+                                <img src="./images/usuario.png" id='imagenPerfildois'>
                             <% } %>
                         </div>
                     </div>
@@ -173,77 +186,58 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn bg-primary-color icon-color-white" onclick="atualPerfil('<%=usuario[0].id %>')">Atualizar Imagem</button>
+          <button type="button" class="btn bg-primary-color icon-color-white" onclick="atualPerfil('<%=usuario[0].id %>')" data-dismiss="modal">Atualizar Imagem</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Preferencias -->
-  <div class="modal fade" id="modalPreferencias" tabindex="-1" role="dialog" aria-labelledby="modalPreferenciasLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title text-color-primary" id="modalPreferenciasLabel">Preferencias</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                  <div class="row">
-                      <div class='col-md-12'>
-                         <input type="text" id='pesqServico' class="form-control" placeholder="Serviço..." />
-                         <input id='id_user' type="hidden" value="<%=usuario[0].id %>" />
-                         <!-- <div id="menu_pref" class="menu_susp">
-                            <ul class="list-group" id="lista_servicos"></ul>
-                            <div class="u-footer--bottom-fixed" style="text-align:right">
-                                <button class="btn btn-danger btn-sm" type="button" style="margin-top:5px; margin-bottom:5px; margin-right:5px" onclick="clouseMenuServicos()"><i class="fa fa-times"></i></button>
-                            </div>
-                        </div> -->
-                      </div>
-                      <div class="col-md-12">
-                        <div id='cloud_tag' class="row"></div>
-                        <!-- <span class="tag-transparente">Primary</span> -->
-                        <!-- <ul class="list-group" id='lista_servicos'>
-                          <li class="list-group-item">Lista</li>
-                        </ul> -->
-                      </div>
-                  </div>
-                
-              </div>
-              <div class="modal-footer">
-                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-                <button type="button" class="btn bg-primary-color icon-color-white" data-dismiss="modal">Fechar</button>
-              </div>
-            </div>
-          </div>
-      </div>
-  </div>
-  
-  <!-- Modal Publicacao -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-aria-hidden="true">
-<div class="modal-dialog">
-    <div class="modal-content">
+  <!-- Mudar para perfil profissional -->
+
+<div class="modal fade" id="mudarPerfil" tabindex="-1" role="dialog" aria-labelledby="mudarPerfilLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Publicação</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+          <h5 class="modal-title text-color-primary" id="mudarPerfilLabel"><%=usuario[0].nome_completo %></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
         <div class="modal-body">
-            <form action="/" method="POST">
-                    <textarea name="textoPost" placeholder="No que você está pensando?" cols="70"
-                    rows="10"></textarea>
-                    <div class="col-md-12"><input type="hidden" name="id">
-                        <input type="file" name="imagemPost" id="" class="form-control">
+          <form action="/salvarProfissional" class="form-horizontal" id='formMudarP'>
+             <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12"><input type="hidden" value="<%=usuario[0].id %>" name="profId">
+                        <label for="nome">CNPJ</label>
+                        <input type="text" name="cnpj" id="cnpj" class="form-control" placeholder="00.000.000/0000-00" value="***DadoProfissional[0].cnpj %>">
                     </div>
-                    <button type="submit" class="btn bg-primary-color icon-color-white">Publicar</button>
-            </form>
+                    <div class="col-md-12">
+                        <label for="nome">Razão social</label>
+                        <input type="text" name="razao_social" id="razao_social" class="form-control" placeholder="Razão Social..." value="***DadoProfissional[0].razao_social %>">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="nome">Nome fantasia</label>
+                        <input type="text" name="nome_fantasia" id="nome_fantasia" class="form-control" placeholder="Nome fantasia ..." value="***DadoProfissional[0].nome_fantasia %>">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="nome">Inscrição estadual</label>
+                        <input type="text" name="inscricao_estadual" id="inscricao_estadual" class="form-control" placeholder="Inscrição estadual ..." value="***DadoProfissional[0].inscricao_estadual %>">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="nome">Inscrição municipal</label>
+                        <input type="text" name="inscricao_municipal" id="inscricao_municipal" class="form-control" placeholder="Inscrição municipal ..." value="***DadoProfissional[0].inscricao_municipal %>">
+                    </div>
+                    
+                </div>
+             </div>
+          </form>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn bg-primary-color icon-color-white" onclick="mudarP('<%=usuario[0].id %>')" data-dismiss="modal">Mudar Perfil</button>
+        </div>
+      </div>
     </div>
-</div>
-</div>
+  </div>
 
 <%- include('./shared/footer') %>
