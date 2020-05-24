@@ -84,29 +84,10 @@
                     <div class="col-md-12">
                         <label for="genero">Genero</label>
                         <select name="genero" id="" class="form-control">
-                            <% if(usuario[0].genero == "M") { %>
                                 <option value="">Selecione...</option>
-                                <option value="M" selected>Masculino</option>
-                                <option value="F">Feminino</option>
-                                <option value="O">Outro</option>
-                       
-                            <% } else if(usuario[0].genero == "F") { %>
-                                <option value="">Selecione...</option>
-                                <option value="M">Masculino</option>
-                                <option value="F" selected>Feminino</option>
-                                <option value="O">Outro</option>
-           
-                            <% } else if(usuario[0].genero == "O") { %>
-                                <option value="">Selecione...</option>
-                                <option value="M">Masculino</option>
-                                <option value="F">Feminino</option>
-                                <option value="O" selected>Outro</option>
-                            <% } else {%>
-                                <option value="">Selecione...</option>
-                                <option value="M">Masculino</option>
-                                <option value="F">Feminino</option>
-                                <option value="O">Outro</option>
-                            <% } %>
+                                <option value="M" <%=usuario[0].genero == "M" ? 'selected' : '' %>>Maculino</option>
+                                <option value="F" <%=usuario[0].genero == "F" ? 'selected' : '' %>>Feminio</option>
+                                <option value="O" <%=usuario[0].genero == "O" ? 'selected' : '' %>>Outro</option>
                         </select>
                     </div>
                     <div class="col-md-6">

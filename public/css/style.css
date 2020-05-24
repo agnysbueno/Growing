@@ -1631,6 +1631,7 @@ input {
     }
 
     .logo-g a {
+        top:0;
         left: 15%;
         position: absolute;
     }
@@ -2014,41 +2015,64 @@ input {
 
 }
 
+/* iPad Pro */
+@media screen and (max-width: 1024px) and (max-height: 1366px){
+    .search-header {
+        width: 350px;
+        border: solid 2px #9F6F78;
+        border-radius: 7px;
+    }
+
+    .search-header input {
+        border: none;
+        width: 297px;
+        margin: 2px;
+    }
+
+    .avatar-hd-sm {
+        width: 23%;
+        position: fixed;
+        right: 1px;
+    }
+
+    .nav-text ul li a {
+        text-decoration: none;
+        color: #9f6f78;
+        font-weight: normal;
+        display: block;
+        width: 100%;
+        font-size: 9pt;
+    }
+
+    .nav-icon ul {
+        list-style: none;
+        margin-left: -3px;
+        padding-left: 0;
+        margin-right: auto;
+        padding-right: 0;
+        font-size: 9pt;
+    }
+
+    #capa-usuario{
+        width: 860px;
+    }
+
+    .row-status{
+        width: 860px;
+    }
+}
+
 /*  Dispositivos Móveis */
 
-@media (max-width: 1000px) {
+@media screen and (max-width: 768px) and (max-height: 1024) {
 
-    #landing-home {
-        max-height: 550px;
+    .search-header{
+        width: 200px;
     }
-
-    #sobre {
-        max-height: 570px;
+    .search-header input{
+        width: 200px;
     }
-
-    #professional {
-        max-height: 760px;
-    }
-
-    #user {
-        max-height: 810px;
-    }
-
-    .menu-icons {
-        width: 5%;
-        position: fixed;
-        z-index: 10;
-        height: 100%;
-        left: 0;
-    }
-
-
-    .logo-g a img {
-        width: 25px;
-        margin-left: 5px;
-        margin-right: auto;
-    }
-
+  
     #side-bar {
         position: fixed;
         left: -50%;
@@ -2058,319 +2082,34 @@ input {
         transition: all 500ms linear;
     }
 
-    #side-bar.active {
-        left: 5%;
+    .avatar-hd-sm{
+        width: 10%;
     }
 
-
-    #main {
-        width: 95%;
-        left: 5%;
-        height: 100%;
-        position: fixed;
-        transition: all 501ms linear;
-    }
-
-    #main.active {
-        width: 95%;
-        left: 5%;
-
-    }
-
-
-    .search-header {
-        width: 250px;
-        border: solid 2px #9F6F78;
-        border-radius: 7px;
-    }
-
-    .search-header button {
-        border: none;
-        background-color: transparent;
-        margin-right: 3px;
-        padding-right: 3px;
-
-    }
-
-    .search-header input {
-        border: none;
-        width: 195px;
-        margin-left: 3px;
-    }
-
-    #icon-search {
-        width: 28px;
-        height: 26px;
-    }
-
-    /*     
-    .nav-header-menu{
-        display: none;
-    } */
-
-
-
-    /* David - Feed geral  */
-
-    .criar-publicacoes {
-        margin-top: 90px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 500px;
-    }
-
-    .publicacoes {
-        margin-top: 30px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 500px;
-    }
-
-    .criar-publicacoes hr {
-        background-color: #F8ECEC;
-        margin-top: 0;
-        margin-bottom: 3px;
-    }
-
-    .criar-publicacoes p {
-        margin-bottom: 0;
-    }
-
-    .textarea-publicacoes {
-        width: 100%;
-        height: 54px;
-
-    }
-
-    #criar-publicacao {
-        background-color: #FFFFFF;
-        height: 123px;
-        width: 800px;
-
-    }
-
-    .publicacao {
-        background-color: #FFFFFF;
-        height: auto;
-        width: 800px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-
-
-    .publicacao-row img {
-        width: 100%;
-        height: 400px;
-    }
-
-    .publicacao-row {
-        padding: 10px;
-    }
-
-    .publicacao span {
-        font-size: 20pt;
-    }
-
-    .menu-share {
-        text-align: center;
-    }
-
-    .menu-share img {
-        width: 25px;
-        height: 23px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .menu-status-puplic {
-        text-align: end;
-        list-style: none;
-    }
-
-    .menu-status-puplic li {
-        display: inline;
-        padding-left: 10px;
-    }
-
-    .menu-status-puplic li a {
-        font-size: 9pt;
+    .nav-text ul li a {
         text-decoration: none;
-        color: #383737;
-    }
-
-    .menu-status-puplic li a img {
-        width: 18px;
-        height: 15px;
-    }
-
-
-    .avatar-publicacoes {
-        border-radius: 100%;
-        width: 54px;
-        height: 54px;
-        background-image: url("../image/avatares/perfil-quatro.jpg");
-        background-color: #9F6F78;
-        background-position: center;
-        background-size: 80px;
-        background-repeat: no-repeat;
-    }
-
-    .button-share-photo {
-        width: 100px;
-        height: 29px;
-        border-radius: 10px;
-        border: solid 2px #9F6F78;
-        background-color: transparent;
-        color: #9F6F78;
-        font-size: 10px;
-    }
-
-    .button-share-photo img {
-        width: 20px;
-        height: 20px;
-    }
-
-    .button-enviar-publicacao {
-        width: 100px;
-        height: 29px;
-        border-radius: 10px;
-        border: solid 2px #9F6F78;
-        background-color: transparent;
-        color: #9F6F78;
-        font-size: 10px;
-    }
-
-    .button-enviar-publicacao img {
-        width: 20px;
-        height: 20px;
-    }
-
-    .propagandas {
-        margin-top: 90px;
-        margin-right: 40px;
-        width: 387;
-        height: 1900px;
-        background-color: #FFFFFF;
-    }
-
-    .propagandas h3 {
-        font-size: 9pt;
-        margin-left: 15px;
-        margin-top: 10px;
-        color: #FFFFFF;
-    }
-
-    #cabecalho-propagandas {
-        height: 60px;
-    }
-
-    #cabecalho-propagandas img {
-        margin-top: 10px;
-        width: 45px;
-        height: 45px;
-    }
-
-    .anuncio img {
-        width: 100%;
-        height: 120px;
-
-    }
-
-    .anuncio button {
-        width: 100%;
-        height: 41px;
-        border: solid 2px #9F6F78;
-        background-color: transparent;
-        color: #9F6F78;
+        color: #9f6f78;
+        font-weight: normal;
         display: block;
-    }
-
-
-    .usuario-header {
-        display: none;
-    }
-
-    .search-input-sm {
-        width: 70%;
-    }
-
-    .avatar-hd-sm {
-        width: 20%;
-        position: fixed;
-        right: 2px;
-    }
-
-    /* David Chat - Inbox */
-
-    .contatos-chat {
-        margin-top: 80px;
-        overflow: auto;
-        height: 80vh;
-    }
-
-    .card-mensagem {
-        padding: 15px;
-    }
-
-    .balao-mensagens {
-        margin: 4px;
-        border-radius: 5px;
-        width: 300px;
-        height: 80px;
-        font-size: 10pt;
-    }
-
-    .card-mensagem textarea {
         width: 100%;
-        height: auto;
+        font-size: 9pt;
     }
 
-    .contato-span {
-        color: #383737;
-        font-size: 10pt;
+    .nav-icon ul {
+        list-style: none;
+        margin-left: -3px;
+        padding-left: 0;
+        margin-right: auto;
+        padding-right: 0;
+        font-size: 9pt;
     }
+  
 
-    .email-span {
-        color: #888888;
-        font-size: 8pt;
-    }
+}
 
-    .overflow-chat {
-        margin-top: 70px;
-        height: 75vh;
-        width: 710px;
-        overflow: auto;
-    }
-
-    .corpo-chat {
-        padding: 5px;
-        border: solid 1px hsl(0, 9%, 94%);
-        background-color: #FFFFFF;
-        height: 150vh;
-        width: 700px;
-    }
-
-    .mensage-send {
-        border-top: solid 2px #F3EDEE;
-        background-color: hsl(0, 7%, 94%);
-        height: 15vh;
-        width: 710px;
-        ;
-    }
-
-    .avatar-chat {
-        border-radius: 100%;
-        width: 34px;
-        height: 34px;
-        background-image: url(../image/avatares/perfil-quatro.jpg);
-        background-color: #9F6F78;
-        background-position: center;
-        background-size: 70px;
-        background-repeat: no-repeat;
-    }
-
-    /* Amanda - Perfil Usuarios 1000px */
-    .logoA img {
+@media (max-width: 1000px){
+      /* Amanda - Perfil Usuarios 1000px */
+      .logoA img {
         width: 5vw;
     }
 
@@ -2384,7 +2123,6 @@ input {
     .alinhaTexto3 h6 {
         font-size: 16px;
     }
-
 }
 
 @media (max-width: 720px) {
