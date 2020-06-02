@@ -12,7 +12,7 @@ module.exports = {
           autoIncrement: true
         },
         imagem: {
-          type: Sequelize.STRING(200),
+          type: Sequelize.BLOB('long'),
           allowNull: false
         },
         fk_registro_portfolio: {

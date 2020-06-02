@@ -9,7 +9,7 @@ const ImagemPortfolio = (sequelize, DataTypes) => {
               autoIncrement: true
             },
             imagem: {
-              type: DataTypes.STRING(200),
+              type: DataTypes.BLOB('long'),
               allowNull: false
             },
             fk_registro_portfolio: {
