@@ -60,27 +60,50 @@
 </div>
 
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-8 criar-npublicacao">
       <div class="card">
           <div class="card-header">
               Criar Publicação
           </div>
           <div class="card-body">
-              <div class="col-md-3" style="display: inline-block;">
-                  <div class="foto-post">
+                  <div class="col-md-1 foto-post">
                       <img src="<%=usuario[0].foto_perfil %>">
                   </div>
-              </div>
-              <div class="col-md-8" style="display: inline;">
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-outline-dark btn-lg botao-post" data-toggle="modal"
-                      data-target="#exampleModal">
-                      No que você está pensando, <%=usuario[0].nome_completo %>?
-                  </button>
-              </div>
+                  <div class="col-md-4" style="display: inline; padding-left: 25px;">
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-outline-dark btn-lg botao-post" data-toggle="modal" data-target="#exampleModal">
+                        No que você está pensando, <%=usuario[0].nome_completo %>?
+                      </button>
+                  </div>
           </div>
       </div>
   </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 publicacao-usuario">
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-6" style="display: inline-block;">
+                    <div class="foto-post" style="padding-left: 0;">
+                        <img src="<%=usuario[0].foto_perfil %>"> 
+                    </div>
+                    <div style="display: inline; padding-left: 10px; font-weight: bold;">
+                        <%=usuario[0].nome_completo %>
+                    </div>
+                </div>
+                <div class="card-text" style="width: 100%; padding-left: 95px;">
+                    
+                </div>
+                <div class="card-img">
+                    <img src="..." class="card-img-top" alt="...">
+                </div>
+                <div class="card-itens">
+                    <b>Postado no dia: </b>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 </div>
