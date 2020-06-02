@@ -1,5 +1,11 @@
-const {sequelize, UsuarioServicoEspecifico} = require("../models");
+const {sequelize, UsuarioServicoEspecifico, Usuario} = require("../models");
 const servicoController = {
+    perfilCon: async(req, res) =>{
+        let usuarioLog = req.session.usuario;
+        let usuario = await Usuario.findAll({ where: { id: usuarioLog.id }});
+        res.render('perfil', {title: 'Consumidor', usuario});
+    },
+
     mostrarServicos: async (req, res) =>{
         let {id} = req.params; //pega id do usuario profissional que está renderizado na pagina.
         let servicos = await UsuarioServicoEspecifico.findAll({
