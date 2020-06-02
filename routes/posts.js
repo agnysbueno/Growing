@@ -6,5 +6,6 @@ const postController = require("../controllers/postController");
 
 //Rotas
 router.post('/', postController.salvarPost);
+router.get('/', postController.listarPost);
 
 module.exports = router;
