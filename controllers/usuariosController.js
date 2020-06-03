@@ -1,10 +1,10 @@
-let {sequelize, Usuario, ServicoGeral, UsuarioServicoGeral } = require("../models");
+let {sequelize, Usuario, ServicoGeral, UsuarioServicoGeral, Post } = require("../models");
 const multer = require('multer');
 const { Op } = require("sequelize");
 const usuariosController = {
     perfil: async(req, res) =>{
         let usuarioLog = req.session.usuario;
-        let usuario = await Usuario.findAll({ where: { id: usuarioLog.id }});
+        let usuario = await Usuario.findAll({include:'Post', where: { id: usuarioLog.id }});
         let preferencias = await UsuarioServicoGeral.findAll({include:'ServicoGeral', where: {fk_usuario: usuarioLog.id}});
         res.render('perfil', {title: 'Usuário', usuario, preferencias});
     }, 

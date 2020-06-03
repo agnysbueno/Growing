@@ -31,3 +31,48 @@
 
     color: #9F6F78;
 }
+
+.botao-solicitacao{
+    display: block;
+    width: 338px;
+    height: 42px;
+    border: 0;
+    margin-top: 10px;
+    position: relative;
+    left: 568px;
+}
+
+.botao-enviar{
+    width: 139px;
+    height: 29px;
+    border: 0;
+    position: relative;
+    top: 10px;
+    left: 570px;
+
+    
+}
+
+.card-post{
+    margin-top: 35px;
+    margin-left: 10px;
+    padding: 7px;
+    width: 900px;
+    height: auto;
+}
+
+.menu-status{
+    list-style: none;
+    position: relative;
+    left: 490px;
+}
+
+.menu-status li{
+    display: inline-block;
+    font-size:11pt;
+}
+
+#menu-criar-status a{
+    margin-left: 50%;
+}
+

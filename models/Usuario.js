@@ -68,7 +68,7 @@ const Usuario = (sequelize, DataTypes) => {
         });
 
         usuario.hasMany(models.Post, {
-            foreignKey:'fk_usuario', as: 'posts'
+            foreignKey:'fk_usuario', as: 'Post'
         });
 
         usuario.hasMany(models.Comentario, {

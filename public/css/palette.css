@@ -3,6 +3,7 @@
 .bg-ligth-color { background-color: rgb(255, 247, 247) }
 .bg-gray-color { background-color: #383737 }
 .bg-gradiente { background-image: linear-gradient(#FFFFFF, #9F6F78) }
+.bg-white {background-color: #FFFFFF;}
 
 .text-color-primary { color: #9F6F78 }
 .text-color-ligth { color: #F3EDEE }

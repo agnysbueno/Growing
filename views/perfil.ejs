@@ -53,13 +53,98 @@
         </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-8">
+      <button class="botao-solicitacao bg-primary-color text-color-white"> Criar solicitação de serviços e produtos</button>
+    
+    </div>
+    <!-- Area de Posts -->
+    <div class="col-md-8 col-sm-12">
+      <div class="card-post bg-white">
+        <form action="" id="formPostagem">
+          <div class="row">
+            <div class="col-md-12">
+              <p>Criar publicação</p>
+              <hr>
+            </div>
+            <div class="col-md-3">
+              <div class="perfil-usuario-mini" id='perfil-post-img'>
+                <% if(usuario[0].foto_perfil != '') { %>
+                    <img src="<%=usuario[0].foto_perfil %>" id='imagenPerfilPost'>
+                <% } else { %>
+                    <img src="./images/usuario.png" id='imagenPerfilPostInex'>
+                <% } %>
+              </div>
+            </div>
+            <div class="col-md-9">
+                <textarea name="texto" id="" class="form-control" placeholder="Olá <%=usuario[0].nome_completo %> ! No que você está pensando?"></textarea>
+            </div>
+            <div class="col-md-12">
+              <button class="botao-enviar bg-primary-color text-color-white">Foto</button>
+              <button class="botao-enviar bg-primary-color text-color-white">Enviar</button>
+
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+    <!-- Postagens referentes ao cliente -->
+    <div class="col-md-8 col-ms-12">
+      <% for(let p of usuario[0].Post) { %>
+        <div class="card-post bg-white">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="perfil-usuario-mini" id='perfil-post-img'>
+                  <% if(usuario[0].foto_perfil != '') { %>
+                      <img src="<%=usuario[0].foto_perfil %>" id='imagenPerfilPost'>
+                  <% } else { %>
+                      <img src="./images/usuario.png" id='imagenPerfilPostInex'>
+                  <% } %>
+                </div>
+              </div>
+              <div class="col-md-9">
+                  <span class="nomeUsuarioPost"><%=usuario[0].nome_completo %> </span><br><span class="dataPostagem"> <%=p.data_postagem %></span>
+                  <p><%=p.texto %></p>
+                    <div class="row">
+                       <div class="col-md-12">
+                          <ul class="menu-status">
+                            <li><i class="fas fa-heart text-color-primary"></i> 12</li>
+                            <li><i class="fas fa-eye text-color-primary"></i> 34</li>
+                            <li><i class="fas fa-comments text-color-primary"></i> 52</li>
+                          </ul>
+                       </div>
+                    </div>
+              </div>
+              <div class="col-md-12">
+                  <hr>
+                  <div class="row" id="menu-criar-status">
+                    <div class="col-md-4">
+                      <a href="http://"><i class="fas fa-heart text-color-primary fa-2x"></i></a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="http://"><i class="fas fa-comments text-color-primary fa-2x"></i></a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="http://"><i class="fas fa-share-alt text-color-primary fa-2x"></i></a>
+                    </div>
+  
+                  </div>
+                 
+              </div>
+            </div>
+        </div>
+
+      <% } %>
+
 
     </div>
 
 </div>
 
-<div class="row">
+
+<!-- <div class="row">
   <div class="col-md-8">
       <div class="card">
           <div class="card-header">
@@ -72,7 +157,7 @@
                   </div>
               </div>
               <div class="col-md-8" style="display: inline;">
-                  <!-- Button trigger modal -->
+                   Button trigger modal
                   <button type="button" class="btn btn-outline-dark btn-lg botao-post" data-toggle="modal"
                       data-target="#exampleModal">
                       No que você está pensando, <%=usuario[0].nome_completo %>?
@@ -81,7 +166,7 @@
           </div>
       </div>
   </div>
-</div>
+</div> -->
 
 </div>
 <!-- Editar perfil -->
