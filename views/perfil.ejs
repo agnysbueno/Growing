@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-8 col-sm-12">
       <button class="botao-solicitacao bg-primary-color text-color-white"> Criar solicitação de serviços e produtos</button>
     
     </div>
@@ -62,10 +62,10 @@
       <div class="card-post bg-white">
         <form action="" id="formPostagem">
           <div class="row">
-            <div class="col-md-12">
+            <!-- <div class="col-md-12">
               <p>Criar publicação</p>
               <hr>
-            </div>
+            </div> -->
             <div class="col-md-3">
               <div class="perfil-usuario-mini" id='perfil-post-img'>
                 <% if(usuario[0].foto_perfil != '') { %>
@@ -76,12 +76,15 @@
               </div>
             </div>
             <div class="col-md-9">
-                <textarea name="texto" id="" class="form-control" placeholder="Olá <%=usuario[0].nome_completo %> ! No que você está pensando?"></textarea>
-            </div>
+                <!-- <textarea name="texto" id="" class="form-control" placeholder="Olá <%=usuario[0].nome_completo %> ! No que você está pensando?"></textarea> -->
+                <div class="criar-publicacoes">
+                  <a href="#">Olá <%=usuario[0].nome_completo %> ! No que você está pensando?</a>
+                </div>
+              </div>
             <div class="col-md-12">
-              <button class="botao-enviar bg-primary-color text-color-white">Foto</button>
-              <button class="botao-enviar bg-primary-color text-color-white">Enviar</button>
-
+              <hr>
+              <!-- <button class="botao-enviar bg-primary-color text-color-white">Foto</button>
+              <button class="botao-enviar bg-primary-color text-color-white">Enviar</button> -->
             </div>
           </div>
 
@@ -138,36 +141,17 @@
 
       <% } %>
 
-
     </div>
-
-</div>
-
-
-<!-- <div class="row">
-  <div class="col-md-8">
-      <div class="card">
-          <div class="card-header">
-              Criar Publicação
-          </div>
-          <div class="card-body">
-              <div class="col-md-3" style="display: inline-block;">
-                  <div class="foto-post">
-                      <img src="<%=usuario[0].foto_perfil %>">
-                  </div>
-              </div>
-              <div class="col-md-8" style="display: inline;">
-                   Button trigger modal
-                  <button type="button" class="btn btn-outline-dark btn-lg botao-post" data-toggle="modal"
-                      data-target="#exampleModal">
-                      No que você está pensando, <%=usuario[0].nome_completo %>?
-                  </button>
-              </div>
-          </div>
-      </div>
   </div>
-</div> -->
-
+  
+  <div class="criar-public-janela bg-white">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Criar publicação</h2>
+        <hr>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- Editar perfil -->
 <div class="modal fade" id="editPerfil" tabindex="-1" role="dialog" aria-labelledby="editPerfilLabel" aria-hidden="true">
@@ -305,30 +289,8 @@
           </div>
       </div>
   </div>
-  
-  <!-- Modal Publicacao -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-aria-hidden="true">
-<div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Publicação</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form action="/" method="POST">
-                    <textarea name="textoPost" placeholder="No que você está pensando?" cols="70"
-                    rows="10"></textarea>
-                    <div class="col-md-12"><input type="hidden" name="id">
-                        <input type="file" name="imagemPost" id="" class="form-control">
-                    </div>
-                    <button type="submit" class="btn bg-primary-color icon-color-white">Publicar</button>
-            </form>
-        </div>
-    </div>
-</div>
-</div>
+
+
+
 
 <%- include('./shared/footer') %>

@@ -11,6 +11,10 @@ module.exports = {
           primaryKey: true,
           autoIncrement: true
         },
+        titulo: {
+          type: Sequelize.STRING(300),
+          allowNull: false
+        },
         descricao: {
           type: Sequelize.STRING(300),
           allowNull: true

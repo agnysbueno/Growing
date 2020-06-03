@@ -1,0 +1,258 @@
+/* feedgeralporfolio PHDF */
+
+.portfolioph{
+    width: 100%; 
+    margin-top:15vh;
+}
+/* .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin:0;
+    padding: 0;
+    width:100%;
+    align-items: space-around;
+    justify-content: center;
+} */
+.row .col-3.portfolios{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-around;
+}
+.searching:focus {
+    outline-style:none ;
+}
+
+.buttonPH{
+    padding: 0.1vh;
+    border-color:black;
+    margin: 2vh;
+    height: 60%; /*//13vh */
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    box-sizing: border-box;
+    justify-content: space-around;
+    font-size-adjust: inherit;
+}
+.buttonPH:focus{
+    border-color: #9F6F78;
+    margin: 2vh;
+    padding: 0.1vh;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 7px #9F6F78;
+}
+.buttonPH:hover{
+    border-color: #9F6F78;
+    margin: 2vh;
+    padding: 0.1vh;
+    box-sizing: border-box;
+}
+
+/* .carrosel {
+    margin-left: 0px;
+    margin-top: 15vh;
+} */
+.carousel-inner .carousel-item .row{
+        display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+    width: 100%;
+}
+#carouselExampleFade{
+    width: 100%;
+}
+.carousel-control-prev-icon:hover{
+    background-color: #9F6F7s8;
+}
+.carousel-control-next:hover{
+    background-color: #9F6F7s8;
+}
+.col-sm-2{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem; 
+    width: 50%;
+}
+.cartaoCarrosel {
+    width: 19rem;
+    display: inline-flex;
+    margin-top: 25px;
+    margin-right: 30px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+.estiloColuna {
+    background-color: #9F6F78; 
+    margin-top: 18px;
+    margin-left: 160px; 
+}
+.cartaoCarroselD {
+    width: 25rem;
+    display: inline-flex;
+    margin-top: 10px;
+    margin-left: 60px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+.fotoDepoimento {
+    width: 50px; 
+    border-radius: 100%;
+}
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  filter: invert(1);
+}
+.carousel-control-prev {
+    /* padding: 0.1vh;
+    margin: 2vh; */
+    /* height: 60%;
+    width: 60%; */
+}
+.carousel-control-next {
+    /* right: 20vw; */
+    top: 0vw;
+    bottom:0vw;
+}
+
+*[role="barbearia"] {
+    background-image: url(../images/categorias/barba/beard.svg);
+    background-position: top; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 40%;
+}
+*[role="maquiagem"] {
+    background-image: url(../images/categorias/maquiagem/makeup.svg);
+    background-position: top; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 40%;
+}
+*[role="manicure"] {
+    background-image: url(../images/categorias/manicure/manicure.svg);
+    background-position: top; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 40%;
+}
+*[role="cabelo"] {
+    background-image: url(../images/categorias/cabelo/hair.svg);
+    background-position: top; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 40%;
+}
+*[role="depilacao"] {
+    background-image: url(../images/categorias/depilacao/depilation.svg);
+    background-position: top; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 40%;
+}
+*[role="massagem"] {
+    background-image: url(../images/categorias/massagem/massagem.svg);
+    background-position: top; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 40%;
+}
+*[role="sobrancelha"] {
+    background-image: url(../images/categorias/sobrancelha/eyebrow.svg);
+    background-position: top; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 40%;
+}
+*[role="limpezadepele"] {
+    background-image: url(../images/categorias/limpezadepele/skincare.svg);
+    background-position: top; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 40%;
+}
+
+  .card-img-top {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+}
+
+.tituloprincipal h1{
+    width: 100% !important;
+    font-size: 5vw;
+}
+
+.btn-estilo1{
+    color: #fff;    
+    background-color: #9F6F78;
+    border-color: #9F6F78 !important;
+
+}
+.btn-estilo1:hover{
+    color: #fff;    
+    background-color: #9F6F78;
+    border-color: #9F6F78 !important;
+
+}
+.btn-estilo1:active{
+    color: #fff;    
+    background-color: #9F6F78;
+    border-color: #9F6F78 !important;
+
+}
+.btn-estilo1:focus{
+    color: #fff;    
+    background-color: #9F6F78;
+    border-color: #9F6F78 !important;
+}
+.btn-estilo1:visited{
+    color: #fff;    
+    background-color: #9F6F78;
+    border-color: #9F6F78 !important;
+}
+.modal-dialog {
+    position: absolute;
+    top: 30% ;
+    right: 0;
+    bottom: 0;
+    left: 10%;
+    z-index: 10040;
+    overflow: auto;
+    overflow-y: auto;
+  }
+
+  .card-deck {
+    margin: 0 ;
+    justify-content: space-between;
+  }
+  
+  .card-deck .card {
+    margin: 0 0 1rem;
+  }
+  
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .card-deck .card {
+      -ms-flex: 0 0 48.7%;
+      flex: 0 0 48.7%;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .card-deck .card {
+      -ms-flex: 0 0 32%;
+      flex: 0 0 32%;
+    }
+  }
+  
+  @media (min-width: 992px)
+  {
+    .card-deck .card {
+      -ms-flex: 0 0 20%;
+      flex: 0 0 24%;
+    }
+  }
+ 
+=======
+/* REGRA PRA CELLULARES */
+@media (min-width: 320px) and (max-width: 576px) {
+    .criar-npublicacao {
+        margin-left: 0;
+    }
+    .publicacao-usuario {
+        margin-left: 0;
+    }
+}
+>>>>>>> 5a545bccd1db725f4cbe891983e4affab5e8ca15

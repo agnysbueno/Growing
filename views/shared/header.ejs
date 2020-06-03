@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feed Geral</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
+ 
     <script src="https://kit.fontawesome.com/55fcd42dc6.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
@@ -13,6 +14,7 @@
     <link rel="stylesheet" href="./css/palette.css">
     <link rel="stylesheet" href="./css/componentes.css">
 </head>
+
 <body>
     <div class="header-corpo">
         <div class="row">
@@ -31,37 +33,50 @@
                         <form action="#!" method="post">
                             <div class="search-header">
                                 <input class="searching" type="search" name="" id="" placeholder="Busque aqui">
-                                <button type="submit"><img src="./images/icons/procurar-primary.png" alt="" id='icon-search'></button>
+                                <button type="submit"><img src="./images/icons/procurar-primary.png" alt=""
+                                        id='icon-search'></button>
                             </div>
                         </form>
                     </div>
                     <div class="col-md-3">
                         <div class="nav-header-menu">
                             <ul>
-                                <li><a href="calendario.html"><img src="./images/icons/calendario-gray.png" alt=""></a></li>
+                                <li><a href="calendario.html"><img src="./images/icons/calendario-gray.png" alt=""></a>
+                                </li>
                                 <li><a href="chat.html"><img src="./images/icons/bate-papo-gray.png" alt=""></a></li>
-                                <li><a href="carrinho.html"><img src="./images/icons/supermercado-primary.png" alt=""></a></li>
+                                <li><a href="carrinho.html"><img src="./images/icons/supermercado-primary.png"
+                                            alt=""></a></li>
                                 <li><a href="#!"><img src="./images/icons/sino-primary.png" alt=""></a></li>
-                                
                             </ul>
                         </div>
-                        
                     </div>
-                    <div class="col-md-3 avatar-hd-sm">
-                        <a href="perfil-usuarioCons.html">
-                            <div class="d-flex flex-row bd-highlight mb-3">
-                                <div class="usuario-header p-2 bd-highlight"><%=usuario[0].email %></div>
-                                <div class="usuario-header-div p-2 bd-highlight"></div>
-
-                            </div>
-                        </a>
+                    <div class="col-md-3">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                                    aria-haspopup="true" aria-expanded="false"><%=usuario[0].email %></a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Ver perfil</a>
+                                    <a class="dropdown-item" href="#">Configurações</a>
+                                    <a class="dropdown-item" href="#">Mudar para conta profissional</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">
+                                         <!-- Rounded switch  -->
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
 
                 </div>
             </div>
-
         </div>
     </div>
+
     <div class="menu-icons">
        
         <div class="nav-icon">
@@ -78,8 +93,8 @@
         
         <div class="nav-text">
             <ul>
-                <li><a href="feedGeralPortfolio.html">Portfólio</a></li>
-                <li><a href="feedGeral.html">Feed geral</a></li>
+                <li><a href="/portfolios/meuportfolio">Portfólio</a></li>
+                <li><a href="/portfolios">Feed geral</a></li>
                 <li><a href="#!">Promoções</a></li>
                 <li><a href="#!">Solicitações</a></li>
                 <li><a href="agenda.html">Agenda</a></li>
@@ -88,7 +103,3 @@
         </div>
     </div>
     <div class="bg-ligth-color" id="main">
-       
-        
-       
-    

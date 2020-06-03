@@ -15,6 +15,7 @@ module.exports = {
 
       fakeRegistro = {
         id: fakeId,
+        titulo: faker.lorem.words(2),
         descricao: faker.lorem.words(30),
         fk_usuario: faker.random.number({'min': 1, 'max': 200}),
       }

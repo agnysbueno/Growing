@@ -8,6 +8,10 @@ const RegistroPortfolio = (sequelize, DataTypes) => {
               primaryKey: true,
               autoIncrement: true
             },
+            titulo: {
+            type: DataTypes.STRING(30),
+            allowNull: true
+            },
             descricao: {
               type: DataTypes.STRING(300),
               allowNull: true
@@ -16,6 +20,13 @@ const RegistroPortfolio = (sequelize, DataTypes) => {
               type: DataTypes.INTEGER,
               allowNull: false
             }
+            // ,fk_servico_geral:{
+            //     type: DataTypes.INTEGER,
+            //     allowNull: false
+            // },
+            // titulo: {
+            //     type: DataTypes.STRING(25)
+            // }
         },
         { 
             tableName: "registro_portfolio",
@@ -31,6 +42,9 @@ const RegistroPortfolio = (sequelize, DataTypes) => {
         registroPortfolio.hasMany(models.ImagemPortfolio, {
             foreignKey:'fk_registro_portfolio', as: 'imagens'
         });
+        // registroPortfolio.belongsTo(models.ServicoGeral, {
+        //     foreignKey:'fk_servico_geral', as: 'servicogeral'
+        // });
 
     };
 
