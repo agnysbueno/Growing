@@ -657,7 +657,7 @@ i {
     height: 39px;
 }
 
-.criar-public-janela{
+#janela-publicar{
     border-radius: 7px;
     width: 600px;
     height: 420px;
@@ -666,13 +666,14 @@ i {
     left: 180px;
     z-index: 70;
     box-shadow: 0 0 10px hsl(0, 1%, 60%);
+    transition: all 500ms linear;
 
 }
 
-.criar-public-janela h3 {
+#janela-publicar h3 {
     text-align: right;
 }
-.criar-public-janela a{
+#janela-publicar a{
     margin-left: 90px;
 }
 
@@ -735,6 +736,10 @@ i {
     height: 740px;
     top: 100px;
     
+}
+
+#imagePost{
+    width: 570px;
 }
 
 .publicacoes {
