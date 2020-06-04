@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%=title %></title>
-    
-    <!--bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
 
-    <!--fontes -->
-    <script src="https://kit.fontawesome.com/55fcd42dc6.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
-    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-    
-    <!--paleta de cores-->
-    <link rel="stylesheet" href="./css/palette.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%=title %></title>
+
+  <!--bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!--fontes -->
+  <script src="https://kit.fontawesome.com/55fcd42dc6.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
+  <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+
+  <!--paleta de cores-->
+  <link rel="stylesheet" href="./css/palette.css">
 </head>
+
 <body id="page-top">
   <header>
     <nav class="navbar navbar-expand-lg fixed-top font-nav bg-tranparent-nav">
       <a class="navbar-brand nav-scroll" href="#page-top" id="link-logo">
         <img src="./images/logo-primary.png" alt="Logotipo Growing">
       </a>
-      
+
       <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
         <span class="navbar-toggler-icon mx-auto"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSite">
-        
+
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link nav-scroll" href="#sobre">Sobre</a>
@@ -39,8 +42,8 @@
             <a class="nav-link dropdown-toggle nav-scroll" href="#" data-toggle="dropdown" id="navDrop">Serviços</a>
 
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#professional">Para profissionais</a>
-                <a class="dropdown-item" href="#user">Para consumidores</a>
+              <a class="dropdown-item" href="#professional">Para profissionais</a>
+              <a class="dropdown-item" href="#user">Para consumidores</a>
             </div>
 
           </li>
@@ -48,44 +51,44 @@
             <a class="nav-link nav-scroll" href="#contato">Contato</a>
           </li>
         </ul>
-      
+
         <a href="/login" id="main-button" class="btn btn-ligth" role="button">Entrar</a>
-        
+
       </div>
 
     </nav>
-      
-      
-  </header>
 
+  </header>
 
   <section id="landing-home">
     <div class="container-fluid">
       <div class="row">
-        
+
         <!--LANDING-->
-        <div id="first-column" class="col-xl-6 col-md-6 col-sm-12">
+        <div id="first-column" class="col-xl-6 col-md-6 col-7">
 
-            <!--textos-->
-            <div class="briefing">
-              <h1 class="titulo">Growing aumenta seu alcance</h1>
-          
-              <p id="descricao" class="text-color-dark">
-                Melhore o posicionamento da sua marca com a Growing: um ambiente onde pequenos  empreendedores encontram grandes oportunidades.
-              </p>
-            </div>
+          <!--textos-->
+          <div class="briefing">
+            <h1 class="titulo">Growing aumenta seu alcance</h1>
 
-            <!--botões-->
-            <div id="botoes-home" class="d-flex justify-content-between">
-              <a href="#sobre" class="btn btn-lg btn-ligth" role="button" aria-disabled="true">Saber mais</a>
-              <a href="/cadastro" class="btn btn-secondary btn-lg btn-gray" role="button" aria-disabled="true">Cadastrar</a>
-            </div>
+            <p id="descricao" class="text-color-dark">
+              Melhore o posicionamento da sua marca com a Growing: um ambiente onde pequenos empreendedores encontram
+              grandes oportunidades.
+            </p>
+          </div>
+
+          <!--botões-->
+          <div id="botoes-home" class="d-flex justify-content-between">
+            <a href="#sobre" class="btn btn-lg btn-ligth" role="button" aria-disabled="true">Saber mais</a>
+            <a href="/cadastro" class="btn btn-secondary btn-lg btn-gray" role="button"
+              aria-disabled="true">Cadastrar</a>
+          </div>
 
         </div>
 
         <!--ILUSTRAÇÃO-->
-        <div id="second-column" class="col-xl-6 col-md-6 col-sm-12">
-            <img id="working-late" src="./images/undraw_working_late.svg">
+        <div id="second-column" class="col-xl-6 col-md-6 col-1">
+          <img id="working-late" src="./images/undraw_working_late.svg">
         </div>
 
       </div>
@@ -95,22 +98,24 @@
   <section id="sobre">
     <div class="container-fluid mx-auto">
       <div class="row">
-        
+
         <!--ILUSTRAÇÃO-->
-        <div id="first-column" class="col-xl-6 col-md-6 col-sm-12">
+        <div id="first-column" class="col-xl-6 col-md-5 col-5">
           <img id="barber" src="./images/undraw_barber_3uel.svg">
         </div>
 
         <!--EXPLANATION-->
-        <div id="second-column" class="col-xl-6 col-md-6 col-sm-12">
+        <div id="second-column" class="col-xl-6 col-md-7 col-7">
           <div class="briefing">
 
             <h1 class="titulo">Sobre a Growing</h1>
-        
+
             <p id="explanation" class="text-color-dark">
-              A Growing é uma rede social direcionada ao segmento da beleza e estética. Nosso objetivo é <strong>ajudar pequenos empreendedores a alavancarem seu negócio</strong> com ferramentas fáceis de manusear.
+              A Growing é uma rede social direcionada ao segmento da beleza e estética. Nosso objetivo é <strong>ajudar
+                pequenos empreendedores a alavancarem seu negócio</strong> com ferramentas fáceis de manusear.
               <br>
-              Aqui conectamos profissionais a consumidores que compartilham dos mesmos interesses, com o intuito de impulsionar o engajamento e criar melhores relações.
+              Aqui conectamos profissionais a consumidores que compartilham dos mesmos interesses, com o intuito de
+              impulsionar o engajamento e criar melhores relações.
             </p>
 
           </div>
@@ -125,7 +130,7 @@
     <div class="container-fluid mx-auto">
 
       <div class="row">
-        
+
         <div class="col-12 col-xl-4 col-md-8 text-center">
           <h1 class="titulo-services">Para profissionais</h1>
         </div>
@@ -184,7 +189,7 @@
     <div class="container-fluid mx-auto">
 
       <div class="row">
-        
+
         <div class="col-12 col-xl-4 col-md-8 text-center">
           <h1 class="titulo-services">Para consumidores</h1>
         </div>
@@ -229,7 +234,7 @@
                 Agendamento
               </p>
               <p id="subtitulo" class="card-subtitle text-center text-color-dark">
-                Agende horários e mantenha sua rotina organizada 
+                Agende horários e mantenha sua rotina organizada
               </p>
             </div>
           </div>
@@ -245,16 +250,16 @@
       <div class="row">
 
         <!--ILUSTRAÇÃO-->
-        <div id="first-column" class="col-xl-6 col-md-6 col-sm-12">
+        <div id="first-column" class="col-xl-6 col-md-6 col-12">
           <img id="envelope" src="./images/undraw_envelope_n8lc.svg">
         </div>
 
         <!--LANDING-->
-        <div id="second-column" class="col-xl-6 col-md-6 col-sm-12">
+        <div id="second-column" class="col-xl-6 col-md-6 col-12">
 
-            <!--título-->
-            <div class="formulario">
-              <h1 class="titulo">Converse com a gente</h1>
+          <!--título-->
+          <div class="formulario">
+            <h1 class="titulo">Converse com a gente</h1>
 
             <!--formulário-->
             <form>
@@ -267,12 +272,13 @@
                 <label for="email">E-mail</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="exemplo@mail.com">
               </div>
-              
+
               <div class="form-group">
                 <label for="mensagem">Mensagem</label>
-                <textarea class="form-control" id="mensagem" name="mensagem" placeholder="O que você quer falar pra gente?" rows="3"></textarea>
+                <textarea class="form-control" id="mensagem" name="mensagem"
+                  placeholder="O que você quer falar pra gente?" rows="3"></textarea>
               </div>
-                    
+
               <div class="form-group">
                 <button class="btn btn-lg btn-ligth" type="submit">Enviar mensagem</button>
               </div>
@@ -286,14 +292,21 @@
   </section>
 
 
-    <!-- Scripts para Bootstrap 4-->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
-    <!-- Jquary e script para scroll nav suave-->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="./javascripts/my-scroll.js"></script>
-    <script src="./javascripts/nav-color.js"></script>
+  <!-- Scripts para Bootstrap 4-->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+  <!-- Jquary e script para scroll nav suave-->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="./javascripts/my-scroll.js"></script>
+  <script src="./javascripts/nav-color.js"></script>
 </body>
+
 </html>

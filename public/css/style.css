@@ -3538,3 +3538,79 @@ input {
     }
 
 }
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* Amanda - Pagina Inicial - 992px {nao apagar}*/
+    #professional {
+        height: 166vh;
+    }
+    #user {
+        height: 160vh;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Amanda - Pagina Inicial - 768px {nao apagar}*/
+    #sobre #first-column {
+        padding-left: 2%;
+    }
+    #sobre #second-column {
+        padding-right: 0;
+    }
+    #sobre {
+        height: 100vh;
+    }
+    #professional {
+        height: 170vh;
+    }
+    #user {
+        height: 176vh;
+    }
+}
+
+/* REGRA PRA DISPOSITIVOS MOVEIS MAIORES // DISPOSITIVOS EM MODO LANDSCAPE*/
+@media (min-width: 576px) and (max-width: 767px) {
+    /* Amanda - Pagina Inicial - 576px {nao apagar}*/
+    #sobre #first-column {
+        padding-left: 0;
+    }
+    #sobre #second-column {
+        padding-right: 0;
+    }
+    #sobre {
+        height: 110vh;
+    }
+    #professional {
+        height: 216vh;
+    }
+    #user {
+        height: 220vh;
+    }
+    #contato {
+        height: 150vh;
+    }
+}
+
+/* REGRA PRA CELULARES */
+@media (min-width: 320px) and (max-width: 575px) {
+    /* Amanda - Pagina Inicial - 320px {nao apagar}*/
+    #sobre {
+        height: 120vh;
+    }
+    #sobre #first-column {
+        padding-left: 0;
+    }
+    
+    #sobre #second-column {
+        padding-right: 0;
+    }
+    #professional {
+        height: 240vh;
+    }
+    #user {
+        height: 250vh;
+    }
+    #contato {
+        height: 160vh;
+    }
+}
