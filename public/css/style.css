@@ -660,14 +660,82 @@ i {
 .criar-public-janela{
     border-radius: 7px;
     width: 600px;
-    height: 400px;
+    height: 420px;
     position: absolute;
-    top:60px;
-    left: 130px;
+    top: 250px;
+    left: 180px;
     z-index: 70;
+    box-shadow: 0 0 10px hsl(0, 1%, 60%);
+
+}
+
+.criar-public-janela h3 {
+    text-align: right;
+}
+.criar-public-janela a{
+    margin-left: 90px;
+}
+
+#btnEnviarPublicacao{
+    display: block;
+    width: 100%;
+    border-radius: 7px;
+    height: 45px;
+    border: none;
+}
+
+#btnfchPublic{
+    /* position:relative;
+    top: -35px;
+    right: -564px; */
+}
+
+.textoPost {
+    margin-top: 7px;
+    border: none;
+    width: 100%;
+    height: 150px;
+    margin-bottom: 5px;
+}
+
+#janela-publicar input[type='file']{
     display: none;
 }
 
+.input-wrapper label {
+    border-radius: 5px;
+    color: #fff;
+    margin: 10px;
+    padding: 6px 20px
+}
+
+.input-wrapper label i{
+    color:#9F6F78;
+}
+  
+.input-wrapper label:hover {
+    background-color: #9F6F78;
+    color:#FFFFFF;
+}
+
+.input-wrapper label i:hover{
+    color:#FFFFFF;
+}
+
+#janela-publicar{
+    display: none;
+}
+
+#janela-publicar.active{
+    display: block;
+}
+
+
+#janela-publicar.imagem{
+    height: 740px;
+    top: 100px;
+    
+}
 
 .publicacoes {
     margin-top: 30px;
@@ -1761,6 +1829,13 @@ input {
 
 /* Navegadores menores */
 
+@media (min-width: 1200px){
+    .criar-publicacoes{
+        margin-top: 10px;
+    }
+}
+
+
 @media (max-width: 1440px) {
 
 
@@ -1808,7 +1883,7 @@ input {
     /* David - Feed geral  */
 
     .criar-publicacoes {
-        margin-top: 90px;
+        margin-top: 10px;
         margin-left: auto;
         margin-right: auto;
         width: 650px;
