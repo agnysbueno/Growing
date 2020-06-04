@@ -11,13 +11,14 @@ const { sequelize, Usuario, Post } = require('../models');
 //     }
 // )
 
-Usuario.findAll({include:'Post'}).then(
+Usuario.findAll({include:[{model:Post, as:'Post', order:[Post, 'id', 'DESC']}], where: { id:2 }}).then(
     data => {
         console.log(data.map(u => u.toJSON()));
     }
 )
 
-// Post.findAll({include:'Usuario'}).then(
+// Post.findAll({order: [
+//     ['id', 'DESC']]}).then(
 //     data => {
 //         console.log(data.map(p => p.toJSON()));
 //     }

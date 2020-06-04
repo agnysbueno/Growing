@@ -660,7 +660,7 @@ i {
 #janela-publicar{
     border-radius: 7px;
     width: 600px;
-    height: 420px;
+    height: auto;
     position: absolute;
     top: 250px;
     left: 180px;
@@ -683,6 +683,7 @@ i {
     border-radius: 7px;
     height: 45px;
     border: none;
+    margin-bottom: 10px;
 }
 
 #btnfchPublic{
@@ -695,8 +696,14 @@ i {
     margin-top: 7px;
     border: none;
     width: 100%;
-    height: 150px;
+    height: auto;
     margin-bottom: 5px;
+}
+
+#btnExcluirImg{
+    position: absolute;
+    top: 5px;
+    right: 21px;
 }
 
 #janela-publicar input[type='file']{
@@ -733,7 +740,7 @@ i {
 
 
 #janela-publicar.imagem{
-    height: 740px;
+    height: auto;
     top: 100px;
     
 }

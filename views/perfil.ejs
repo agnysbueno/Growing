@@ -60,7 +60,6 @@
     <!-- Area de Posts -->
     <div class="col-md-8 col-sm-12">
       <div class="card-post bg-white">
-        <form action="" id="formPostagem">
           <div class="row">
             <!-- <div class="col-md-12">
               <p>Criar publicação</p>
@@ -87,14 +86,11 @@
               <button class="botao-enviar bg-primary-color text-color-white">Enviar</button> -->
             </div>
           </div>
-
-        </form>
-
       </div>
     </div>
 
     <!-- Postagens referentes ao cliente -->
-    <div class="col-md-8 col-ms-12">
+    <div class="col-md-8 col-ms-12" id="corpo-postagens">
       <% for(let p of usuario[0].Post) { %>
         <div class="card-post bg-white">
             <div class="row">
@@ -145,6 +141,8 @@
   </div>
   
   <div class="bg-white" id="janela-publicar">
+    <form action="" enctype="multipart/form-data" id="formPostagem">
+    
     <div class="row">
       <div class="col-md-9">
         <h3>Criar publicação</h3>
@@ -152,44 +150,47 @@
       <div class="col-md-3">
         <a href="#" id='btnfchPublic'><i class="fas fa-times fa-2x"></i></a>
       </div>
-      <div class="col-md-12">
-        <hr>
-        <div class="row">
-          <div class="col-md-3">
-            <div class="perfil-usuario-mini" id='perfil-post-img'>
-              <% if(usuario[0].foto_perfil != '') { %>
-                  <img src="<%=usuario[0].foto_perfil %>" id='imagenPerfilPost'>
-              <% } else { %>
-                  <img src="./images/usuario.png" id='imagenPerfilPostInex'>
-              <% } %>
+        <div class="col-md-12">
+          <hr>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="perfil-usuario-mini" id='perfil-post-img'>
+                <% if(usuario[0].foto_perfil != '') { %>
+                    <img src="<%=usuario[0].foto_perfil %>" id='imagenPerfilPost'>
+                <% } else { %>
+                    <img src="./images/usuario.png" id='imagenPerfilPostInex'>
+                <% } %>
+              </div>
+  
             </div>
-
+            <div class="col-md-9">
+                <%=usuario[0].nome_completo %>
+            </div>
+  
           </div>
-          <div class="col-md-9">
-              <%=usuario[0].nome_completo %>
+          <div class="col-md-12">
+              <textarea name="texto" id="" class="textoPost" placeholder="Olá <%=usuario[0].nome_completo %>! No que está pensando para hoje?"></textarea>
           </div>
-
-        </div>
-        <div class="col-md-12">
-            <textarea name="texto" id="" class="textoPost" placeholder="Olá <%=usuario[0].nome_completo %>! No que está pensando para hoje?"></textarea>
-        </div>
-        <div class="col-md-12" id='divimgPost'>
-          <!-- <img src="./images/servicos/mascara-de-hidratacao.jpg" style="width: 570px;" alt=""> -->
-
-        </div>
-        <div class="col-md-12">
-          <div class="input-wrapper">
-            <label for="filePosts"><i class="fas fa-camera fa-2x"></i></label>
-            <input type="file" name="filePosts" id="filePosts">
+          <div class="col-md-12" id='divimgPost'>
+            <!-- <a href="http://" id="btnExcluirImg"><i class="fas fa-times-circle fa-3x"></i></a> -->
+            <!-- <img src="./images/servicos/mascara-de-hidratacao.jpg" style="width: 570px;" alt=""> -->
+  
           </div>
+          <div class="col-md-12">
+            <div class="input-wrapper">
+              <label for="filePosts"><i class="fas fa-camera fa-2x"></i></label>
+              <input type="file" name="files" id="filePosts">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <button class="bg-primary-color text-color-white" id="btnEnviarPublicacao">Publicar</button>
+          </div>
+          
         </div>
-        <div class="col-md-12">
-          <button class="bg-primary-color text-color-white" id="btnEnviarPublicacao">Publicar</button>
-        </div>
-
-
+     
+        
       </div>
-    </div>
+    </form>
   </div>
 </div>
 <!-- Editar perfil -->

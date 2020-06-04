@@ -35,7 +35,7 @@ app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/', postsRouter);
+app.use('/posts', postsRouter);
 app.use('/produtos', produtosRouter);
 app.use('/servicos', servicosRouter);
 app.use('/profissionais', profissionaisRouter);
