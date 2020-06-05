@@ -27,7 +27,9 @@ router.get('/',VerificaUsuarioLogado, PortfoliosController.index);
 router.get('/fotos', VerificaUsuarioLogado, PortfoliosController.showImagensDoPortfolio);
 router.get('/meuportfolio', VerificaUsuarioLogado, PortfoliosController.showPortfoliosDoUsuario);
 router.post('/meuportfolio', VerificaUsuarioLogado, upload.any(), PortfoliosController.criarPortfolio);
-router.put('/meuportfolio', VerificaUsuarioLogado, PortfoliosController.editarPortfolio);
+
+router.get('/meuportfolio/editar/:id', VerificaUsuarioLogado, PortfoliosController.showEditar);
+router.put('/meuportfolio/editar/:id', VerificaUsuarioLogado, PortfoliosController.editarPortfolio);
 
 router.delete('/deletar/:id', VerificaUsuarioLogado, PortfoliosController.deletarPortfolio);
 

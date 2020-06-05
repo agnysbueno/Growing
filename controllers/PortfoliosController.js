@@ -9,27 +9,25 @@ const PortfoliosController = {
         let {categoria = "Geral"} = req.query;
         categoria = categoria.charAt(0).toUpperCase() + categoria.slice(1);
 
-        let listaDePortfoliosDaCategoria = await RegistroPortfolio.findAll();
-
-        // let listaDePortfoliosDaCategoria = await RegistroPortfolio.findAll({
-        //     include: [{
-        //             model: ServicoGeral,
-        //             as: "servicogeral",
-        //             required: true,
-        //             where:{
-        //                 servico: {
-        //                     [Op.like]: `%${categoria}`
-        //                 }
-        //             }
-        //     }]
-        // })
-        // let servicogeral = await ImagemPortfolio.findAll({
-        //     include: [{
-        //         m
-        //     }]
-        // });
+            let listaDePortfoliosDaCategoria = await RegistroPortfolio.findAll({
+                include:{
+                    model: ImagemPortfolio,
+                    as: 'imagens',
+                    require: true
+                },
+                include:{
+                    model: ServicoGeral,
+                    as: 'servicogeral',
+                    require: true,
+                    where:{
+                        servico: {
+                            [Op.like]: `%${categoria}`
+                        }
+                    }
+                }
+            });
+        // console.log(listaDePortfoliosDaCategoria[0].imagens[0].imagem)
             
-        
         return res.render('portfolios', {usuarioLog, listaDePortfoliosDaCategoria, categoria});
     },
     showImagensDoPortfolio: async (req, res) =>{
@@ -57,10 +55,21 @@ const PortfoliosController = {
         let {files} = req;
         let usuarioLog = req.session.usuario;
 
+        const servico = await ServicoGeral.findOne({
+            where:{
+                servico: {
+                    [Op.like]: `%${categoria}%`
+                }
+            }
+        });
+        if(!servico){
+            servico.id = 17;
+        }
         const resultado = await RegistroPortfolio.create({
             titulo,
             descricao,
-            fk_usuario : usuarioLog.id
+            fk_usuario : usuarioLog.id,
+            fk_servico_geral: servico.id
         })
 
         files.forEach(file => {
@@ -84,12 +93,23 @@ const PortfoliosController = {
 
         return res.redirect ('/portfolios/meuportfolio');
     },
+    showEditar: async(req, res) => {
+        const {id} = req.params;
+        const usuarioLog = req.session.usuario;
+        const portfolio = await RegistroPortfolio.findByPk(id);
+        return res.render ('editarPortfolioDoUsuario', {portfolio, usuarioLog});
+    },
     editarPortfolio: async(req, res) => {
-        const {titulo, descricao, id} = req.body;
-        let resultado = await RegistroPortfolio.update({
-            titulo, descricao
-        },{
-            where: { id }
+        const {titulo, descricao} = req.body;
+        const {id} = req.params;
+        const resultado = await RegistroPortfolio.update({
+            titulo,
+            descricao
+        },
+        {
+            where: { 
+                id 
+            }
         });
         return res.redirect ('/portfolios/meuportfolio');
     },

@@ -9,7 +9,7 @@
   <script src="https://kit.fontawesome.com/55fcd42dc6.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
   <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/stylePaulo.css">
   <link rel="stylesheet" href="/css/palette.css">
   <link rel="stylesheet" href="/css/componentes.css">
 </head>
@@ -150,9 +150,9 @@
         </div>
         <br><br><br>
         <div class="card-deck">
-          <% listaDePortfoliosDaCategoria.forEach(portfolio => { %>
+          <% listaDePortfoliosDaCategoria.forEach(portfolio => { %> 
             <div class="card">
-              <img class="card-img-top" src="/images/categorias/barba/barba1.jfif" alt="Card image cap">
+              <img class="card-img-top" src="" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title"><a href="servicoExecutado.html" class="link-primary"><%= portfolio.titulo %></a></h5>
                 <p class="card-text"> <%= portfolio.descricao %>  </p>
@@ -178,6 +178,17 @@
                       <%= portfolio.descricao %>
                       <br>
                       <%= portfolio.id %>
+
+                      <% if (portfolio.imagens !== undefined) { %>
+                        <% portfolio.imagens.forEach( imagem => {%>
+                          <img src="<%= imagem.dataValues.imagem %>" alt="" width="100%">
+                        <% })%>
+                        
+                      <% } %>
+
+              
+
+
                     </p>
                   </div>
                   <div class="modal-footer">

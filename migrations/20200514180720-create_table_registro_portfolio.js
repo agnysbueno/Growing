@@ -28,6 +28,16 @@ module.exports = {
           onUpdate: 'CASCADE',
           onDelete: 'CASCADE',
           allowNull: false
+        },
+        fk_servico_geral: {
+          type: Sequelize.INTEGER,
+          references: {
+            model: 'servico_geral',
+            key: 'id'
+          },
+          onUpdate: 'CASCADE',
+          onDelete: 'CASCADE',
+          allowNull: false
         }
       }
     );

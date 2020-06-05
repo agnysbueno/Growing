@@ -30,9 +30,9 @@ const ServicoGeral = (sequelize, DataTypes) => {
         servicoGeral.hasMany(models.ServicoEspecifico, {
             foreignKey:'fk_servico_geral', as: 'servicos_especificos'
         });
-        // servicoGeral.hasMany(models.RegistroPortfolio, {
-        //     foreignKey:'fk_servico_geral', as: 'portfolios'
-        // });
+        servicoGeral.hasMany(models.RegistroPortfolio, {
+            foreignKey:'fk_servico_geral', as: 'portfolios'
+        });
 
     };
 
