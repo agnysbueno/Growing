@@ -16,7 +16,7 @@ module.exports = {
       fakeUsuarioServicoGeral = {
         id: fakeId,
         fk_usuario: faker.random.number({'min': 1, 'max': 200}),
-        fk_servico: faker.random.number({'min': 1, 'max': 17}),
+        fk_servico: faker.random.number({'min': 1, 'max': 9}),
       }
       usuarioServicosGerais.push(fakeUsuarioServicoGeral);
       fakeId+=1;
