@@ -90,9 +90,12 @@
     </div>
 
     <!-- Postagens referentes ao cliente -->
+    <div class="col-md-8 col-sm-12" id='corpo-nova-postagem'>
+      <div class="card-post" id="cardNew"></div>
+    </div>
     <div class="col-md-8 col-ms-12" id="corpo-postagens">
-      <% for(let p of usuario[0].Post) { %>
-        <div class="card-post bg-white">
+      <% for(let p of posts) { %>
+        <div class="card-post bg-white" id="cardPost_<%=p.id %>">
             <div class="row">
               <div class="col-md-3">
                 <div class="perfil-usuario-mini" id='perfil-post-img'>
@@ -104,7 +107,14 @@
                 </div>
               </div>
               <div class="col-md-9">
-                  <span class="nomeUsuarioPost"><%=usuario[0].nome_completo %> </span><br><span class="dataPostagem"> <%=p.data_postagem %></span>
+                  <span class="nomeUsuarioPost"><%=usuario[0].nome_completo %> </span><br><span class="dataPostagem"> 
+                    <% let date = p.data_postagem 
+                       let dia = date.getDate().toString().padStart(2, '0');
+                       let mes = (date.getMonth()+1).toString().padStart(2, '0');
+                       let ano = date.getFullYear();
+                       let dataFormatada = dia + "/" + mes + "/" + ano;
+                    %>Postado em: <%=dataFormatada %>
+                  </span>
                   <p><%=p.texto %></p>
                     <div class="row">
                        <div class="col-md-12">

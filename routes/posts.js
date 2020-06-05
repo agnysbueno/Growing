@@ -16,10 +16,13 @@ let upload = multer({ storage: storage})
 //Controller
 const postController = require("../controllers/postController");
 
+//Middlewares 
+const VerificaUsuarioLogado = require('../middlewares/VerificaUsuarioLogado');
+
 //Rotas
-router.post('/salvarPost', postController.salvarPost);
-router.post('/imgposts', upload.any(), postController.imgposts);
-router.post('/deleteimg', postController.delimg);
-router.get('/', postController.listarPost);
+router.post('/salvarPost', VerificaUsuarioLogado, postController.salvarPost);
+router.post('/imgposts', VerificaUsuarioLogado, upload.any(), postController.imgposts);
+router.post('/deleteimg', VerificaUsuarioLogado, postController.delimg);
+router.get('/', VerificaUsuarioLogado, postController.listarPost);
 
 module.exports = router;

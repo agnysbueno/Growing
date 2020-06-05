@@ -1,15 +1,25 @@
-const {sequelize, Post} = require("../models");
+const {sequelize, Usuario, Post} = require("../models");
 const fs = require('fs');
 const path = require('path');
 
 const postController = {
     salvarPost: async(req, res) => {
-        const { id } = req.session.usuario;
+        const { id, nome_completo, foto_perfil } = req.session.usuario;
+        console.log(req.session.usuario);
         let data = new Date();
         let {texto, imagem} = req.body;
         let publicacao = await Post.create({texto: texto, data_postagem: data, imagem, fk_usuario: id });
-        res.send(publicacao);
-        console.log("salvando post no banco de dados");
+
+        let novaPostagem = {
+            id: publicacao.id,
+            texto: publicacao.texto,
+            imagem: publicacao.imagem,
+            data: publicacao.data_postagem,
+            nome: nome_completo,
+            perfil: foto_perfil
+        }
+        console.log(novaPostagem);
+        res.send(novaPostagem);
     },
     listarPost: async(req, res) => {
         //essa parte n funciona
