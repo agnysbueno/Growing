@@ -1,3 +1,4 @@
+
 let btnCriarPublic = document.getElementById('btnCriarPublic');
 let formPostagem = document.getElementById('formPostagem');
 
@@ -62,12 +63,12 @@ function publicImag(e){
     janelaPublicar.classList.toggle('imagem');
     let imagePost = document.createElement('img');
     imagePost.setAttribute('id', 'imagePost');
-    imagePost.setAttribute('src', './images/postagens/' + e);
+    imagePost.setAttribute('src', '/images/postagens/' + e);
 
     let imgName = document.createElement('input');
     imgName.setAttribute('type', 'hidden');
     imgName.setAttribute('name', 'imagem');
-    imgName.setAttribute('value', './images/postagens/' + e);
+    imgName.setAttribute('value', '/images/postagens/' + e);
 
     let linkDelimg = document.createElement('a');
     linkDelimg.setAttribute('href', '#');
@@ -87,6 +88,36 @@ function publicImag(e){
 
 }
 
+function editImg(e){
+    let substImg = e.replace('/images/postagens/', '')
+    let janelaPublicar = document.getElementById('janela-editar-publicacao');
+    janelaPublicar.classList.toggle('imagem');
+    let imagePost = document.createElement('img');
+    imagePost.setAttribute('id', 'imageEditPost');
+    imagePost.setAttribute('src', '/images/postagens/'+ substImg);
+
+    let imgName = document.createElement('input');
+    imgName.setAttribute('type', 'hidden');
+    imgName.setAttribute('name', 'imagem');
+    imgName.setAttribute('value', '/images/postagens/' + substImg);
+
+    let linkDelimg = document.createElement('a');
+    linkDelimg.setAttribute('href', '#');
+    linkDelimg.setAttribute('id', 'btnExcluirEditImg');
+    linkDelimg.setAttribute('onclick', 'excluirImg("'+ e +'")')
+
+    let faTimesCircle = document.createElement('i');
+    faTimesCircle.setAttribute('class', 'fas fa-times-circle fa-3x');
+
+    linkDelimg.appendChild(faTimesCircle);
+
+    let divimgPost = document.getElementById('divimgEditPost');   
+    divimgPost.innerText = '';
+    divimgPost.appendChild(linkDelimg);
+    divimgPost.appendChild(imagePost);
+    divimgPost.appendChild(imgName);
+}
+
 function excluirImg(e){
     $.ajax({
         type: 'POST',
@@ -94,10 +125,14 @@ function excluirImg(e){
         data: { filename: e },
         success: function (data) {
             console.log(data)
-            let divimgPost = document.getElementById('divimgPost');   
+            let divimgPost = document.getElementById('divimgPost');
+            let divimgEditPost = document.getElementById('divimgEditPost');  
             divimgPost.innerText = ''; 
+            divimgEditPost.innerText = '';
             let janelaPublicar = document.getElementById('janela-publicar');
+            let janelaEditPublic = document.getElementById('janela-editar-publicacao');
             janelaPublicar.classList.toggle('imagem');
+            janelaEditPublic.classList.toggle('imagem');
         },
         erro: function (ex){
             alert('Falha ao excluir imagem! ' + ex)
@@ -146,6 +181,9 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
     let divColmd2 = document.createElement('div');
     divColmd2.setAttribute('class', 'col-md-2');
 
+    let divColmd12Img = document.createElement('div');
+    divColmd12Img.setAttribute('class', 'col-md-12');
+
     let linkMenuPost = document.createElement('a');
     linkMenuPost.setAttribute('href', '#');
     linkMenuPost.setAttribute('id', 'btnMenuPost_' + id);
@@ -167,7 +205,6 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
 
     let linkEdit = document.createElement('a');
     linkEdit.setAttribute('href', '#');
-    linkEdit.innerText = ' Editar';
 
     let faPencil = document.createElement('i');
     faPencil.setAttribute('class', 'fas fa-pencil-alt');
@@ -177,7 +214,7 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
 
     let linkExcl = document.createElement('a');
     linkExcl.setAttribute('href', '#');
-    linkExcl.innerText = ' Editar';
+    linkExcl.setAttribute('onclick', "deletePost('"+ id +"', 'corpo-nova-postagem', '"+ imagem +"')")
 
     let faTrash = document.createElement('i');
     faTrash.setAttribute('class', 'fas fa-trash-alt');
@@ -193,6 +230,7 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
     spanDataPost.innerText = "Postado em: " + dataPostagem;
 
     let p = document.createElement('p');
+    p.setAttribute('id', 'pgf_' + id);
     p.innerText = texto;
 
     let divRow2 = document.createElement('div');
@@ -262,25 +300,34 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
     divColmd7.appendChild(br);
     divColmd7.appendChild(spanDataPost);
     divColmd7.appendChild(p);
-
+    
     //linkEdit.appendChild(faPencil);
     //linkExcl.appendChild(faTrash);
     linkEdit.innerHTML = '<i class="fas fa-pencil-alt"></i> Editar';
     linkExcl.innerHTML = '<i class="fas fa-trash-alt"></i> Excluir';
-
+    
     liEdit.appendChild(linkEdit);
     liExcl.appendChild(linkExcl);
-
+    
     ulMenu.appendChild(liEdit);
     ulMenu.appendChild(liExcl);
-
+    
     menuPost.appendChild(ulMenu);
-
+    
     linkMenuPost.appendChild(faEllipsis);
-
+    
     divColmd2.appendChild(linkMenuPost);
     divColmd2.appendChild(menuPost);
+    
+    if(imagem){
+        let pImg = document.createElement('p');
+        let imgPost = document.createElement('img');
+        imgPost.setAttribute('src', imagem);
+        imgPost.setAttribute('class', 'imagem-postada');
 
+        pImg.appendChild(imgPost);
+        divColmd12Img.appendChild(pImg);
+    }
     
     liCurtir.innerHTML = '<i class="fas fa-heart text-color-primary"></i> 0 ';
     //liCurtir.appendChild(faHeart);
@@ -288,20 +335,20 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
     //liEye.appendChild(faEye);
     //liComents.appendChild(faComments);
     liComents.innerHTML = '<i class="fas fa-comments text-color-primary"></i> 0 ';
-
-    ul.appendChild(liCurtir);
-    ul.appendChild(liEye);
-    ul.appendChild(liComents);
-    
-    divColmd12.appendChild(ul);
-    
-    divMenuCriarStatus.appendChild(divColmd12);
-    divRow2.appendChild(divColmd12);
-    divColmd7.appendChild(divRow2);
     
     linkCurtir.appendChild(faHeart2x);
     linkComent.appendChild(faEye2x);
-    linkCompartilhar.appendChild(faComments2x)
+    linkCompartilhar.appendChild(faComments2x);
+    
+    ul.appendChild(liCurtir);
+    ul.appendChild(liEye);
+    ul.appendChild(liComents);
+        
+    divColmd12.appendChild(ul);
+
+    divMenuCriarStatus.appendChild(divColmd12);
+    divRow2.appendChild(divColmd12);
+    divColmd12Img.appendChild(divRow2);
     
     divColmd4Curtir.appendChild(linkCurtir);
     divColmd4Coments.appendChild(linkComent);
@@ -317,18 +364,145 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
     divRow.appendChild(divColmd3);
     divRow.appendChild(divColmd7);
     divRow.appendChild(divColmd2);
+    divRow.appendChild(divColmd12Img);
     divRow.appendChild(divColmd12_2);
 
-    //divCardPost.appendChild(divRow);
+    divCardPost.appendChild(divRow);
     //corpoPostagens.appendChild(divCardPost);
-    cardNew.classList.add('bg-white');
-    cardNew.appendChild(divRow);
-    corpoNovaPostagem.appendChild(cardNew);
+    //cardNew.classList.add('bg-white');
+    //cardNew.appendChild(divRow);
+    corpoNovaPostagem.appendChild(divCardPost);
 
 }
 
 function abrirMenuPost(e){
     document.getElementById('menuPost_' + e).classList.toggle('active');
+}
+
+function deletePost(e, nomediv, img){
+    let dados = { idPost: e, imagem:img };
+    let settings = {
+        method:'DELETE',
+        headers: {
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify(dados)
+    }
+    fetch('/posts/delete', settings)
+    .then(function (response){
+        return response.json();
+    })
+    .then(function (data){
+        let corpoPost = document.getElementById(nomediv);
+        let cardPost = document.getElementById('cardPost_' + e);
+        console.log(cardPost);
+        corpoPost.removeChild(cardPost);
+    })
+}
+
+
+
+
+let btnfchEditPublic = document.getElementById('btnfchEditPublic')
+btnfchEditPublic.addEventListener('click', function() {
+    document.getElementById('janela-editar-publicacao').classList.toggle('active');
+});
+
+function formEditar(e){
+    let dados = { id:e };
+    let settings = {
+        method:'POST',
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify(dados)
+    };
+    fetch('/posts/carregar', settings)
+    .then(function (response){
+        return response.json();
+    })
+    .then(function (data){
+        document.getElementById('janela-editar-publicacao').classList.toggle('active');
+        let idPost = document.getElementById('idPost');
+        idPost.setAttribute('value', data[0].id);
+        document.getElementById('textPostagem').value = data[0].texto;
+        // let divImg = document.getElementById('divimgPost_' + e);
+        if(data[0].imagem){
+             editImg(data[0].imagem);
+        }
+        else{
+            let divimgPost = document.getElementById('divimgEditPost');   
+            divimgPost.innerText = '';
+            document.getElementById('janela-editar-publicacao').classList.toggle('imagem');
+            let imgName = document.createElement('input');
+            imgName.setAttribute('type', 'hidden');
+            imgName.setAttribute('name', 'imagem');
+            imgName.setAttribute('value', '');
+            divimgPost.appendChild(divimgPost);
+        }
+
+    })
+}
+
+let formEditarPostagem = document.getElementById('formEditarPostagem');
+formEditarPostagem.addEventListener('submit', function(e){
+    e.preventDefault();
+    let dados = { 
+        idPost:formEditarPostagem.id.value,
+        texto:formEditarPostagem.texto.value,
+        imagem:(formEditarPostagem.imagem) ? formEditarPostagem.imagem.value : ''
+    };
+    let settings = {
+        method:'POST',
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify(dados)
+    };
+    fetch('/posts/update', settings)
+    .then(function (response){
+        return response.json();
+    })
+    .then(function (data){
+        console.log(data[0]);
+        let pgf = document.getElementById('pgf_'+ data[0].id);
+        pgf.innerText = data[0].texto;
+        if(data[0].imagem){
+            let img = document.getElementById('img_'+ data[0].id);
+            img.setAttribute('src', data[0].imagem);
+        }
+        document.getElementById('janela-editar-publicacao').classList.toggle('active');
+    })
+
+});
+
+
+let fileEditPosts = document.getElementById('fileEditPosts')
+fileEditPosts.addEventListener('change', function(){
+    imagemEditUpload();
+});
+
+
+function imagemEditUpload(){
+    let form = document.getElementById('formEditarPostagem');
+    let dados = new FormData(form);
+    $.ajax({
+        type: 'POST',
+        url: '/posts/imgposts',
+        enctype: 'multipart/form-data',
+        processData: false,
+        contentType: false,
+        cache: false,
+        data: dados,
+        success: function (data) {
+            editImg(data);
+        },
+        erro: function (ex){
+            alert('Falha ao atualizar imagem! ' + ex)
+        }
+
+    });
+
 }
 
 

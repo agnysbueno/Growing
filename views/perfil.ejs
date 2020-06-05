@@ -91,7 +91,7 @@
 
     <!-- Postagens referentes ao cliente -->
     <div class="col-md-8 col-sm-12" id='corpo-nova-postagem'>
-      <div class="card-post" id="cardNew"></div>
+      <!-- <div class="card-post" id="cardNew"></div> -->
     </div>
     <div class="col-md-8 col-ms-12" id="corpo-postagens">
       <% for(let p of posts) { %>
@@ -115,9 +115,22 @@
                        let dataFormatada = dia + "/" + mes + "/" + ano;
                     %>Postado em: <%=dataFormatada %>
                   </span>
-                  <p><%=p.texto %></p>
-                  <% if(p.imagem) { %>
-                  <p><img src="<%=p.imagem %>" alt="" id="imagemPostada" /></p>
+                  <p id='pgf_<%=p.id %>'><%=p.texto %></p>
+                  
+              </div>
+              <div class="col-md-2">
+                 <a href="#" id="btnMenuPost_<%=p.id %>" class="btn-menu-post" onclick="abrirMenuPost('<%=p.id %>')"><i class="fas fa-ellipsis-h"></i></a>
+                 <div id="menuPost_<%=p.id %>" class="menu-postagem bg-white">
+                     <ul class="list-group list-group-flush">
+                       <li class="list-group-item"><a href="#" onclick="formEditar('<%=p.id %>')"><i class="fas fa-pencil-alt"></i> Editar</a></li>
+                       <li class="list-group-item"><a href="#" onclick="deletePost('<%=p.id %>', 'corpo-postagens', '<%=p.imagem %>')"><i class="fas fa-trash-alt"></i> Excluir</a></li>
+                     </ul>
+                    
+                 </div>
+              </div>
+              <div class="col-md-12">
+                <% if(p.imagem) { %>
+                  <p><img src="<%=p.imagem %>" id="img_<%=p.id %>" alt="" class="imagem-postada" /></p>
                   <% } %>
                     <div class="row">
                        <div class="col-md-12">
@@ -128,16 +141,6 @@
                           </ul>
                        </div>
                     </div>
-              </div>
-              <div class="col-md-2">
-                 <a href="#" id="btnMenuPost_<%=p.id %>" class="btn-menu-post" onclick="abrirMenuPost('<%=p.id %>')"><i class="fas fa-ellipsis-h"></i></a>
-                 <div id="menuPost_<%=p.id %>" class="menu-postagem bg-white">
-                     <ul class="list-group list-group-flush">
-                       <li class="list-group-item"><a href="#"><i class="fas fa-pencil-alt"></i> Editar</a></li>
-                       <li class="list-group-item"><a href="#"><i class="fas fa-trash-alt"></i> Excluir</a></li>
-                     </ul>
-                    
-                 </div>
               </div>
               <div class="col-md-12">
                   <hr>
@@ -162,7 +165,7 @@
 
     </div>
   </div>
-  
+  <!-- Form Nova Postagem -->
   <div class="bg-white" id="janela-publicar">
     <form action="" enctype="multipart/form-data" id="formPostagem">
     
@@ -215,7 +218,62 @@
       </div>
     </form>
   </div>
+
+  <!-- Form Nova Postagem -->
+  <div class="bg-white" id="janela-editar-publicacao">
+    <form action="" enctype="multipart/form-data" id="formEditarPostagem">
+    
+    <div class="row">
+      <div class="col-md-9">
+        <h3>Editar publicação</h3>
+      </div>
+      <div class="col-md-3">
+        <a href="#" id='btnfchEditPublic'><i class="fas fa-times fa-2x"></i></a>
+      </div>
+        <div class="col-md-12">
+          <hr>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="perfil-usuario-mini" id='perfil-post-img'>
+                <% if(usuario[0].foto_perfil != '') { %>
+                    <img src="<%=usuario[0].foto_perfil %>" id='imagenPerfilPost'>
+                <% } else { %>
+                    <img src="./images/usuario.png" id='imagenPerfilPostInex'>
+                <% } %>
+              </div>
+  
+            </div>
+            <div class="col-md-9">
+                <%=usuario[0].nome_completo %>
+            </div>
+            
+          </div>
+          <div class="col-md-12"><input type="hidden" name="id" id="idPost">
+              <textarea name="texto" id="textPostagem" class="textoPost" placeholder="Olá <%=usuario[0].nome_completo %>! No que está pensando para hoje?"></textarea>
+          </div>
+          <div class="col-md-12" id='divimgEditPost'>
+            <!-- <a href="http://" id="btnExcluirImg"><i class="fas fa-times-circle fa-3x"></i></a> -->
+            <!-- <img src="./images/servicos/mascara-de-hidratacao.jpg" style="width: 570px;" alt=""> -->
+  
+          </div>
+          <div class="col-md-12">
+            <div class="input-wrapper">
+              <label for="fileEditPosts"><i class="fas fa-camera fa-2x"></i></label>
+              <input type="file" name="files" id="fileEditPosts">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <button class="bg-primary-color text-color-white" id="btnEnviarPublicacao">Atualizar Publicação</button>
+          </div>
+          
+        </div>
+     
+        
+      </div>
+    </form>
+  </div>
 </div>
+
 <!-- Editar perfil -->
 <div class="modal fade" id="editPerfil" tabindex="-1" role="dialog" aria-labelledby="editPerfilLabel" aria-hidden="true">
     <div class="modal-dialog">

@@ -5,7 +5,6 @@ const path = require('path');
 const postController = {
     salvarPost: async(req, res) => {
         const { id, nome_completo, foto_perfil } = req.session.usuario;
-        console.log(req.session.usuario);
         let data = new Date();
         let {texto, imagem} = req.body;
         let publicacao = await Post.create({texto: texto, data_postagem: data, imagem, fk_usuario: id });
@@ -18,8 +17,26 @@ const postController = {
             nome: nome_completo,
             perfil: foto_perfil
         }
-        console.log(novaPostagem);
+        //console.log(novaPostagem);
         res.send(novaPostagem);
+    },
+    update:async(req, res) =>{
+        const { id, nome_completo, foto_perfil } = req.session.usuario;
+        let data = new Date();
+        let { idPost, texto, imagem} = req.body;
+        await Post.update({texto, data_postagem: data, imagem }, { where: { id: idPost } });
+        let publicacao = await Post.findAll({ where: { id: idPost }}); 
+        console.log(publicacao);
+        // let postUpdate = {
+        //     id: publicacao.id,
+        //     texto: publicacao.texto,
+        //     imagem: publicacao.imagem,
+        //     data: publicacao.data_postagem,
+        //     nome: nome_completo,
+        //     perfil: foto_perfil
+        // }
+        //console.log(postUpdate);
+        res.send(publicacao);
     },
     listarPost: async(req, res) => {
         //essa parte n funciona
@@ -43,6 +60,7 @@ const postController = {
     //remove imagem
     delimg: (req, res) => {
         let { filename } = req.body;
+        filename = filename.replace('/images/postagens/','');
         let deletado;
         fs.unlink("./public/images/postagens/" + filename, (err) => {
             if (err) {
@@ -55,6 +73,30 @@ const postController = {
         });
        
         res.send(deletado);
+    },
+    //Apaga post
+    delete:async(req, res) => {
+        let { idPost, imagem } = req.body;
+        let { id } = req.session.usuario;
+        console.log(imagem);
+        if(imagem != ""){
+            fs.unlink("./public" + imagem, (err) => {
+                if(err){
+                    console.log('Erro ao excluir imagem! ' + err);
+                } else {
+                    console.log('Imagem apagada com sucesso!');
+                }
+            });
+        }
+        await Post.destroy({where: { id: idPost }});
+        res.send(idPost);
+
+    },
+    //Carregar post para edição
+    carregaPost:async(req,res) => {
+        let { id } = req.body;
+        let postagem = await Post.findAll({where: { id }});
+        res.send(postagem);
     }
 }
 

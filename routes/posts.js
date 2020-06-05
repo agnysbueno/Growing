@@ -24,5 +24,8 @@ router.post('/salvarPost', VerificaUsuarioLogado, postController.salvarPost);
 router.post('/imgposts', VerificaUsuarioLogado, upload.any(), postController.imgposts);
 router.post('/deleteimg', VerificaUsuarioLogado, postController.delimg);
 router.get('/', VerificaUsuarioLogado, postController.listarPost);
+router.post('/carregar', VerificaUsuarioLogado, postController.carregaPost);
+router.post('/update', VerificaUsuarioLogado, postController.update);
+router.delete('/delete', VerificaUsuarioLogado, postController.delete);
 
 module.exports = router;

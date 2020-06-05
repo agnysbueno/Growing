@@ -661,14 +661,15 @@ i {
     border-radius: 7px;
     width: 600px;
     height: auto;
-    position: absolute;
+    position: fixed;
     top: 250px;
-    left: 180px;
+    left: 370px;
     z-index: 70;
     box-shadow: 0 0 10px hsl(0, 1%, 60%);
     transition: all 500ms linear;
 
 }
+
 
 #janela-publicar h3 {
     text-align: right;
@@ -695,6 +696,12 @@ i {
 }
 
 #btnExcluirImg{
+    position: absolute;
+    top: 5px;
+    right: 21px;
+}
+
+#btnExcluirEditImg{
     position: absolute;
     top: 5px;
     right: 21px;
@@ -739,12 +746,55 @@ i {
     
 }
 
+#janela-editar-publicacao{
+    border-radius: 7px;
+    width: 600px;
+    height: auto;
+    position: fixed;
+    top: 250px;
+    left: 370px;
+    z-index: 70;
+    box-shadow: 0 0 10px hsl(0, 1%, 60%);
+    transition: all 500ms linear;
+
+}
+
+#janela-editar-publicacao h3 {
+    text-align: right;
+}
+#janela-editar-publicacao a{
+    margin-left: 90px;
+}
+
+#janela-editar-publicacao input[type='file']{
+    display: none;
+}
+
+#janela-editar-publicacao{
+    display: none;
+}
+
+#janela-editar-publicacao.active{
+    display: block;
+}
+
+
+#janela-editar-publicacao.imagem{
+    height: auto;
+    top: 100px;
+    
+}
+
 #imagePost{
     width: 570px;
 }
 
-#imagemPostada{
-    width: 650px;
+#imageEditPost{
+    width: 570px;
+}
+
+.imagem-postada{
+    width: 100%;
 }
 
 .btn-menu-post{

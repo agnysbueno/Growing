@@ -78,13 +78,14 @@
 
 
 .menu-postagem{
-    position: relative;
+    position: absolute;
     border-radius: 7px;
     width: 300px;
     box-shadow: 0 0 10px #cccccc;
     padding: 3px;
     left: -179px;
     display: none;
+    z-index: 60;
 }
 
 .menu-postagem.active{
