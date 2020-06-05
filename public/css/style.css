@@ -3601,6 +3601,13 @@ input {
     #contato {
         height: 150vh;
     }
+
+    /* Amanda - Pagina Cadastro - 576px {nao apagar} */
+    /* #login .card, */
+    #cadastro .card {
+        top: 84%;
+        height: 82%;
+    }
 }
 
 /* REGRA PRA CELULARES */
@@ -3624,5 +3631,14 @@ input {
     }
     #contato {
         height: 160vh;
+    }
+
+    /* Amanda - Pagina Cadastro - 320px {nao apagar} */
+    #cadastro .card {
+        top: 84%;
+        height: 82%;
+    }
+    #login .card {
+        top: 84%;
     }
 }
