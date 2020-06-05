@@ -140,8 +140,47 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
     }
     imgPerfil.setAttribute('id', 'imagenPerfilPost')
 
-    let divColmd9 = document.createElement('div');
-    divColmd9.setAttribute('class', 'col-md-9');
+    let divColmd7 = document.createElement('div');
+    divColmd7.setAttribute('class', 'col-md-7');
+
+    let divColmd2 = document.createElement('div');
+    divColmd2.setAttribute('class', 'col-md-2');
+
+    let linkMenuPost = document.createElement('a');
+    linkMenuPost.setAttribute('href', '#');
+    linkMenuPost.setAttribute('id', 'btnMenuPost_' + id);
+    linkMenuPost.setAttribute('class', 'btn-menu-post');
+    linkMenuPost.setAttribute('onclick', 'abrirMenuPost('+ id +')');
+
+    let faEllipsis = document.createElement('i');
+    faEllipsis.setAttribute('class', 'fas fa-ellipsis-h');
+
+    let menuPost = document.createElement('div');
+    menuPost.setAttribute('id', 'menuPost_' + id);
+    menuPost.setAttribute('class', 'menu-postagem bg-white');
+
+    let ulMenu = document.createElement('ul');
+    ulMenu.setAttribute('class', 'list-group list-group-flush');
+
+    let liEdit = document.createElement('li');
+    liEdit.setAttribute('class', 'list-group-item');
+
+    let linkEdit = document.createElement('a');
+    linkEdit.setAttribute('href', '#');
+    linkEdit.innerText = ' Editar';
+
+    let faPencil = document.createElement('i');
+    faPencil.setAttribute('class', 'fas fa-pencil-alt');
+
+    let liExcl = document.createElement('li');
+    liExcl.setAttribute('class', 'list-group-item');
+
+    let linkExcl = document.createElement('a');
+    linkExcl.setAttribute('href', '#');
+    linkExcl.innerText = ' Editar';
+
+    let faTrash = document.createElement('i');
+    faTrash.setAttribute('class', 'fas fa-trash-alt');
 
     let spanNomeUsuario = document.createElement('span');
     spanNomeUsuario.setAttribute('class', 'nomeUsuarioPost');
@@ -219,11 +258,28 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
     divPerfilPost.appendChild(imgPerfil);
     divColmd3.appendChild(divPerfilPost);
     
-    
-    divColmd9.appendChild(spanNomeUsuario);
-    divColmd9.appendChild(br);
-    divColmd9.appendChild(spanDataPost);
-    divColmd9.appendChild(p);
+    divColmd7.appendChild(spanNomeUsuario);
+    divColmd7.appendChild(br);
+    divColmd7.appendChild(spanDataPost);
+    divColmd7.appendChild(p);
+
+    //linkEdit.appendChild(faPencil);
+    //linkExcl.appendChild(faTrash);
+    linkEdit.innerHTML = '<i class="fas fa-pencil-alt"></i> Editar';
+    linkExcl.innerHTML = '<i class="fas fa-trash-alt"></i> Excluir';
+
+    liEdit.appendChild(linkEdit);
+    liExcl.appendChild(linkExcl);
+
+    ulMenu.appendChild(liEdit);
+    ulMenu.appendChild(liExcl);
+
+    menuPost.appendChild(ulMenu);
+
+    linkMenuPost.appendChild(faEllipsis);
+
+    divColmd2.appendChild(linkMenuPost);
+    divColmd2.appendChild(menuPost);
 
     
     liCurtir.innerHTML = '<i class="fas fa-heart text-color-primary"></i> 0 ';
@@ -241,7 +297,7 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
     
     divMenuCriarStatus.appendChild(divColmd12);
     divRow2.appendChild(divColmd12);
-    divColmd9.appendChild(divRow2);
+    divColmd7.appendChild(divRow2);
     
     linkCurtir.appendChild(faHeart2x);
     linkComent.appendChild(faEye2x);
@@ -259,7 +315,8 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
     divColmd12_2.appendChild(divMenuCriarStatus);
     
     divRow.appendChild(divColmd3);
-    divRow.appendChild(divColmd9);
+    divRow.appendChild(divColmd7);
+    divRow.appendChild(divColmd2);
     divRow.appendChild(divColmd12_2);
 
     //divCardPost.appendChild(divRow);
@@ -268,6 +325,10 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
     cardNew.appendChild(divRow);
     corpoNovaPostagem.appendChild(cardNew);
 
+}
+
+function abrirMenuPost(e){
+    document.getElementById('menuPost_' + e).classList.toggle('active');
 }
 
 

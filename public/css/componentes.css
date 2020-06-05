@@ -76,3 +76,24 @@
     margin-left: 50%;
 }
 
+
+.menu-postagem{
+    position: relative;
+    border-radius: 7px;
+    width: 300px;
+    box-shadow: 0 0 10px #cccccc;
+    padding: 3px;
+    left: -179px;
+    display: none;
+}
+
+.menu-postagem.active{
+    display: block;
+}
+
+.menu-postagem ul li a{
+    text-decoration: none;
+    color: #383838
+}
+
+

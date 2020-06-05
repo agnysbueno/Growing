@@ -686,12 +686,6 @@ i {
     margin-bottom: 10px;
 }
 
-#btnfchPublic{
-    /* position:relative;
-    top: -35px;
-    right: -564px; */
-}
-
 .textoPost {
     margin-top: 7px;
     border: none;
@@ -747,6 +741,14 @@ i {
 
 #imagePost{
     width: 570px;
+}
+
+#imagemPostada{
+    width: 650px;
+}
+
+.btn-menu-post{
+    margin-left: 99px;
 }
 
 .publicacoes {

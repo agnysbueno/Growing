@@ -106,7 +106,7 @@
                   <% } %>
                 </div>
               </div>
-              <div class="col-md-9">
+              <div class="col-md-7">
                   <span class="nomeUsuarioPost"><%=usuario[0].nome_completo %> </span><br><span class="dataPostagem"> 
                     <% let date = p.data_postagem 
                        let dia = date.getDate().toString().padStart(2, '0');
@@ -116,6 +116,9 @@
                     %>Postado em: <%=dataFormatada %>
                   </span>
                   <p><%=p.texto %></p>
+                  <% if(p.imagem) { %>
+                  <p><img src="<%=p.imagem %>" alt="" id="imagemPostada" /></p>
+                  <% } %>
                     <div class="row">
                        <div class="col-md-12">
                           <ul class="menu-status">
@@ -125,6 +128,16 @@
                           </ul>
                        </div>
                     </div>
+              </div>
+              <div class="col-md-2">
+                 <a href="#" id="btnMenuPost_<%=p.id %>" class="btn-menu-post" onclick="abrirMenuPost('<%=p.id %>')"><i class="fas fa-ellipsis-h"></i></a>
+                 <div id="menuPost_<%=p.id %>" class="menu-postagem bg-white">
+                     <ul class="list-group list-group-flush">
+                       <li class="list-group-item"><a href="#"><i class="fas fa-pencil-alt"></i> Editar</a></li>
+                       <li class="list-group-item"><a href="#"><i class="fas fa-trash-alt"></i> Excluir</a></li>
+                     </ul>
+                    
+                 </div>
               </div>
               <div class="col-md-12">
                   <hr>
