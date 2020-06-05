@@ -11,10 +11,6 @@ module.exports = {
           primaryKey: true,
           autoIncrement: true
         },
-        titulo: {
-          type: Sequelize.STRING(300),
-          allowNull: false
-        },
         descricao: {
           type: Sequelize.STRING(300),
           allowNull: true
@@ -23,16 +19,6 @@ module.exports = {
           type: Sequelize.INTEGER,
           references: {
             model: 'usuario',
-            key: 'id'
-          },
-          onUpdate: 'CASCADE',
-          onDelete: 'CASCADE',
-          allowNull: false
-        },
-        fk_servico_geral: {
-          type: Sequelize.INTEGER,
-          references: {
-            model: 'servico_geral',
             key: 'id'
           },
           onUpdate: 'CASCADE',

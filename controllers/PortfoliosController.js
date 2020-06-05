@@ -8,24 +8,25 @@ const PortfoliosController = {
         let usuarioLog = req.session.usuario;
         let {categoria = "Geral"} = req.query;
         categoria = categoria.charAt(0).toUpperCase() + categoria.slice(1);
-
-            let listaDePortfoliosDaCategoria = await RegistroPortfolio.findAll({
-                include:{
-                    model: ImagemPortfolio,
-                    as: 'imagens',
-                    require: true
-                },
-                include:{
-                    model: ServicoGeral,
-                    as: 'servicogeral',
-                    require: true,
-                    where:{
-                        servico: {
-                            [Op.like]: `%${categoria}`
-                        }
+ 
+        let listaDePortfoliosDaCategoria = await RegistroPortfolio.findAll({
+            include:{
+                model: ImagemPortfolio,
+                as: 'imagens',
+                require: true
+            },
+            include:{
+                model: ServicoGeral,
+                as: 'servicogeral',
+                require: true,
+                where:{
+                    servico: {
+                        [Op.like]: `%${categoria}`
                     }
                 }
-            });
+            }
+        });
+            
         // console.log(listaDePortfoliosDaCategoria[0].imagens[0].imagem)
             
         return res.render('portfolios', {usuarioLog, listaDePortfoliosDaCategoria, categoria});
@@ -63,7 +64,7 @@ const PortfoliosController = {
             }
         });
         if(!servico){
-            servico.id = 17;
+            servico.id = 9;
         }
         const resultado = await RegistroPortfolio.create({
             titulo,
@@ -100,11 +101,20 @@ const PortfoliosController = {
         return res.render ('editarPortfolioDoUsuario', {portfolio, usuarioLog});
     },
     editarPortfolio: async(req, res) => {
-        const {titulo, descricao} = req.body;
+        const {titulo, descricao, categoria} = req.body;
         const {id} = req.params;
+
+        const servico = await ServicoGeral.findOne({
+            where:{
+                servico: {
+                    [Op.like]: `%${categoria}%`
+                }
+            }
+        });
         const resultado = await RegistroPortfolio.update({
             titulo,
-            descricao
+            descricao,
+            fk_servico_geral: servico.id
         },
         {
             where: { 
