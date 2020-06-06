@@ -15,7 +15,7 @@ module.exports = {
 
       fakeImagem = {
         id: fakeId,
-        imagem: faker.image.fashion(),
+        imagem: `${faker.image.fashion()}?random=${Date.now()}`,
         fk_registro_portfolio: faker.random.number({'min': 1, 'max': 600}),
       }
       imagensPortfolio.push(fakeImagem);

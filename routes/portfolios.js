@@ -24,14 +24,15 @@ const VerificaUsuarioLogado = require('../middlewares/VerificaUsuarioLogado');
 
 //Rotas
 router.get('/',VerificaUsuarioLogado, PortfoliosController.index);
-router.get('/fotos', VerificaUsuarioLogado, PortfoliosController.showImagensDoPortfolio);
 router.get('/meuportfolio', VerificaUsuarioLogado, PortfoliosController.showPortfoliosDoUsuario);
 router.post('/meuportfolio', VerificaUsuarioLogado, upload.any(), PortfoliosController.criarPortfolio);
 
 router.get('/meuportfolio/editar/:id', VerificaUsuarioLogado, PortfoliosController.showEditar);
-router.put('/meuportfolio/editar/:id', VerificaUsuarioLogado, PortfoliosController.editarPortfolio);
+router.put('/meuportfolio/editar/:id', VerificaUsuarioLogado, upload.any(), PortfoliosController.editarPortfolio);
 
+router.delete('/meuportfolio/editar/deletarimagem/:id', VerificaUsuarioLogado, PortfoliosController.deletarImagemDoPortfolio);
 router.delete('/deletar/:id', VerificaUsuarioLogado, PortfoliosController.deletarPortfolio);
+
 
 
 module.exports = router;

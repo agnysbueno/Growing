@@ -151,15 +151,20 @@
         <br><br><br>
         <div class="card-deck">
           <% listaDePortfoliosDaCategoria.forEach(portfolio => { %> 
+
+            
             <div class="card">
-              <img class="card-img-top" src="" alt="Card image cap">
+              <% if (portfolio.imagens[0]) { %>
+              <img class="card-img-top" src="<%=portfolio.imagens[0].dataValues.imagem %>" alt="Card image cap">
+              <% }else {%>
+              <img class="card-img-top" src="/images/default.jpg" alt="Card image cap">
+              <% } %>
               <div class="card-body">
                 <h5 class="card-title"><a href="servicoExecutado.html" class="link-primary"><%= portfolio.titulo %></a></h5>
                 <p class="card-text"> <%= portfolio.descricao %>  </p>
                 <a href="#" class="btn btn-outline-success">Agendar Serviço</a>
                 <button type="button" class="btn btn-estilo1" data-toggle="modal" data-target= "#usando<%= portfolio.id %>"> Detalhes
                 </button>
-                <a href="portfolios/fotos?id=<%= portfolio.id %>" class="btn btn-estilo1"> Ver Fotos</a>
               </div>
             </div>
             <!-- Modal -->
@@ -177,17 +182,16 @@
                     <p>
                       <%= portfolio.descricao %>
                       <br>
+                      <br>
                       <%= portfolio.id %>
 
-                      <% if (portfolio.imagens !== undefined) { %>
+                      <% if (portfolio.imagens) { %>
                         <% portfolio.imagens.forEach( imagem => {%>
                           <img src="<%= imagem.dataValues.imagem %>" alt="" width="100%">
+                          <br><br><br><br>
                         <% })%>
                         
                       <% } %>
-
-              
-
 
                     </p>
                   </div>
