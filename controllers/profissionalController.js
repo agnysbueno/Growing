@@ -6,58 +6,61 @@ const ProfissionalController = {
         res.render('perfilProfissional', {title: 'Profissional', usuario});
     },
 
-    mostrarProfissionais: async (req, res) =>{
-        let { id } = req.session.usuario; // Ta dando usuario is not defined (¬_¬)
-        console.log("UsuarioLog é" + id);
-        let Profissional = await DadoProfissional.findAll({
-            where: {
-                fk_usuario: id
-            }
-        })
-        res.send('perfilProfissional', {Profissional});
-    },
+    // mostrarProfissionais: async (req, res) =>{
+    //     let { id } = req.session.usuario; // Ta dando usuario is not defined (¬_¬)
+    //     console.log("UsuarioLog é" + id);
+    //     let Profissional = await DadoProfissional.findAll({
+    //         where: {
+    //             fk_usuario: id
+    //         }
+    //     })
+    //     res.send('perfilProfissional', {Profissional});
+    // },
 
-    salvarProfissional: async(req, res) => {
-        let { id } = req.session.usuario;
+    salvarProfissional: async (req, res) => {
+        let usuario = req.session.usuario;
+        let fk_usuario = usuario.id;
         let  { cnpj, razao_social, nome_fantasia, inscricao_estadual, inscricao_municipal} = req.body;
+        console.log(cnpj, usuario.id);
+
         let registro = await DadoProfissional.create({
-            cnpj, razao_social, nome_fantasia, inscricao_estadual, inscricao_municipal, fk_usuario: id
+           cnpj, razao_social, nome_fantasia, inscricao_estadual, inscricao_municipal, fk_usuario
         });
-        console.log(registro);
-        res.send('salvarProfissional', {registro});
+        // console.log(registro);
+        res.redirect('profissionais');
     },
 
-    sucessoProfissional: (req, res) => {
-        let {registro} = req.params;
-        let sucesso = registro? res.send('Profissional cadastrado com sucesso') : res.send('Erro ao cadastrar Profissional');
-        res.send('sucessoProfissional', {title: 'Sucesso', sucesso});
-    },
+    // sucessoProfissional: (req, res) => {
+    //     let {registro} = req.params;
+    //     let sucesso = registro? res.send('Profissional cadastrado com sucesso') : res.send('Erro ao cadastrar Profissional');
+    //     res.send('sucessoProfissional', {title: 'Sucesso', sucesso});
+    // },
 
-    verProfissional: (req, res) => {
-        let {id} = req.params;
-        DadoProfissional.findOne({
-            where: { id }
-        }).then(result => { res.send(result)});
-    },
+    // verProfissional: (req, res) => {
+    //     let {id} = req.params;
+    //     DadoProfissional.findOne({
+    //         where: { id }
+    //     }).then(result => { res.send(result)});
+    // },
 
-    editarProfissional: async(req, res) => {
-        let {id} = req.params;
-        let {fk_Profissional, preco, imagem, descricao} = req.params;
-        let registro = await DadoProfissional.update({
-            fk_Profissional, preco, imagem, descricao
-        },{
-            where: { id }
-        });
-        res.send('editarProfissional', {registro});
-    },
+    // editarProfissional: async(req, res) => {
+    //     let {id} = req.params;
+    //     let {fk_Profissional, preco, imagem, descricao} = req.params;
+    //     let registro = await DadoProfissional.update({
+    //         fk_Profissional, preco, imagem, descricao
+    //     },{
+    //         where: { id }
+    //     });
+    //     res.send('editarProfissional', {registro});
+    // },
 
-    deletarProfissional: async (req, res) => {
-        let {id} = req.params;
-        await DadoProfissional.destroy({
-            where: { id }
-        })
-        res.render('deletarProfissional', {title: 'Deletar'});
-    }
+    // deletarProfissional: async (req, res) => {
+    //     let {id} = req.params;
+    //     await DadoProfissional.destroy({
+    //         where: { id }
+    //     })
+    //     res.render('deletarProfissional', {title: 'Deletar'});
+    // }
 }
 
 module.exports = ProfissionalController;
