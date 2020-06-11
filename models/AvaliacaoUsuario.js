@@ -30,11 +30,11 @@ const AvaliacaoUsuario = (sequelize, DataTypes) => {
     avaliacaoUsuario.associate = (models) => {
         
         avaliacaoUsuario.belongsTo(models.Usuario, {
-            foreignKey:'fk_usuario', as: 'usuario'
+            foreignKey:'fk_usuario', as: 'Usuario'
         });
         
         avaliacaoUsuario.belongsTo(models.Compromisso, {
-            foreignKey:'fk_compromisso', as: 'compromisso'
+            foreignKey:'fk_compromisso', as: 'Compromisso'
         });
 
     };
