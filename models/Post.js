@@ -33,9 +33,7 @@ const Post = (sequelize, DataTypes) => {
 
     post.associate = (models) => {
         post.hasMany(models.Usuario, { foreignKey:'id', as: 'Usuario' });
-        // post.hasMany(models.Comentario, {
-        //     foreignKey:'fk_post', as: 'comentarios'
-        // });
+        post.belongsTo(models.Comentario, { foreignKey:'id', as: 'Comentario' });
 
     };
 

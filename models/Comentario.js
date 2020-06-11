@@ -41,7 +41,7 @@ const Comentario = (sequelize, DataTypes) => {
             foreignKey:'fk_usuario', as: 'usuario'
         });
         comentario.belongsTo(models.Post, {
-            foreignKey:'fk_post', as: 'post'
+            foreignKey:'fk_post', as: 'Post'
         });
 
     };
