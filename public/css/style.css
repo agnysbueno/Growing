@@ -605,11 +605,9 @@ i {
     display: inline;
 }
 
-.nav-header-menu ul li a img {
-    width: 22px;
-    height: 22px;
+.nav-header-menu ul li a i{
+    color: #9F6F78;
 }
-
 
 .usuario-header {
     font-weight: bold;
