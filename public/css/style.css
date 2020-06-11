@@ -1208,7 +1208,8 @@ i {
     padding: 10px;
 }
 
-#prod-servicos{
+#prod-servicos,
+#avaliacao-user {
     margin-right: -13px;
     border-radius: 7px;
     border: solid 2px #9f6f78;
