@@ -1,4 +1,4 @@
-const { sequelize, Usuario, Post } = require('../models');
+const { sequelize, Usuario, Post, Comentario } = require('../models');
 
 // Usuario.findByPk(1).then(
 //     usuario => {
@@ -17,8 +17,14 @@ const { sequelize, Usuario, Post } = require('../models');
 //     }
 // )
 
-Post.findAll({include:'Usuario', order: [
-    ['id', 'DESC']], where:{ id: 9 }}).then(
+// Post.findAll({include:'Usuario', order: [
+//     ['id', 'DESC']], where:{ id: 9 }}).then(
+//     data => {
+//         console.log(data.map(p => p.toJSON()));
+//     }
+// )
+
+Post.findAll({include:'Comentario'}).then(
     data => {
         console.log(data.map(p => p.toJSON()));
     }
