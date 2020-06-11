@@ -1893,11 +1893,21 @@ input {
     height: auto;
 }
 
+#cadastro .card {
+    margin: auto;
+    height: auto;
+}
+
 /* Navegadores menores */
 
 @media (min-width: 1200px){
     .criar-publicacoes{
         margin-top: 10px;
+    }
+
+    #cadastro .card {
+        margin: auto;
+        height: auto;
     }
 }
 
@@ -2120,6 +2130,11 @@ input {
         display: block;
     }
 
+    #cadastro .card {
+        margin: auto;
+        height: auto;
+    }
+
 }
 
 @media (min-width: 1400px) {
@@ -2173,6 +2188,11 @@ input {
         position: fixed;
         right: 1px;
     }
+
+    #cadastro .card {
+        margin: auto;
+        height: auto;
+    }
 }
 
 @media (min-width: 1300px) {
@@ -2192,6 +2212,11 @@ input {
     }
     .btn-menu-post{
         margin-left: 65px;
+    }
+
+    #cadastro .card {
+        margin: auto;
+        height: auto;
     }
 }
 
@@ -2341,6 +2366,11 @@ input {
         ;
     }
 
+    #cadastro .card {
+        margin: auto;
+        height: auto;
+    }
+
 }
 
 /* iPad Pro */
@@ -2401,6 +2431,11 @@ input {
     .row-solicitacao{
         margin-top: 10px;
     }
+
+    #cadastro .card {
+        margin: auto;
+        height: auto;
+    }
 }
 
 /*  Dispositivos Móveis */
@@ -2445,6 +2480,10 @@ input {
         font-size: 9pt;
     }
   
+    #cadastro .card {
+        margin: auto;
+        height: auto;
+    }
 
 }
 
@@ -2843,6 +2882,11 @@ input {
         width: 8vw;
     }
 
+    #cadastro .card {
+        margin: auto;
+        height: auto;
+    }
+
 }
 
 /* Coloquei essa regra pra celulares pq tem alguns celulares maiores que 400px (plus exemplo) essa regra aplica melhor - _Amanda_ */
@@ -2874,6 +2918,11 @@ input {
 
     .fotoDepoimento {
         width: 11vw;
+    }
+
+    #cadastro .card {
+        margin: auto;
+        height: auto;
     }
 }
 
@@ -3258,6 +3307,11 @@ input {
     /* Mike - Agenda e calendario*/
     .segura-section2 {
         margin-top: 0px;
+    }
+
+    #cadastro .card {
+        margin: auto;
+        height: auto;
     }
 
 }
@@ -3662,7 +3716,7 @@ input {
     }
     #cadastro .card {
         margin: auto;
-        height: 60%;
+        height: auto;
     }
 
     #login .card {
@@ -3691,7 +3745,7 @@ input {
 
     #cadastro .card {
         margin: auto;
-        height: 74%;
+        height: auto;
     }
 
     #login .card {
@@ -3726,7 +3780,7 @@ input {
     /* #login .card, */
     #cadastro .card {
         margin: auto;
-        height: 78%;
+        height: auto;
     }
 
     #login .card {
@@ -3761,7 +3815,7 @@ input {
     /* Amanda - Pagina Cadastro - 320px {nao apagar} */
     #cadastro .card {
         margin: auto;
-        height: 73%;
+        height: auto;
     }
     #login .card {
         margin: auto;

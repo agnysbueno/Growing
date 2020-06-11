@@ -28,6 +28,7 @@ const PortfoliosController = {
             }]
         });
         res.render('portfolios', {usuarioLog, listaDePortfoliosDaCategoria, categoria});
+        // res.send('Olá mundo');
     },
     showPortfoliosDoUsuario: async (req, res) => {
         let usuarioLog = req.session.usuario;
@@ -75,7 +76,7 @@ const PortfoliosController = {
                 fk_registro_portfolio: idDoUltimoPortfolio
             })
         })
-        return res.redirect ('/portfolios/meuportfolio');
+        res.redirect ('/portfolios/meuportfolio');
     },
     showEditar: async(req, res) => {
         const {id} = req.params;
@@ -96,7 +97,7 @@ const PortfoliosController = {
                     require:true
                 }]
         });
-        return res.render ('editarPortfolioDoUsuario', {portfolio, usuarioLog});
+        res.render ('editarPortfolioDoUsuario', {portfolio, usuarioLog});
     },
     editarPortfolio: async(req, res) => {
         const {titulo, descricao, categoria} = req.body;
@@ -126,14 +127,14 @@ const PortfoliosController = {
                 fk_registro_portfolio: id
             })
         })
-        return res.redirect ('/portfolios/meuportfolio');
+        res.redirect ('/portfolios/meuportfolio');
     },
     deletarPortfolio: async (req, res) => {
         let {id} = req.params;
         let resultado = await RegistroPortfolio.destroy({
             where: { id }
         })
-        return res.redirect('/portfolios/meuportfolio');
+        res.redirect('/portfolios/meuportfolio');
     },
     deletarImagemDoPortfolio: async (req,res) => {
         let {id} = req.params;
@@ -143,7 +144,7 @@ const PortfoliosController = {
                 id
             }
         })
-        return res.redirect('/portfolios/meuportfolio/editar/' + idport);
+        res.redirect('/portfolios/meuportfolio/editar/' + idport);
     }
 }
 module.exports = PortfoliosController;

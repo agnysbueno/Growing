@@ -9,8 +9,8 @@ const RegistroPortfolio = (sequelize, DataTypes) => {
               autoIncrement: true
             },
             titulo: {
-            type: DataTypes.STRING(30),
-            allowNull: true
+                type: DataTypes.STRING(30),
+                allowNull: true
             },
             descricao: {
               type: DataTypes.STRING(300),
@@ -19,8 +19,8 @@ const RegistroPortfolio = (sequelize, DataTypes) => {
             fk_usuario: {
               type: DataTypes.INTEGER,
               allowNull: false
-            }
-            ,fk_servico_geral:{
+            },
+            fk_servico_geral:{
                 type: DataTypes.INTEGER,
                 allowNull: false
             }
