@@ -172,10 +172,10 @@ header #main-button {
 #login .card,
 #cadastro .card {
     position: absolute;
-    top: 80%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -80%);
-    height: 80%;
+    transform: translate(-50%, -50%);
+    height: 71%;
     background: #ebebeb;
     margin: 0;
     box-sizing: border-box;
@@ -189,22 +189,22 @@ header #main-button {
     height: 100vh;
 }
 
-#login #logotipo,
+/* #login #logotipo,
 #cadastro #logotipo {
     font-size: 100px;
     color: #422f33;
-}
+} */
 
 #login i,
 #cadastro i {
     color: gray;
 }
 
-#logotipo a{
+/* #logotipo a{
     text-decoration: none;
-    font-size: 100px;
+    font-size: 80%;
     color: #422f33;
-}
+} */
 
 .briefing {
     width: 95%;
@@ -341,7 +341,8 @@ form .btn-ligth {
 
 /* Section Login */
 
-#login {
+#login,
+#cadastro {
     background-image: url('../images/background-transp1.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -355,20 +356,21 @@ i {
     color: gray;
 }
 
-.form-group {
-    font-size: 20px;
+/* icone */
+#login .form-group {
+    font-size: 15px;
     color: #422f33;
 }
 
 #recuperar-senha,
 #cadastrar,
 #conexao {
-    font-size: 20px;
+    font-size: 100%;
     color: #422f33;
 }
 
 #manter-conectado-texto {
-    font-size: 18px;
+    font-size: 80%;
     color: #422f33;
 }
 
@@ -380,31 +382,22 @@ i {
 
 .formulario {
     width: 85%;
-    margin-top: 8%;
+    margin-top: 5%;
     margin-bottom: 10%;
 }
 
 /* Section Cadastro */
 
-#cadastro {
-    background-image: url('../images/background-transp1.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
 #cadastrado,
 #termos,
 #promocoes {
-    font-size: 20px;
+    font-size: 90%;
     color: #422f33;
 }
 
 #aceito-termos-texto,
 #aceito-promocoes-texto {
-    font-size: 20px;
+    font-size: 110%;
     color: #422f33;
 }
 
@@ -1163,12 +1156,6 @@ i {
 
 /* Cadastro */
 
-#cadastro {
-    background-image: url('../image/background-transp1.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-}
 
 /* Perfil Usuario - David */
 
@@ -3622,6 +3609,15 @@ input {
     #user {
         height: 160vh;
     }
+    #cadastro .card {
+        margin: auto;
+        height: 60%;
+    }
+
+    #login .card {
+        margin: auto;
+        height: 64%;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -3640,6 +3636,16 @@ input {
     }
     #user {
         height: 176vh;
+    }
+
+    #cadastro .card {
+        margin: auto;
+        height: 74%;
+    }
+
+    #login .card {
+        margin: auto;
+        height: 75%;
     }
 }
 
@@ -3668,8 +3674,13 @@ input {
     /* Amanda - Pagina Cadastro - 576px {nao apagar} */
     /* #login .card, */
     #cadastro .card {
-        top: 84%;
-        height: 82%;
+        margin: auto;
+        height: 78%;
+    }
+
+    #login .card {
+        margin: auto;
+        height: 80%;
     }
 }
 
@@ -3698,10 +3709,11 @@ input {
 
     /* Amanda - Pagina Cadastro - 320px {nao apagar} */
     #cadastro .card {
-        top: 84%;
-        height: 82%;
+        margin: auto;
+        height: 73%;
     }
     #login .card {
-        top: 84%;
+        margin: auto;
+        height: 73%;
     }
 }

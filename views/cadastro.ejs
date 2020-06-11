@@ -25,30 +25,27 @@
 <body>
 
     <section id="cadastro">
-        <h1 id="logotipo" class="text-center mb-1"><a href="/"><img src="./images/logo-primary.png"
-                    alt="Logotipo Growing"></a>
-        </h1>
         <div class="row">
             <div class="col-10 col-xl-4 col-md-8 card">
 
                 <form class="formulario mx-auto" method="POST" action="/cadastro">
                     <div class="form-group">
-                        <input type="tex" class="form-control form-control-lg" id="nome" name="nome_completo"
+                        <input type="tex" class="form-control form-control-md" id="nome" name="nome_completo"
                             placeholder="Nome completo" required>
                     </div>
 
                     <div class="form-group">
-                        <input type="email" class="form-control form-control-lg" id="email" name="email"
+                        <input type="email" class="form-control form-control-md" id="email" name="email"
                             placeholder="exemplo@mail.com" required>
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control form-control-lg" id="senha"
+                        <input type="password" class="form-control form-control-md" id="senha"
                             placeholder="Crie uma senha" required>
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control form-control-lg" id="re_senha" name="senha"
+                        <input type="password" class="form-control form-control-md" id="re_senha" name="senha"
                             placeholder="Digite a senha novamente" required>
                     </div>
 
@@ -75,13 +72,13 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-lg btn-ligth mt-2" role="button"
+                        <button type="submit" class="btn btn-md btn-ligth mt-2" role="button"
                             aria-disabled="true">Cadastrar</button>
                     </div>
 
-                    <div class="form-group mt-4">
-                        <i class="fas fa-user-check"></i>
-                        <a href="/login" id="cadastrado" class="text-muted ml-2">Já sou cadastrado</a>
+                    <div class="form-group d-flex justify-content-center">
+                        <!-- <i class="fas fa-user-check"></i> -->
+                        <a href="/login" id="cadastrado" class="text-muted ml-2">Já sou cadastrado!</a>
                     </div>
 
                 </form>
