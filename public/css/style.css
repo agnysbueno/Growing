@@ -459,6 +459,7 @@ i {
 }
 
 .logo-g a {
+    top: 3px;
     left: 20%;
     position: absolute;
 }
@@ -945,6 +946,10 @@ i {
 
 #cabecalho-propagandas {
     height: 60px;
+}
+
+#cabecalho-propagandas h3 {
+    font-size:15pt;
 }
 
 #cabecalho-propagandas img {
