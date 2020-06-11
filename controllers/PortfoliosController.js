@@ -4,7 +4,7 @@ const Op = Sequelize.Op;
 const fs = require('fs');
 
 const PortfoliosController = {
-    index: async (req, res) => { 
+    index: async(req, res) => { 
         let usuarioLog = req.session.usuario;
         let {categoria = "Barba"} = req.query;
         categoria = categoria.charAt(0).toUpperCase() + categoria.slice(1);
@@ -27,7 +27,7 @@ const PortfoliosController = {
                 }
             }]
         });
-        return res.render('portfolios', {usuarioLog, listaDePortfoliosDaCategoria, categoria});
+        res.render('portfolios', {usuarioLog, listaDePortfoliosDaCategoria, categoria});
     },
     showPortfoliosDoUsuario: async (req, res) => {
         let usuarioLog = req.session.usuario;
@@ -46,7 +46,7 @@ const PortfoliosController = {
                     fk_usuario: usuarioLog.id
                 }
         })
-        return res.render('portfolioDoUsuario', {usuarioLog, listaDePortfoliosDoUsuario});
+        res.render('portfolioDoUsuario', {usuarioLog, listaDePortfoliosDoUsuario});
     },
     criarPortfolio: async (req, res) => { //Renderiza um form
         const {titulo, descricao, categoria} = req.body;

@@ -1888,7 +1888,10 @@ input {
 
 /* David - fim servico executado */
 
-
+#login .card {
+    margin: auto;
+    height: auto;
+}
 
 /* Navegadores menores */
 
@@ -3664,7 +3667,7 @@ input {
 
     #login .card {
         margin: auto;
-        height: 64%;
+        height: auto;
     }
 }
 
@@ -3693,7 +3696,7 @@ input {
 
     #login .card {
         margin: auto;
-        height: 75%;
+        height: auto;
     }
 }
 
@@ -3728,7 +3731,7 @@ input {
 
     #login .card {
         margin: auto;
-        height: 80%;
+        height: auto;
     }
 }
 
@@ -3762,6 +3765,6 @@ input {
     }
     #login .card {
         margin: auto;
-        height: 73%;
+        height: auto;
     }
 }

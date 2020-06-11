@@ -23,7 +23,7 @@ const PortfoliosController = require("../controllers/PortfoliosController");
 const VerificaUsuarioLogado = require('../middlewares/VerificaUsuarioLogado');
 
 //Rotas
-router.get('/',VerificaUsuarioLogado, PortfoliosController.index);
+router.get('/', VerificaUsuarioLogado, PortfoliosController.index);
 router.get('/meuportfolio', VerificaUsuarioLogado, PortfoliosController.showPortfoliosDoUsuario);
 router.post('/meuportfolio', VerificaUsuarioLogado, upload.any(), PortfoliosController.criarPortfolio);
 
