@@ -118,8 +118,8 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label for="categoria1">Categoria</label>
-                                    <select name="categoria" id="categoria1" class="form-control">
-                                            <option value="">Selecione...</option>
+                                    <select name="categoria" id="categoria1" class="form-control" required>
+                                            <option value="" selected disabled hidden>Selecione...</option>
                                             <option value="Barba"> Barba</option>
                                             <option value="Cabelo"> Cabelo</option>
                                             <option value="Limpeza de pele"> Limpeza de pele</option>
@@ -154,17 +154,24 @@
         <div class="card-deck">
           <% listaDePortfoliosDoUsuario.forEach(portfolio => { %>
             <div class="card">
-              <img class="card-img-top" src="/images/categorias/barba/barba1.jfif" alt="Card image cap">
+              <% if (portfolio.imagens[0]) { %>
+                <img class="card-img-top" src="<%=portfolio.imagens[0].dataValues.imagem %>" alt="Card image cap">
+                <% }else {%>
+                <img class="card-img-top" src="/images/default.jpg" alt="Card image cap">
+                <% } %>
               <div class="card-body">
-                <h5 class="card-title"><a href="servicoExecutado.html" class="link-primary"><%= portfolio.titulo %></a></h5>
-                <p class="card-text"> <%= portfolio.descricao %>  </p>
+                <h5 class="card-title"><a href="" class="link-primary"><strong><%= portfolio.titulo %></strong></a></h5>
+                <p class="card-text"> 
+                  <p><i>Categoria:<%= portfolio.servicogeral.servico %></i></p>
+                  <br>
+                  <%= portfolio.descricao %>  
+                </p>
                 <button type="button" class="btn btn-estilo1" data-toggle="modal" data-target= "#usando<%= portfolio.id %>"> Detalhes
                 </button>
-                <a href="fotos?id=<%= portfolio.id %>" class="btn btn-estilo1"> Ver Fotos</a>
                 <!-- inicio botar editar portfolio -->
-                <a href="meuportfolio/editar/<%= portfolio.id %>" class="btn btn-estilo1"> Editar</a>
+                <a href="/portfolios/meuportfolio/editar/<%= portfolio.id %>" class="btn btn-estilo1"> Editar</a>
 
-                <form action="deletar/<%= portfolio.id %>?_method=DELETE" method="post">
+                <form action="/portfolios/deletar/<%= portfolio.id %>?_method=DELETE" method="post">
                   <button type="submit" class="btn btn-estilo1"> Excluir</button>
                 </form>
                 
@@ -188,6 +195,13 @@
                       <br>
                       <%= portfolio.id %>
                     </p>
+                    <% if (portfolio.imagens) { %>
+                      <% portfolio.imagens.forEach( imagem => {%>
+                        <img src="<%= imagem.dataValues.imagem %>" alt="" width="100%">
+                        <br><br><br><br>
+                      <% })%>
+                      
+                    <% } %>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

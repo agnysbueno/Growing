@@ -3710,8 +3710,8 @@ input {
 
   .card-img-top {
     width: 100%;
-    height: 50%;
-    object-fit: scale-down;
+    height: 40vh;
+    object-fit: cover;
 }
 
 .tituloprincipal h1{

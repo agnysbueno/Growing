@@ -6,56 +6,52 @@ const fs = require('fs');
 const PortfoliosController = {
     index: async (req, res) => { 
         let usuarioLog = req.session.usuario;
-        let {categoria = "Geral"} = req.query;
+        let {categoria = "Barba"} = req.query;
         categoria = categoria.charAt(0).toUpperCase() + categoria.slice(1);
  
         let listaDePortfoliosDaCategoria = await RegistroPortfolio.findAll({
-            include:{
+            include:[
+            {
                 model: ImagemPortfolio,
                 as: 'imagens',
                 require: true
             },
-            include:{
+            {
                 model: ServicoGeral,
                 as: 'servicogeral',
                 require: true,
                 where:{
                     servico: {
-                        [Op.like]: `%${categoria}`
+                        [Op.like]: `%${categoria}%`
                     }
                 }
-            }
+            }]
         });
-            
-        // console.log(listaDePortfoliosDaCategoria[0].imagens[0].imagem)
-            
         return res.render('portfolios', {usuarioLog, listaDePortfoliosDaCategoria, categoria});
-    },
-    showImagensDoPortfolio: async (req, res) =>{
-        let usuarioLog = req.session.usuario;
-        let {categoria = "Geral", id} = req.query;
-        categoria = categoria.charAt(0).toUpperCase() + categoria.slice(1);
-
-        let listaDePortfoliosDaCategoria = null;
-
-        return res.render('portfoliofotos', {listaDePortfoliosDaCategoria, imagensDoPortfolio, categoria, usuarioLog});
     },
     showPortfoliosDoUsuario: async (req, res) => {
         let usuarioLog = req.session.usuario;
-
         let listaDePortfoliosDoUsuario = await RegistroPortfolio.findAll({
-            where: {
-                fk_usuario: usuarioLog.id
-            }
+            include:[
+                {
+                    model: ImagemPortfolio,
+                    as: 'imagens',
+                    require: true
+                },{
+                    model: ServicoGeral,
+                    as: 'servicogeral',
+                    require: true
+                }],
+                where: {
+                    fk_usuario: usuarioLog.id
+                }
         })
-
         return res.render('portfolioDoUsuario', {usuarioLog, listaDePortfoliosDoUsuario});
     },
     criarPortfolio: async (req, res) => { //Renderiza um form
         const {titulo, descricao, categoria} = req.body;
         let {files} = req;
         let usuarioLog = req.session.usuario;
-
         const servico = await ServicoGeral.findOne({
             where:{
                 servico: {
@@ -72,36 +68,39 @@ const PortfoliosController = {
             fk_usuario : usuarioLog.id,
             fk_servico_geral: servico.id
         })
-
-        files.forEach(file => {
-            let caminho = file.path;
-            console.log(caminho)
-            let imageData = fs.readFileSync(caminho);     
-            let resultado1 =  ImagemPortfolio.create({
-                imagem: imageData,
-                fk_registro_portfolio: resultado.dataValues.id
-            }).then(image => {
-                try{
-                    console.log(image)
-                    fs.writeFileSync(caminho, image.imagem); 
-                }catch(e){
-                    console.log(e);
-                }
+        let idDoUltimoPortfolio = await RegistroPortfolio.max('id');
+        files.forEach(async file => {
+            const resultado1 = await ImagemPortfolio.create({
+                imagem: '/images/' + file.originalname,
+                fk_registro_portfolio: idDoUltimoPortfolio
             })
-        });
-        
-
-
+        })
         return res.redirect ('/portfolios/meuportfolio');
     },
     showEditar: async(req, res) => {
         const {id} = req.params;
         const usuarioLog = req.session.usuario;
-        const portfolio = await RegistroPortfolio.findByPk(id);
+        const portfolio = await RegistroPortfolio.findOne({
+            where:{
+                id
+            },
+            include:[
+                {
+                    model: ImagemPortfolio,
+                    as: 'imagens',
+                    require:true
+                },
+                {
+                    model: ServicoGeral,
+                    as: 'servicogeral',
+                    require:true
+                }]
+        });
         return res.render ('editarPortfolioDoUsuario', {portfolio, usuarioLog});
     },
     editarPortfolio: async(req, res) => {
         const {titulo, descricao, categoria} = req.body;
+        const {files} = req;
         const {id} = req.params;
 
         const servico = await ServicoGeral.findOne({
@@ -121,6 +120,12 @@ const PortfoliosController = {
                 id 
             }
         });
+        files.forEach(async file => {
+            const resultado1 = await ImagemPortfolio.create({
+                imagem: '/images/' + file.originalname,
+                fk_registro_portfolio: id
+            })
+        })
         return res.redirect ('/portfolios/meuportfolio');
     },
     deletarPortfolio: async (req, res) => {
@@ -129,7 +134,16 @@ const PortfoliosController = {
             where: { id }
         })
         return res.redirect('/portfolios/meuportfolio');
+    },
+    deletarImagemDoPortfolio: async (req,res) => {
+        let {id} = req.params;
+        let {idport} = req.body;
+        let resultado = await ImagemPortfolio.destroy({
+            where: {
+                id
+            }
+        })
+        return res.redirect('/portfolios/meuportfolio/editar/' + idport);
     }
 }
-
 module.exports = PortfoliosController;

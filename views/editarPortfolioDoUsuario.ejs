@@ -93,7 +93,7 @@
           <h1>Editar portfólio</h1>
         </div>
     
-            <form action = "<%=portfolio.id%>?_method=PUT" method= "post">
+            <form action = "<%=portfolio.id%>?_method=PUT" id='formPortfolio' method= "post" enctype="multipart/form-data">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-12">
@@ -106,8 +106,8 @@
                         </div>
                         <div class="col-md-12">
                             <label for="categoria1">Categoria</label>
-                            <select name="categoria" id="categoria1" class="form-control">
-                                    <option value="">Selecione...</option>
+                            <select name="categoria" id="categoria1" class="form-control" autofocus required>">
+                                    <option value="" selected disabled hidden>Selecione...</option>
                                     <option value="Barba"> Barba</option>
                                     <option value="Cabelo"> Cabelo</option>
                                     <option value="Limpeza de pele"> Limpeza de pele</option>
@@ -121,16 +121,35 @@
                             </select>
                         </div>
                         <div class="col-md-12">
-                            <label for="fotos1">Insira as fotos</label>
+                            <label for="fotos1">Adicione mais fotos</label>
                             <input type="file" name="files" id="fotos1" class="form-control" multiple>
                         </div>
                     </div>
                 </div>
+
+            </form>
+            <% if(portfolio.imagens[0]) {%>
+                <label for="">Excluir fotos</label>
+                <% } %>
+                <div class="card-deck">
+                    <% portfolio.imagens.forEach(imagem => { %>
+                        <div class="card">
+                            <img class="card-img-top" src="<%= imagem.imagem %>" alt="Card image cap">
+                            <div class="card-body">
+                              <h5 class="card-title"></h5>
+                                <p>Excluir essa foto.</p>
+                                <form action="deletarimagem/<%=imagem.id%>?_method=DELETE" method="post">
+                                    <input type="hidden" name = "idport" value = "<%=imagem.fk_registro_portfolio%>">
+                                    <button type="submit" class="btn btn-danger">Deletar</button>
+                                </form>
+                            </div>
+                          </div>
+                    <% }) %>
+                </div>
                 <!-- <div class="modal-footer"> -->
                     <a href= "/portfolios/meuportfolio" type="button" class="btn btn-secondary">Retornar sem alterar</a>
-                    <button class="btn bg-primary-color icon-color-white" type="submit">Atualizar Portfólio</button>
+                    <button class="btn bg-primary-color icon-color-white" type="submit" form= "formPortfolio">Atualizar Portfólio</button>
                 <!-- </div> -->
-            </form>
                 
 
         </div>
