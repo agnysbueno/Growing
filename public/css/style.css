@@ -1195,7 +1195,8 @@ i {
 .row-status{
     width: 900px;
     margin-top: 5px;
-    margin-left: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #preferencias{
@@ -2126,12 +2127,21 @@ input {
 
 }
 
-@media (max-width: 1400px) {
+@media (min-width: 1400px) {
 
     .header-corpo {
         width: 100%;
         position: fixed;
         z-index: 100;
+    }
+    .row-status{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #capa-usuario{
+        margin-left: auto;
+        margin-right: auto;
     }
 
 
@@ -2170,8 +2180,37 @@ input {
     }
 }
 
+@media (min-width: 1300px) {
+    #capa-usuario{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .row-status{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .propagandas{
+        margin-left: 19px;
+    }
+    .criar-publicacoes{
+        width: 500px;
+    }
+    .btn-menu-post{
+        margin-left: 65px;
+    }
+}
 
 @media (max-width: 1200px) {
+
+    #capa-usuario{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .row-status{
+        margin-left: auto;
+        margin-right: auto;
+    }
 
     .header-corpo {
         width: 100%;
@@ -2354,10 +2393,14 @@ input {
 
     #capa-usuario{
         width: 860px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .row-status{
         width: 860px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .row-solicitacao{
