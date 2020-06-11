@@ -1246,7 +1246,6 @@ i {
     color: #9F6F78;
 }
 
-
 .foto-post {
     display: inline-block;
 }
@@ -1957,14 +1956,14 @@ input {
         margin-top: 10px;
         margin-left: auto;
         margin-right: auto;
-        width: 650px;
+        width: 590px;
     }
 
     .publicacoes {
         margin-top: 30px;
         margin-left: auto;
         margin-right: auto;
-        width: 650px;
+        width: 590px;
     }
 
     .criar-publicacoes hr {
@@ -2086,9 +2085,10 @@ input {
     }
 
     .propagandas {
-        margin-top: 90px;
+        margin-top: 80px;
         margin-right: 40px;
-        width: 387;
+        width: 338px;
+        margin-left: 55px;
         height: 1900px;
         background-color: #FFFFFF;
     }
