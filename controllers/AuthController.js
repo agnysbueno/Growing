@@ -32,7 +32,7 @@ const AuthController = {
         req.session.usuario = user;
 
         //redirecionando para página inicial
-        res.redirect('/users');
+        res.redirect('/posts');
 
     }
 

@@ -18,7 +18,7 @@ module.exports = {
         texto: faker.lorem.paragraphs(1),
         data_postagem: faker.date.past(1, '2020-05-17'),
         imagem: faker.image.fashion(),
-        fk_usuario: faker.random.number({'min': 1, 'max': 200}),
+        fk_usuario: faker.random.number({'min': 54, 'max': 200}),
       }
       posts.push(fakePost);
       fakeId+=1;
