@@ -37,10 +37,10 @@ const RegistroPortfolio = (sequelize, DataTypes) => {
             foreignKey:'fk_usuario', as: 'Usuario'
         });
         registroPortfolio.hasMany(models.ImagemPortfolio, {
-            foreignKey:'fk_registro_portfolio', as: 'ImagemPortfolio'
+            foreignKey:'fk_registro_portfolio', as: 'imagens'
         });
         registroPortfolio.belongsTo(models.ServicoGeral, {
-            foreignKey:'fk_servico_geral', as: 'ServicoGeral'
+            foreignKey:'fk_servico_geral', as: 'servicogeral'
         });
 
     };

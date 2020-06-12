@@ -27,7 +27,6 @@ const PortfoliosController = {
                 }
             }]
         });
-        // let listaDePortfoliosDaCategoria = await RegistroPortfolio.findAll({include:'ImagemPortfolio', include:"ServicoGeral"});
         res.render('portfolios', {usuarioLog, listaDePortfoliosDaCategoria, categoria});
     },
     showPortfoliosDoUsuario: async (req, res) => {
@@ -70,10 +69,10 @@ const PortfoliosController = {
             fk_servico_geral: servico.id
         })
         let idDoUltimoPortfolio = await RegistroPortfolio.max('id');
-        files.forEach(async file => {
-            const resultado1 = await ImagemPortfolio.create({
+        files.forEach(file => {
+            const resultado1 =  ImagemPortfolio.create({
                 imagem: '/images/' + file.originalname,
-                fk_registro_portfolio: idDoUltimoPortfolio
+                fk_registro_portfolio:  idDoUltimoPortfolio
             })
         })
         res.redirect ('/portfolios/meuportfolio');
