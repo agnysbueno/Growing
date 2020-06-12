@@ -43,16 +43,18 @@ const ProfissionalController = {
     //     }).then(result => { res.send(result)});
     // },
 
-    // editarProfissional: async(req, res) => {
-    //     let {id} = req.params;
-    //     let {fk_Profissional, preco, imagem, descricao} = req.params;
-    //     let registro = await DadoProfissional.update({
-    //         fk_Profissional, preco, imagem, descricao
-    //     },{
-    //         where: { id }
-    //     });
-    //     res.send('editarProfissional', {registro});
-    // },
+    editarProfissional: async(req, res) => {
+        let usuario = req.session.usuario;
+        let fk_usuario = usuario.id;
+        let  { cnpj, razao_social, nome_fantasia, inscricao_estadual, inscricao_municipal} = req.body;
+        console.log(cnpj, usuario.id);
+        let atualiza = await DadoProfissional.update({
+            cnpj, razao_social, nome_fantasia, inscricao_estadual, inscricao_municipal
+        },{
+            where: { fk_usuario }
+        });
+        res.redirect('profissionais');
+    },
 
     // deletarProfissional: async (req, res) => {
     //     let {id} = req.params;
