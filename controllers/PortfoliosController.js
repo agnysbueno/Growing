@@ -27,8 +27,8 @@ const PortfoliosController = {
                 }
             }]
         });
+        // let listaDePortfoliosDaCategoria = await RegistroPortfolio.findAll({include:'ImagemPortfolio', include:"ServicoGeral"});
         res.render('portfolios', {usuarioLog, listaDePortfoliosDaCategoria, categoria});
-        // res.send('Olá mundo');
     },
     showPortfoliosDoUsuario: async (req, res) => {
         let usuarioLog = req.session.usuario;

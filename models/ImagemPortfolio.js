@@ -25,9 +25,13 @@ const ImagemPortfolio = (sequelize, DataTypes) => {
 
     imagemPortfolio.associate = (models) => {
         
-        imagemPortfolio.belongsTo(models.Usuario, {
-            foreignKey:'fk_registro_portfolio', as: 'registro_portfolio'
-        });
+        // imagemPortfolio.belongsTo(models.registro_portfolio, {
+        //     foreignKey:'fk_registro_portfolio', as: 'registro_portfolio'
+        // });
+
+        imagemPortfolio.belongsTo(models.RegistroPortfolio, {
+            foreignKey:'id', as:'RegistroPortfolio'
+        })
 
     };
 

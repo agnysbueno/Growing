@@ -181,12 +181,16 @@ header #main-button {
     box-sizing: border-box;
 }
 
-​ #sobre,
+​#sobre,
 #professional,
 #user,
 #contato {
     background-color: #ebebeb;
     height: 100vh;
+}
+
+.cardFeedgeral{
+    margin-top: 100px;
 }
 
 /* #login #logotipo,
@@ -2129,6 +2133,21 @@ input {
         color: #9F6F78;
         display: block;
     }
+
+    .comentario{
+        padding: 10px;
+        width: 90%;
+        margin-left: 57px
+    }
+
+    .texto-coment{
+        border-radius: 50px;
+        background-color: hsl(0, 20%, 96%);
+        height: auto;
+        padding: 5px;
+    }
+
+    /* Fim feed geral david */
 
     #cadastro .card {
         margin: auto;

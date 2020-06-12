@@ -1,0 +1,326 @@
+<%- include('./shared/header') %>
+
+<div class="row">
+    <div class="col-md-8 col-sm-12">
+       <div class="row">
+        <div class="card-post-feedGeral bg-white">
+            <div class="row">
+              <!-- <div class="col-md-12">
+                <p>Criar publicação</p>
+                <hr>
+              </div> -->
+              <div class="col-md-3">
+                <div class="perfil-usuario-mini" id='perfil-post-img'>
+                    <% if(usuario[0].foto_perfil != '') { %>
+                        <img src="<%=usuario[0].foto_perfil %>" id='imagenPerfilPost'>
+                    <% } else { %>
+                        <img src="/images/usuario.png" id='imagenPerfilPostInex'>
+                    <% } %>
+                </div>
+              </div>
+              <div class="col-md-9">
+                  <!-- <textarea name="texto" id="" class="form-control" placeholder="Olá <%=usuario[0].nome_completo %> ! No que você está pensando?"></textarea> -->
+                  <div class="criar-publicacoes">
+                    <a href="#" id="btnCriarPublic">Olá <%=usuario[0].nome_completo %> ! No que você está pensando?</a>
+                  </div>
+                </div>
+              <div class="col-md-12">
+                <hr>
+                <!-- <button class="botao-enviar bg-primary-color text-color-white">Foto</button>
+                <button class="botao-enviar bg-primary-color text-color-white">Enviar</button> -->
+              </div>
+            </div>
+        </div>
+       </div>
+       <!-- Postagens referentes ao cliente -->
+      <div class="row" id='corpo-nova-postagem'>
+        <!-- <div class="card-post" id="cardNew"></div> -->
+      </div>
+      <div class="row" id="corpo-postagens">
+        <% for(let p of posts) { %>
+          <div class="card-post bg-white" id="cardPost_<%=p.id %>">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="perfil-usuario-mini" id='perfil-post-img'>
+                    <% if(usuario[0].foto_perfil != '') { %>
+                        <img src="<%=usuario[0].foto_perfil %>" id='imagenPerfilPost'>
+                    <% } else { %>
+                        <img src="./images/usuario.png" id='imagenPerfilPostInex'>
+                    <% } %>
+                  </div>
+                </div>
+                <div class="col-md-7">
+                    <span class="nomeUsuarioPost"><%=usuario[0].nome_completo %> </span><br><span class="dataPostagem"> 
+                      <% let date = p.data_postagem 
+                         let dia = date.getDate().toString().padStart(2, '0');
+                         let mes = (date.getMonth()+1).toString().padStart(2, '0');
+                         let ano = date.getFullYear();
+                         let dataFormatada = dia + "/" + mes + "/" + ano;
+                      %>Postado em: <%=dataFormatada %>
+                    </span>
+                    <p id='pgf_<%=p.id %>'><%=p.texto %></p>
+                    
+                </div>
+                <div class="col-md-2">
+                   <a href="#" id="btnMenuPost_<%=p.id %>" class="btn-menu-post" onclick="abrirMenuPost('<%=p.id %>')"><i class="fas fa-ellipsis-h"></i></a>
+                   <div id="menuPost_<%=p.id %>" class="menu-postagem bg-white">
+                       <ul class="list-group list-group-flush">
+                         <li class="list-group-item"><a href="#" onclick="formEditar('<%=p.id %>')"><i class="fas fa-pencil-alt"></i> Editar</a></li>
+                         <li class="list-group-item"><a href="#" onclick="deletePost('<%=p.id %>', 'corpo-postagens', '<%=p.imagem %>')"><i class="fas fa-trash-alt"></i> Excluir</a></li>
+                       </ul>
+                      
+                   </div>
+                </div>
+                <div class="col-md-12">
+                  <% if(p.imagem) { %>
+                    <p><img src="<%=p.imagem %>" id="img_<%=p.id %>" alt="" class="imagem-postada" /></p>
+                    <% } %>
+                      <div class="row">
+                         <div class="col-md-12">
+                            <ul class="menu-status">
+                              <li><i class="fas fa-heart text-color-primary"></i> 12</li>
+                              <li><i class="fas fa-eye text-color-primary"></i> 34</li>
+                              <li><i class="fas fa-comments text-color-primary"></i> 52</li>
+                            </ul>
+                         </div>
+                      </div>
+                </div>
+                <div class="col-md-12">
+                    <hr>
+                    <div class="row" id="menu-criar-status">
+                      <div class="col-md-4">
+                        <a href="http://"><i class="fas fa-heart text-color-primary fa-2x"></i></a>
+                      </div>
+                      <div class="col-md-4">
+                        <a class="btn" data-toggle="collapse" href="#collapseComments<%=p.id %>" role="button" aria-expanded="false" aria-controls="collapseExample">
+                          <i class="fas fa-comments text-color-primary fa-2x"></i>
+                        </a>
+                      </div>
+                      <div class="col-md-4">
+                        <a href="http://"><i class="fas fa-share-alt text-color-primary fa-2x"></i></a>
+                      </div>
+    
+                    </div>
+                    <!-- Seção de Comentários -->
+                    <div class="collapse" id="collapseComments<%=p.id %>">
+                      <div class="col-md-12 card card-body" style="padding-left: 0; display: -webkit-inline-box;">
+                        <div class="col-md-2" style="padding-left: 0;">
+                          <div class="perfil-usuario-mini" id='perfil-post-img'>
+                            <% if(usuario[0].foto_perfil != '') { %>
+                                <img src="<%=usuario[0].foto_perfil %>" id='imagenPerfilPost'>
+                            <% } else { %>
+                                <img src="./images/usuario.png" id='imagenPerfilPostInex'>
+                            <% } %>
+                          </div>
+                        </div>
+                        <div class="col-md-10" style="padding-top: 10px; padding-left: 0;">
+                          <form action="comentarios/salvarComentario" method="POST">
+                            <input type="hidden" name='fk_post', value="<%=p.id %>">
+                            <textarea class="form-control" name='texto' id="commentText" rows="1" placeholder="Deixe seu comentário..."></textarea>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="comentarios">
+                      <hr>
+                        <% for(let c of p.Comentario ) {%>
+                          <div id="coment<%=c.id %>" class="comentario">
+                            <div class="row">
+                              <div class="col-md-2">
+
+                              </div>
+                              <div class="col-md-10">
+                                <div class="texto-coment"><%=c.texto %></div>
+                              </div>
+
+                            </div>
+
+                          </div>
+                        <% } %>
+                    </div>
+
+                </div>
+                
+              </div>
+          </div>
+  
+        <% } %>
+  
+      </div>
+      
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <div class="row propagandas">
+            <div class="col-md-12 bg-primary-color" id="cabecalho-propagandas">
+                <div class="row">
+                    <div class="col-md-2 col-sm-2">
+                        <img src="/images/icons/campanha-white.png" alt="">
+                    </div>
+                    <div class="col-md-10 col-sm-10">
+                        <h3>Anuncios e propagandas</h3>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-12 anuncio">
+                <img src="/images/produtos/produto-um.png" alt="">
+                <h4>Anuncio patrocinado</h4>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Vitae voluptas ullam est quidem beatae, obcaecati repellendus iusto, 
+                    sed ducimus eligendi distinctio pariatur excepturi? Facere maxime ea pariatur 
+                    architecto vitae? Minima!
+                </p>
+                <button>Ver anuncio</button>
+                <hr>
+            </div>
+            <div class="col-md-12 anuncio">
+                <img src="/images/produtos/produto-dois.png" alt="">
+                <h4>Anuncio patrocinado</h4>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Vitae voluptas ullam est quidem beatae, obcaecati repellendus iusto, 
+                    sed ducimus eligendi distinctio pariatur excepturi? Facere maxime ea pariatur 
+                    architecto vitae? Minima!
+                </p>
+                <button>Ver anuncio</button>
+                <hr>
+            </div>
+            <div class="col-md-12 anuncio">
+                <img src="/images/produtos/produto-tres.png" alt="">
+                <h4>Anuncio patrocinado</h4>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Vitae voluptas ullam est quidem beatae, obcaecati repellendus iusto, 
+                    sed ducimus eligendi distinctio pariatur excepturi? Facere maxime ea pariatur 
+                    architecto vitae? Minima!
+                </p>
+                <button>Ver anuncio</button>
+                <hr>
+            </div>
+            <div class="col-md-12 anuncio">
+                <img src="/images/produtos/produto-um.png" alt="">
+                <h4>Anuncio patrocinado</h4>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Vitae voluptas ullam est quidem beatae, obcaecati repellendus iusto, 
+                    sed ducimus eligendi distinctio pariatur excepturi? Facere maxime ea pariatur 
+                    architecto vitae? Minima!
+                </p>
+                <button>Ver anuncio</button>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Nova Postagem -->
+  <div class="bg-white" id="janela-publicar">
+    <form action="" enctype="multipart/form-data" id="formPostagem">
+    
+    <div class="row">
+      <div class="col-md-9">
+        <h3>Criar publicação</h3>
+      </div>
+      <div class="col-md-3">
+        <a href="#" id='btnfchPublic'><i class="fas fa-times fa-2x"></i></a>
+      </div>
+        <div class="col-md-12">
+          <hr>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="perfil-usuario-mini" id='perfil-post-img'>
+                <% if(usuario[0].foto_perfil != '') { %>
+                    <img src="<%=usuario[0].foto_perfil %>" id='imagenPerfilPost'>
+                <% } else { %>
+                    <img src="./images/usuario.png" id='imagenPerfilPostInex'>
+                <% } %>
+              </div>
+  
+            </div>
+            <div class="col-md-9">
+                <%=usuario[0].nome_completo %>
+            </div>
+  
+          </div>
+          <div class="col-md-12">
+              <textarea name="texto" id="" class="textoPost" placeholder="Olá <%=usuario[0].nome_completo %>! No que está pensando para hoje?"></textarea>
+          </div>
+          <div class="col-md-12" id='divimgPost'>
+            <!-- <a href="http://" id="btnExcluirImg"><i class="fas fa-times-circle fa-3x"></i></a> -->
+            <!-- <img src="./images/servicos/mascara-de-hidratacao.jpg" style="width: 570px;" alt=""> -->
+  
+          </div>
+          <div class="col-md-12">
+            <div class="input-wrapper">
+              <label for="filePosts"><i class="fas fa-camera fa-2x"></i></label>
+              <input type="file" name="files" id="filePosts">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <button class="bg-primary-color text-color-white" id="btnEnviarPublicacao">Publicar</button>
+          </div>
+          
+        </div>
+     
+        
+      </div>
+    </form>
+  </div>
+
+  <!-- Form Editar Postagem -->
+  <div class="bg-white" id="janela-editar-publicacao">
+    <form action="" enctype="multipart/form-data" id="formEditarPostagem">
+    
+    <div class="row">
+      <div class="col-md-9">
+        <h3>Editar publicação</h3>
+      </div>
+      <div class="col-md-3">
+        <a href="#" id='btnfchEditPublic'><i class="fas fa-times fa-2x"></i></a>
+      </div>
+        <div class="col-md-12">
+          <hr>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="perfil-usuario-mini" id='perfil-post-img'>
+                <% if(usuario[0].foto_perfil != '') { %>
+                    <img src="<%=usuario[0].foto_perfil %>" id='imagenPerfilPost'>
+                <% } else { %>
+                    <img src="./images/usuario.png" id='imagenPerfilPostInex'>
+                <% } %>
+              </div>
+  
+            </div>
+            <div class="col-md-9">
+                <%=usuario[0].nome_completo %>
+            </div>
+            
+          </div>
+          <div class="col-md-12"><input type="hidden" name="id" id="idPost">
+              <textarea name="texto" id="textPostagem" class="textoPost" placeholder="Olá <%=usuario[0].nome_completo %>! No que está pensando para hoje?"></textarea>
+          </div>
+          <div class="col-md-12" id='divimgEditPost'>
+            <!-- <a href="http://" id="btnExcluirImg"><i class="fas fa-times-circle fa-3x"></i></a> -->
+            <!-- <img src="./images/servicos/mascara-de-hidratacao.jpg" style="width: 570px;" alt=""> -->
+  
+          </div>
+          <div class="col-md-12">
+            <div class="input-wrapper">
+              <label for="fileEditPosts"><i class="fas fa-camera fa-2x"></i></label>
+              <input type="file" name="files" id="fileEditPosts">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <button class="bg-primary-color text-color-white" id="btnEnviarPublicacao">Atualizar Publicação</button>
+          </div>
+          
+        </div>
+     
+        
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include('./shared/footer') %>

@@ -1,4 +1,4 @@
-const {sequelize, Usuario, Post} = require("../models");
+const {sequelize, Usuario, Post, Comentario} = require("../models");
 const fs = require('fs');
 const path = require('path');
 
@@ -38,18 +38,16 @@ const postController = {
         //console.log(postUpdate);
         res.send(publicacao);
     },
-    listarPost: async(req, res) => {
+    feedgeral:async(req, res) => {
         //essa parte n funciona
-        let { id } = req.params;
-        let posts = await Post.findAll({
-            where: {
-                fk_usuario: id
-            }
-        });
-        res.render('listarPost', {posts});
-        console.log("listando todos os posts");
+        let { id, nome_completo, foto_perfil } = req.session.usuario;
+        let usuario = await Usuario.findAll({ id });
+        let posts = await Post.findAll({include:'Comentario'});
+        //console.log(posts);
+        //res.send(posts);
+        res.render('feedGeral', { usuario, posts });
+        // console.log("listando todos os posts");
     },
-
     //David Fico -- 05/05/2020
     //inclui imagems na pasta
     imgposts: (req, res) =>{

@@ -9,8 +9,8 @@ const RegistroPortfolio = (sequelize, DataTypes) => {
               autoIncrement: true
             },
             titulo: {
-                type: DataTypes.STRING(30),
-                allowNull: true
+              type: DataTypes.STRING(300),
+              allowNull: true
             },
             descricao: {
               type: DataTypes.STRING(300),
@@ -37,7 +37,7 @@ const RegistroPortfolio = (sequelize, DataTypes) => {
             foreignKey:'fk_usuario', as: 'Usuario'
         });
         registroPortfolio.hasMany(models.ImagemPortfolio, {
-            foreignKey:'fk_registro_portfolio', as: 'ImagenPortfolio'
+            foreignKey:'fk_registro_portfolio', as: 'ImagemPortfolio'
         });
         registroPortfolio.belongsTo(models.ServicoGeral, {
             foreignKey:'fk_servico_geral', as: 'ServicoGeral'

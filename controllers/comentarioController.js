@@ -6,12 +6,12 @@ const comentarioController = {
     salvarComentario: async (req, res) => {
         const { id, nome_completo, foto_perfil } = req.session.usuario;
         let data = new Date();
-        let {texto, imagem, idPost} = req.body;
+        let {texto, imagem, fk_post} = req.body;
         let commentario = await Comentario.create({
-            texto: texto,
+            texto,
             data_comentario: data,
             imagem,
-            fk_post: idPost,
+            fk_post,
             fk_usuario: id
         });
 

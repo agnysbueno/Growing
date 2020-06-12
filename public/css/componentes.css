@@ -62,6 +62,16 @@
     margin-right: auto; */
 }
 
+
+.card-post-feedGeral{
+    margin-top: 90px;
+    padding: 7px;
+    width: 900px;
+    height: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
 .menu-status{
     list-style: none;
     position: relative;
@@ -109,6 +119,15 @@
         margin-right: auto;
     }
 
+    .card-post-feedGeral{
+        margin-top: 90px;
+        padding: 7px;
+        width: 820px;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     #capa-usuario{
         width: 820px;
     }
@@ -126,6 +145,15 @@
 @media (min-width: 1300px){
     .card-post{
         margin-top: 35px;
+        padding: 7px;
+        width: 750px;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .card-post-feedGeral{
+        margin-top: 90px;
         padding: 7px;
         width: 750px;
         height: auto;
