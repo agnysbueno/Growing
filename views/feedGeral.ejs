@@ -11,11 +11,13 @@
               </div> -->
               <div class="col-md-3">
                 <div class="perfil-usuario-mini" id='perfil-post-img'>
+                  <a href="/users/0">
                     <% if(usuario[0].foto_perfil != '') { %>
                         <img src="<%=usuario[0].foto_perfil %>" id='imagenPerfilPost'>
                     <% } else { %>
                         <img src="/images/usuario.png" id='imagenPerfilPostInex'>
                     <% } %>
+                  </a>
                 </div>
               </div>
               <div class="col-md-9">
@@ -42,15 +44,19 @@
               <div class="row">
                 <div class="col-md-3">
                   <div class="perfil-usuario-mini" id='perfil-post-img'>
-                    <% if(usuario[0].foto_perfil != '') { %>
-                        <img src="<%=usuario[0].foto_perfil %>" id='imagenPerfilPost'>
-                    <% } else { %>
-                        <img src="./images/usuario.png" id='imagenPerfilPostInex'>
-                    <% } %>
+                    <a href="/users/<%=p.Usuario.id %>">
+                      <% if(p.Usuario.foto_perfil != '') { %>
+                          <img src="<%=p.Usuario.foto_perfil %>" id='imagenPerfilPost'>
+                      <% } else { %>
+                          <img src="./images/usuario.png" id='imagenPerfilPostInex'>
+                      <% } %>
+                    </a>
                   </div>
                 </div>
                 <div class="col-md-7">
-                    <span class="nomeUsuarioPost"><%=usuario[0].nome_completo %> </span><br><span class="dataPostagem"> 
+                  <a href="/users/<%=p.Usuario.id %>">
+                    <span class="nomeUsuarioPost"><%=p.Usuario.nome_completo %> </span><br><span class="dataPostagem"> 
+                  </a>
                       <% let date = p.data_postagem 
                          let dia = date.getDate().toString().padStart(2, '0');
                          let mes = (date.getMonth()+1).toString().padStart(2, '0');

@@ -4,9 +4,11 @@ const { Op } = require("sequelize");
 const usuariosController = {
     perfil: async(req, res) =>{
         let usuarioLog = req.session.usuario;
-        let usuario = await Usuario.findAll({ where: { id: usuarioLog.id } });
-        let posts = await Post.findAll({ where: { fk_usuario: usuarioLog.id }, order:[['id', 'DESC']] })
-        let preferencias = await UsuarioServicoGeral.findAll({include:'ServicoGeral', where: {fk_usuario: usuarioLog.id}});
+        let idUser = (req.params.id == 0) ? usuarioLog.id : req.params.id;
+        let usuario = await Usuario.findAll({ where: { id: idUser} });
+
+        let posts = await Post.findAll({ where: { fk_usuario: idUser }, order:[['id', 'DESC']] })
+        let preferencias = await UsuarioServicoGeral.findAll({include:'ServicoGeral', where: {fk_usuario: idUser }});
         res.render('perfil', {title: 'Usuário', usuario, preferencias, posts});
     }, 
     atualizar:async(req, res) =>{

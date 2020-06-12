@@ -661,6 +661,20 @@ i {
     height: 39px;
 }
 
+.comentario{
+    padding: 10px;
+    width: 90%;
+    margin-left: 57px
+}
+
+.texto-coment{
+    border-radius: 50px;
+    background-color: hsl(0, 20%, 96%);
+    height: auto;
+    width: auto;
+    padding: 5px;
+}
+
 #janela-publicar{
     border-radius: 7px;
     width: 600px;

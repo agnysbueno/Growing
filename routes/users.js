@@ -20,7 +20,7 @@ const usuariosController = require('../controllers/usuariosController');
 const VerificaUsuarioLogado = require('../middlewares/VerificaUsuarioLogado');
 
 /* GET users listing. */
-router.get('/', VerificaUsuarioLogado, usuariosController.perfil);
+router.get('/:id', VerificaUsuarioLogado, usuariosController.perfil);
 router.post('/', VerificaUsuarioLogado, usuariosController.atualizar)
 router.post('/imgperfil', VerificaUsuarioLogado, upload.any(), usuariosController.atualPerfil)
 

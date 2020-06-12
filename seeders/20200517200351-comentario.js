@@ -9,17 +9,17 @@ module.exports = {
       var comentarios = [];
       var fakeComentario = {};
 
-      var fakeId = 0;
+      var fakeId = 54;
 
-      for (let i=0; i <= 2400; i++) {
+      for (let i=54; i <= 2400; i++) {
 
         fakeComentario = {
           id: fakeId,
           texto: faker.lorem.words(16),
           data_comentario: faker.date.past(1, '2020-05-17'),
           imagem: "",
-          fk_post: faker.random.number({'min': 1, 'max': 600}),
-          fk_usuario: faker.random.number({'min': 1, 'max': 200}),
+          fk_post: faker.random.number({'min': 54, 'max': 600}),
+          fk_usuario: faker.random.number({'min': 54, 'max': 200}),
         }
         comentarios.push(fakeComentario);
         fakeId+=1;
