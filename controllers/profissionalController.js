@@ -36,24 +36,27 @@ const ProfissionalController = {
     //     res.send('sucessoProfissional', {title: 'Sucesso', sucesso});
     // },
 
-    // verProfissional: (req, res) => {
-    //     let {id} = req.params;
-    //     DadoProfissional.findOne({
-    //         where: { id }
-    //     }).then(result => { res.send(result)});
-    // },
+    verProfissional: async(req, res) => {
+        let {id} = req.session.usuario;
+        let {idProfissional} = req.params;
+        let usuario = await Usuario.findAll({ where: { id }});
+        let dadoProfissional= await DadoProfissional.findOne({
+            where: { id: idProfissional }
+        }) 
+        console.log(dadoProfissional);
+        res.render("verProfissional" , {dadoProfissional, usuario});
+    },
 
     editarProfissional: async(req, res) => {
         let usuario = req.session.usuario;
-        let fk_usuario = usuario.id;
-        let  { cnpj, razao_social, nome_fantasia, inscricao_estadual, inscricao_municipal} = req.body;
-        console.log(cnpj, usuario.id);
+        let  { idProfissional, cnpj, razao_social, nome_fantasia, inscricao_estadual, inscricao_municipal} = req.body;
+        console.log(cnpj, usuario.id, idProfissional);
         let atualiza = await DadoProfissional.update({
             cnpj, razao_social, nome_fantasia, inscricao_estadual, inscricao_municipal
         },{
-            where: { fk_usuario }
+            where: { id: idProfissional}
         });
-        res.redirect('profissionais');
+        res.redirect('/profissionais');
     },
 
     // deletarProfissional: async (req, res) => {
