@@ -50,49 +50,88 @@
             </div>
         
         </div> <!--Fim da duplicação-->
+
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Alterar para profissional</h5>
             <!-- Mudar para perfil profissional -->
-        <div class="bg-white" id="janela-profissional">
-          <form action="/profissionais" method="POST" id="formMudarPerfil">
-          
-              <div class="col-md-12">
+            <div class="bg-white" id="janela-profissional">
+              <form action="/profissionais" method="POST" id="formMudarPerfil">
               
-                <div class="row">
-                    <!--Inicio form-->
                   <div class="col-md-12">
-                      <input type="hidden" value="<%=usuario[0].id %>" name="id">
-                      <label for="nome">CNPJ</label>
-                      <input type="text" name="cnpj" id="cnpj" class="form-control" placeholder="00.000.000/0000-00" value="">
+                  
+                    <div class="row">
+                      <div class="col-md-12">
+                          <input type="hidden" value="<%=usuario[0].id %>" name="id">
+                          <label for="nome">CNPJ</label>
+                          <input type="text" name="cnpj" id="cnpj" class="form-control" placeholder="00.000.000/0000-00" value="">
+                      </div>
+                      <div class="col-md-12">
+                          <label for="nome">Razão social</label>
+                          <input type="text" name="razao_social" id="razao_social" class="form-control" placeholder="Razão Social..." value="">
+                      </div>
+                      <div class="col-md-12">
+                          <label for="nome">Nome fantasia</label>
+                          <input type="text" name="nome_fantasia" id="nome_fantasia" class="form-control" placeholder="Nome fantasia ..." value="">
+                      </div>
+                      <div class="col-md-12">
+                          <label for="nome">Inscrição estadual</label>
+                          <input type="text" name="inscricao_estadual" id="inscricao_estadual" class="form-control" placeholder="Inscrição estadual ..." value="">
+                      </div>
+                      <div class="col-md-12">
+                          <label for="nome">Inscrição municipal</label>
+                          <input type="text" name="inscricao_municipal" id="inscricao_municipal" class="form-control" placeholder="Inscrição municipal ..." value="">
+                      </div>
+                    
                   </div>
-                  <div class="col-md-12">
-                      <label for="nome">Razão social</label>
-                      <input type="text" name="razao_social" id="razao_social" class="form-control" placeholder="Razão Social..." value="">
-                  </div>
-                  <div class="col-md-12">
-                      <label for="nome">Nome fantasia</label>
-                      <input type="text" name="nome_fantasia" id="nome_fantasia" class="form-control" placeholder="Nome fantasia ..." value="">
-                  </div>
-                  <div class="col-md-12">
-                      <label for="nome">Inscrição estadual</label>
-                      <input type="text" name="inscricao_estadual" id="inscricao_estadual" class="form-control" placeholder="Inscrição estadual ..." value="">
-                  </div>
-                  <div class="col-md-12">
-                      <label for="nome">Inscrição municipal</label>
-                      <input type="text" name="inscricao_municipal" id="inscricao_municipal" class="form-control" placeholder="Inscrição municipal ..." value="">
-                  </div>
-                  <!--Fim form-->
-                
-              </div>
-              <button type="submit" class="btn bg-primary-color text-color-white" id="btnMudarPerfil2">Alterar meu perfil</button>
-            </div>
-          </form>
-        </div>
-        <!--Fim mudar prof-->
+                  <button type="submit" class="btn bg-primary-color text-color-white" id="btnMudarPerfil2">Alterar meu perfil</button>
+                </div>
+              </form>
+            </div><!--Fim mudar prof-->
           </div>
         </div>
         
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Atualizar informações profissionais</h5>
+            <!-- Atualizar profissional -->
+            <div class="bg-white" id="janela-Atualiza-profissional">
+              <form action="/editarProfissional?_method=PUT" method="POST" id="formAtualizaPerfil">
+              
+                  <div class="col-md-12">
+                  
+                    <div class="row">
+                      <div class="col-md-12">
+                          <input type="hidden" value="<%=usuario[0].id %>" name="id">
+                          <label for="nome">CNPJ</label>
+                          <input type="text" name="cnpj" id="cnpj" class="form-control" placeholder="00.000.000/0000-00" value="">
+                      </div>
+                      <div class="col-md-12">
+                          <label for="nome">Razão social</label>
+                          <input type="text" name="razao_social" id="razao_social" class="form-control" placeholder="Razão Social..." value="">
+                      </div>
+                      <div class="col-md-12">
+                          <label for="nome">Nome fantasia</label>
+                          <input type="text" name="nome_fantasia" id="nome_fantasia" class="form-control" placeholder="Nome fantasia ..." value="">
+                      </div>
+                      <div class="col-md-12">
+                          <label for="nome">Inscrição estadual</label>
+                          <input type="text" name="inscricao_estadual" id="inscricao_estadual" class="form-control" placeholder="Inscrição estadual ..." value="">
+                      </div>
+                      <div class="col-md-12">
+                          <label for="nome">Inscrição municipal</label>
+                          <input type="text" name="inscricao_municipal" id="inscricao_municipal" class="form-control" placeholder="Inscrição municipal ..." value="">
+                      </div>
+                    
+                    </div>
+                    <button type="submit" class="btn bg-primary-color text-color-white" id="btnAtualizaPerfil2">Atualizar perfil</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div><!--Fim card Atualiza-->
+
+
     </div>
 <!--
     <div class="col-md-4" style="color: aquamarine;">
