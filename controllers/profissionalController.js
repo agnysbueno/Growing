@@ -3,7 +3,9 @@ const ProfissionalController = {
     perfilPro: async(req, res) =>{ //por aqui ta dando DadoProfissional is undefined (¬_¬)
         let { id } = req.session.usuario;
         let usuario = await Usuario.findAll({ where: { id }});
-        res.render('perfilProfissional', {title: 'Profissional', usuario});
+        let dProf = await DadoProfissional.findOne({ where: {fk_usuario: id}});
+        console.log("DProf =====> " + dProf.id+ "|"+ id + "<===");
+        res.render('perfilProfissional', {title: 'Profissional', usuario, dProf});
     },
 
     // mostrarProfissionais: async (req, res) =>{
