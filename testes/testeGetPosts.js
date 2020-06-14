@@ -24,7 +24,7 @@ const { sequelize, Usuario, Post, Comentario } = require('../models');
 //     }
 // )
 
-Post.findAll({include:[{model:Comentario, as:'Comentario'}, {model:Usuario, as:'Usuario'}], order:[['data_postagem', 'DESC']]}).then(
+Post.findAll({limit:3, include:[{model:Comentario, as:'Comentario'}, {model:Usuario, as:'Usuario'}], order:[['data_postagem', 'DESC']]}).then(
     data => {
         console.log(data.map(p => p.toJSON()));
     }

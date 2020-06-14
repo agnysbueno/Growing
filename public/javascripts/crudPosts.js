@@ -3,11 +3,11 @@ let btnCriarPublic = document.getElementById('btnCriarPublic');
 let formPostagem = document.getElementById('formPostagem');
 
 btnCriarPublic.addEventListener('click', function() {
-    document.getElementById('janela-publicar').classList.toggle('active');
+    document.getElementById('nova-postagem').classList.toggle('visivel');
 });
 
 btnfchPublic.addEventListener('click', function() {
-    document.getElementById('janela-publicar').classList.toggle('active');
+    document.getElementById('nova-postagem').classList.toggle('visivel');
 });
 
 formPostagem.addEventListener('submit', function(e){
@@ -29,7 +29,7 @@ formPostagem.addEventListener('submit', function(e){
     })
     .then(function(dados){
         console.log(dados);
-        document.getElementById('janela-publicar').classList.toggle('active');
+        document.getElementById('nova-postagem').classList.toggle('visivel');
         criarPostagem(dados.id, dados.texto, dados.imagem, dados.data, dados.nome, dados.perfil);
     })
     
@@ -405,7 +405,7 @@ function deletePost(e, nomediv, img){
 
 let btnfchEditPublic = document.getElementById('btnfchEditPublic')
 btnfchEditPublic.addEventListener('click', function() {
-    document.getElementById('janela-editar-publicacao').classList.toggle('active');
+    document.getElementById('editar-postagem').classList.toggle('visivel');
 });
 
 function formEditar(e){
@@ -422,7 +422,8 @@ function formEditar(e){
         return response.json();
     })
     .then(function (data){
-        document.getElementById('janela-editar-publicacao').classList.toggle('active');
+        document.getElementById('editar-postagem').classList.toggle('visivel');
+        document.getElementById('menuPost_' + e).classList.toggle('active');
         let idPost = document.getElementById('idPost');
         idPost.setAttribute('value', data[0].id);
         document.getElementById('textPostagem').value = data[0].texto;
@@ -471,7 +472,7 @@ formEditarPostagem.addEventListener('submit', function(e){
             let img = document.getElementById('img_'+ data[0].id);
             img.setAttribute('src', data[0].imagem);
         }
-        document.getElementById('janela-editar-publicacao').classList.toggle('active');
+        document.getElementById('editar-postagem').classList.toggle('visivel');
     })
 
 });
