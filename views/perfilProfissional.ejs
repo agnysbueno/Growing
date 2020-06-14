@@ -16,7 +16,7 @@
                     
                 </div>
                 <div class="col-md-9">
-                    <h2 id='nomeUsuario'><%=usuario[0].nome_completo %> - <a href="#!" data-toggle="modal" data-target="#editPerfil"><i class="fas fa-user-edit"></i></a></h2>
+                    <h2 id='nomeUsuario'><%=usuario[0].nome_completo %> - <a href="#!" data-toggle="modal" data-target="#editPerfil"><i class="fas fa-user-edit"></i></a> - Area profissional</h2>
                     <p id='pDescricao'>
                         <%=usuario[0].descricao_bio %>
                     </p>
@@ -29,123 +29,39 @@
             <div class="col-md-6">
                 <div id="preferencias">
                     <p>Duplicação</p>
-
                 </div>
             </div>
             <div class="col-md-3">
                 <div id='prod-servicos'>
                     <p>É ta duplicado mesmo</p>
-
                 </div>
             </div>
             <div class="col-md-3">
                 <div id='btn-config-prof' class="bg-gradiente">
-                    <!--<button href="#!" id='btnMudarPerfil' data-toggle="modal" data-target="#mudarPerfil"><i class="far fa-clipboard fa-1x"></i></button>-->
-                    <p>Mudar tipo de perfil - <a href="#!" id='btnMudarPerfil2' data-toggle="modal" data-target="#mudarPerfil"><i class="far fa-clipboard fa-1x"></i></a></p>
-                    
-                    <!-- <button type="button" class="btn " data-toggle="modal" data-target="#modalExemplo">
-                        
-                      </button> -->
-                      <a href="/profissionais/verprofissional/<%=dProf.id%>" id="btnMudarPerfil2" class="btn">Ver Profissional</a>
+                    <p>Informações sobre</p>
                 </div>
             </div>
-        
         </div> <!--Fim da duplicação-->
-
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Alterar para profissional</h5>
-            <!-- Mudar para perfil profissional -->
-            <div class="bg-white" id="janela-profissional">
-              <form action="/profissionais" method="POST" id="formMudarPerfil">
-              
-                  <div class="col-md-12">
-                  
-                    <div class="row">
-                      <div class="col-md-12">
-                          <input type="hidden" value="<%=usuario[0].id %>" name="id">
-                          <label for="nome">CNPJ</label>
-                          <input type="text" name="cnpj" id="cnpj" class="form-control" placeholder="00.000.000/0000-00" value="">
-                      </div>
-                      <div class="col-md-12">
-                          <label for="nome">Razão social</label>
-                          <input type="text" name="razao_social" id="razao_social" class="form-control" placeholder="Razão Social..." value="">
-                      </div>
-                      <div class="col-md-12">
-                          <label for="nome">Nome fantasia</label>
-                          <input type="text" name="nome_fantasia" id="nome_fantasia" class="form-control" placeholder="Nome fantasia ..." value="">
-                      </div>
-                      <div class="col-md-12">
-                          <label for="nome">Inscrição estadual</label>
-                          <input type="text" name="inscricao_estadual" id="inscricao_estadual" class="form-control" placeholder="Inscrição estadual ..." value="">
-                      </div>
-                      <div class="col-md-12">
-                          <label for="nome">Inscrição municipal</label>
-                          <input type="text" name="inscricao_municipal" id="inscricao_municipal" class="form-control" placeholder="Inscrição municipal ..." value="">
-                      </div>
-                    
-                  </div>
-                  <button type="submit" class="btn bg-primary-color text-color-white" id="btnMudarPerfil2">Alterar meu perfil</button>
-                </div>
-              </form>
-            </div><!--Fim mudar prof-->
+        <div class="row row-status">
+          <div class="col-md-12">
+              <div id='btn-controlador' class="bg-gradiente">
+                  <p>Mudar tipo de perfil - <a href="#!" id='btnMudarPerfil2' data-toggle="modal" data-target="#mudarPerfil"><i class="far fa-clipboard fa-1x"></i></a></p>
+                  <% if (dProf.id != 0){%>
+                    <a href="/profissionais/verprofissional/<%=dProf.id%>" id="btnMudarPerfil2" class="btn">Ver Profissional</a>
+                  <%} %>
+                  <P>Criar produto</P>
+              </div>
           </div>
+        </div><!--Fim Botões controladores-->
+        <div class="col-md-12 bg-primary-color">
+          <h3>Minha vitrine de produtos</h3>
         </div>
-        
-        <!-- <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Atualizar informações profissionais</h5>
-            <!-- Atualizar profissional -->
-            <!-- <div class="bg-white" id="janela-Atualiza-profissional">
-              <form action="profissionais/editarProfissional" method="POST" id="formAtualizaPerfil">
-              
-                  <div class="col-md-12">
-                  
-                    <div class="row">
-                      <div class="col-md-12">
-                          <input type="hidden" value="<%=usuario[0].id %>" name="id">
-                          <input type="hidden" value="" name="idProfissional">
-                          <label for="nome">CNPJ</label>
-                          <input type="text" name="cnpj" id="cnpj" class="form-control" placeholder="00.000.000/0000-00" value="">
-                      </div>
-                      <div class="col-md-12">
-                          <label for="nome">Razão social</label>
-                          <input type="text" name="razao_social" id="razao_social" class="form-control" placeholder="Razão Social..." value="">
-                      </div> -->
-                      <!-- <div class="col-md-12">
-                          <label for="nome">Nome fantasia</label>
-                          <input type="text" name="nome_fantasia" id="nome_fantasia" class="form-control" placeholder="Nome fantasia ..." value="">
-                      </div>
-                      <div class="col-md-12">
-                          <label for="nome">Inscrição estadual</label>
-                          <input type="text" name="inscricao_estadual" id="inscricao_estadual" class="form-control" placeholder="Inscrição estadual ..." value="">
-                      </div>
-                      <div class="col-md-12">
-                          <label for="nome">Inscrição municipal</label>
-                          <input type="text" name="inscricao_municipal" id="inscricao_municipal" class="form-control" placeholder="Inscrição municipal ..." value="">
-                      </div>
-                    
-                    </div>
-                    <button type="submit" class="btn bg-primary-color text-color-white" id="btnAtualizaPerfil2">Atualizar perfil</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div><!--Fim card Atualiza --> -->
 
 
     </div>
-<!--
-    <div class="col-md-4" style="color: aquamarine;">
-     
-            <div id='btn-config-prof2' class="col-md-12 bg-gradiente">
-                <p id='btnMudarPerfil2'>Mudar tipo de perfil - <a href="#!" data-toggle="modal" data-target="#mudarPerfil"><i class="far fa-clipboard fa-1x"></i></a></p>
-            </div>
- 
-    </div>
--->
 </div>
 </div>
+
 <!-- Editar perfil -->
 <div class="modal fade" id="editPerfil" tabindex="-1" role="dialog" aria-labelledby="editPerfilLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -260,7 +176,7 @@
     </div>
   </div>
 
-
+<!--Modal Cria Profissional-->
 <div class="modal fade" id="mudarPerfil" tabindex="-1" role="dialog" aria-labelledby="mudarPerfilLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -271,7 +187,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="/salvarProfissional" class="form-horizontal" method= "post" id='formMudarP'>
+          <form action="/profissionais" class="form-horizontal" method= "post" id='formMudarP'>
              <div class="form-group">
                 <div class="row">
                     <div class="col-md-12">
@@ -302,9 +218,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn bg-primary-color icon-color-white" onclick="mudarP('<%=usuario[0].id %>')" data-dismiss="modal">Mudar Perfil</button>
-          <!--<button type="submit" class="btn bg-primary-color icon-color-white" form= "formMudarP">Mudar tipo de Perfil</button>-->
-        <!--</div>
+          <button type="submit" class="btn bg-primary-color icon-color-white" form= "formMudarP">Mudar tipo de Perfil</button>
+        </div>
       </div>
     </div>
   </div>
