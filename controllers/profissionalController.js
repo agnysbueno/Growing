@@ -1,4 +1,4 @@
-const {sequelize, DadoProfissional, Usuario} = require("../models");
+const {sequelize, DadoProfissional, Usuario, Produto} = require("../models");
 const ProfissionalController = {
     perfilPro: async(req, res) =>{
         let { id } = req.session.usuario;
@@ -38,7 +38,8 @@ const ProfissionalController = {
             where: { id: idProfissional }
         }) 
         console.log(dadoProfissional);
-        res.render("verProfissional" , {dadoProfissional, usuario});
+        let listaProduto = await Produto.findAll();
+        res.render("verProfissional" , {dadoProfissional, usuario, listaProduto});
     },
 
     editarProfissional: async(req, res) => {
@@ -50,7 +51,7 @@ const ProfissionalController = {
         },{
             where: { id: idProfissional}
         });
-        res.redirect('/profissionais');
+        res.redirect('/profissionais', usuario);
     },
 
     deletarProfissional: async (req, res) => {
