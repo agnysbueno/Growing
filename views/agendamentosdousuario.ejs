@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamentos</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/55fcd42dc6.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
+  <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/stylePaulo.css">
+  <link rel="stylesheet" href="/css/palette.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+</head>
+<body>
+  <div class="header-corpo">
+      <div class="row">
+          <div class="col-md-12 col-sm-12 nav-header shadow-1">
+              <div class="row">
+                  <div class="col-md-2">
+                      <div class='row'>
+                          <div class="logo-g col-md-12">
+                              <a href="#!" onclick="toggleSidebar()">
+                                  <img src="/images/logo-primary.png" alt="" onclick="closeNav()">
+                              </a>                        
+                          </div>  
+                      </div>
+                  </div>
+                  <div class="col-md-4 search-input-sm">
+                      <form action="#!" method="post">
+                          <div class="search-header">
+                              <input class="searching" type="search" name="" id="" placeholder="Busque aqui">
+                              <button type="submit"><img src="/images/icons/procurar-primary.png" alt="" id='icon-search'></button>
+                          </div>
+                      </form>
+                  </div>
+                  <div class="col-md-3">
+                      <div class="nav-header-menu">
+                          <ul>
+                              <li><a href="calendario.html"><img src="/images/icons/calendario-gray.png" alt=""></a></li>
+                              <li><a href="chat.html"><img src="/images/icons/bate-papo-gray.png" alt=""></a></li>
+                              <li><a href="carrinho.html"><img src="/images/icons/supermercado-primary.png" alt=""></a></li>
+                              <li><a href="#!"><img src="/images/icons/sino-primary.png" alt=""></a></li>
+                              
+                          </ul>
+                      </div>
+                      
+                  </div>
+                  <div class="col-md-3 avatar-hd-sm">
+                      <a href="perfil-usuarioCons.html">
+                          <div class="d-flex flex-row bd-highlight mb-3">
+                              <div class="usuario-header p-2 bd-highlight"><%= usuarioLog.email %></div>
+                              <div class="usuario-header-div p-2 bd-highlight"></div>
+
+                          </div>
+                      </a>
+                  </div>
+
+              </div>
+          </div>
+
+      </div>
+  </div>
+  <div class="menu-icons">
+     
+      <div class="nav-icon">
+          <ul>
+              <li><a href="/portfolios"><i class="fas fa-camera-retro icon-color-primary"></i></a></li>
+              <li><a href="/portfolios"><i class="fas fa-rss  icon-color-primary"></i></a></li>
+              <li><a href="#!"><i class="fas fa-bullhorn  icon-color-primary"></i></a></li>
+              <li><a href="#!"><i class="fas fa-mail-bulk  icon-color-primary"></i></a></li>
+              <li><a href="#!"><i class="fas fa-calendar-alt  icon-color-primary"></i></a></li>
+          </ul>
+      </div>
+  </div>
+  <div class="" id="side-bar">
+      
+      <div class="nav-text">
+          <ul>
+              <li><a href="/portfolios">Portfólio</a></li>
+              <li><a href="/posts">Feed geral</a></li>
+              <li><a href="#!">Promoções</a></li>
+              <li><a href="#!">Solicitações</a></li>
+              <li><a href="agenda.html">Agenda</a></li>
+          </ul>
+
+      </div>
+  </div>
+    <div class="bg-ligth-color" id="main">
+        <div class="cointainer portfolioph">
+            <div align="center" class="text-color-primary tituloprincipal">
+                <h1>Seus agendamentos</h1>
+              </div>
+              <br><br><br>
+        </div>
+        
+
+    </div>
+
+
+
+
+<!-- Scripts para Bootstrap 4-->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<!-- Requisições ajax -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<!-- Fontes Awesome -->
+<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-replace-svg="nest"></script>
+
+<!-- Jquary e script para scroll nav suave-->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="/javascripts/my-scroll.js"></script>
+<script src="/javascripts/nav-color.js"></script>
+<script src="/javascripts/side-menu.js"></script>
+<script src="/javascripts/updateUsuario.js"></script>
+<script src="/javascripts/servicosGerais.js"></script>
+
+<script src="/javascripts/migrarUsuario"></script>
+
+</body>
+</html>
