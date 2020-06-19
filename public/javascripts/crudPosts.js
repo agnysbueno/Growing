@@ -29,6 +29,12 @@ formPostagem.addEventListener('submit', function(e){
     })
     .then(function(dados){
         console.log(dados);
+        let novaPost = document.getElementById('txtNovaPostagem');
+        let filePost = document.getElementById('filePosts');
+        let divImgPost = document.getElementById('divimgPost');
+        novaPost.value = '';
+        filePost.value = '';
+        divImgPost.innerText = '';
         document.getElementById('nova-postagem').classList.toggle('visivel');
         criarPostagem(dados.id, dados.texto, dados.imagem, dados.data, dados.nome, dados.perfil);
     })
@@ -183,12 +189,13 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
 
     let divColmd12Img = document.createElement('div');
     divColmd12Img.setAttribute('class', 'col-md-12');
+    divColmd12Img.setAttribute('id', 'imgDiv' + id);
 
     let linkMenuPost = document.createElement('a');
     linkMenuPost.setAttribute('href', '#');
     linkMenuPost.setAttribute('id', 'btnMenuPost_' + id);
     linkMenuPost.setAttribute('class', 'btn-menu-post');
-    linkMenuPost.setAttribute('onclick', 'abrirMenuPost('+ id +')');
+    linkMenuPost.setAttribute('onclick', 'abrirMenuPost('+ id +'); event.stopPropagation();');
 
     let faEllipsis = document.createElement('i');
     faEllipsis.setAttribute('class', 'fas fa-ellipsis-h');
@@ -205,6 +212,7 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
 
     let linkEdit = document.createElement('a');
     linkEdit.setAttribute('href', '#');
+    linkEdit.setAttribute('onclick', 'formEditar('+ id +')');
 
     let faPencil = document.createElement('i');
     faPencil.setAttribute('class', 'fas fa-pencil-alt');
@@ -227,7 +235,13 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
 
     let spanDataPost = document.createElement('div');
     spanDataPost.setAttribute('class', 'dataPostagem');
-    spanDataPost.innerText = "Postado em: " + dataPostagem;
+    let data = new Date()
+    let dia = data.getDate().toString();
+    let diaF = (dia.length == 1) ? '0'+dia : dia;
+    let mes = (data.getMonth()+1).toString();
+    let mesF = (mes.length == 1) ? '0'+mes : mes;
+    let anoF = data.getFullYear();
+    spanDataPost.innerText = "Postado em: " + diaF + "/" + mesF + "/" + anoF ;
 
     let p = document.createElement('p');
     p.setAttribute('id', 'pgf_' + id);
@@ -241,12 +255,6 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
 
     let ul = document.createElement('ul');
     ul.setAttribute('class', 'menu-status');
-
-    let liCurtir = document.createElement('li');
-
-    let liEye = document.createElement('li');
-
-    let liComents = document.createElement('li');
 
     let faHeart = document.createElement('i');
     faHeart.setAttribute('class', 'fas fa-heart text-color-primary');
@@ -265,16 +273,13 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
 
     let divColmd12_2 = document.createElement('div');
     divColmd12_2.setAttribute('class', 'col-md-12');
+   
+    let divColmd12Coments = document.createElement('div');
+    divColmd12Coments.setAttribute('class', 'col-md-12');
 
-    let divColmd4Curtir = document.createElement('div');
-    divColmd4Curtir.setAttribute('class', 'col-md-4');
-
-    let divColmd4Coments = document.createElement('div');
-    divColmd4Coments.setAttribute('class', 'col-md-4');
-
-    let divColmd4Compartilhar = document.createElement('div');
-    divColmd4Compartilhar.setAttribute('class', 'col-md-4');
-
+    let pComents = document.createElement('p');
+    pComents.innerHTML = '<i class="fas fa-comments text-color-primary"></i> 0';
+    
     let linkCurtir = document.createElement('a');
     linkCurtir.setAttribute('href', '#');
 
@@ -324,39 +329,14 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
         let imgPost = document.createElement('img');
         imgPost.setAttribute('src', imagem);
         imgPost.setAttribute('class', 'imagem-postada');
+        imgPost.setAttribute('id', 'img_' + id);
 
         pImg.appendChild(imgPost);
         divColmd12Img.appendChild(pImg);
     }
     
-    liCurtir.innerHTML = '<i class="fas fa-heart text-color-primary"></i> 0 ';
-    //liCurtir.appendChild(faHeart);
-    liEye.innerHTML = '<i class="fas fa-eye text-color-primary"></i> 0 ';
-    //liEye.appendChild(faEye);
-    //liComents.appendChild(faComments);
-    liComents.innerHTML = '<i class="fas fa-comments text-color-primary"></i> 0 ';
-    
-    linkCurtir.appendChild(faHeart2x);
-    linkComent.appendChild(faEye2x);
-    linkCompartilhar.appendChild(faComments2x);
-    
-    ul.appendChild(liCurtir);
-    ul.appendChild(liEye);
-    ul.appendChild(liComents);
-        
-    divColmd12.appendChild(ul);
-
-    divMenuCriarStatus.appendChild(divColmd12);
-    divRow2.appendChild(divColmd12);
-    divColmd12Img.appendChild(divRow2);
-    
-    divColmd4Curtir.appendChild(linkCurtir);
-    divColmd4Coments.appendChild(linkComent);
-    divColmd4Compartilhar.appendChild(linkCompartilhar);
-    
-    divMenuCriarStatus.appendChild(divColmd4Curtir);
-    divMenuCriarStatus.appendChild(divColmd4Coments);
-    divMenuCriarStatus.appendChild(divColmd4Compartilhar);
+    divColmd12Coments.appendChild(pComents);
+    divMenuCriarStatus.appendChild(divColmd12Coments);
     
     divColmd12_2.appendChild(hr);
     divColmd12_2.appendChild(divMenuCriarStatus);
@@ -375,9 +355,7 @@ function criarPostagem(id, texto, imagem, dataPostagem, nomeUsuario, perfil){
 
 }
 
-function abrirMenuPost(e){
-    document.getElementById('menuPost_' + e).classList.toggle('active');
-}
+
 
 function deletePost(e, nomediv, img){
     let dados = { idPost: e, imagem:img };
@@ -422,6 +400,7 @@ function formEditar(e){
         return response.json();
     })
     .then(function (data){
+        console.log(data);
         document.getElementById('editar-postagem').classList.toggle('visivel');
         document.getElementById('menuPost_' + e).classList.toggle('active');
         let idPost = document.getElementById('idPost');
@@ -439,7 +418,7 @@ function formEditar(e){
             imgName.setAttribute('type', 'hidden');
             imgName.setAttribute('name', 'imagem');
             imgName.setAttribute('value', '');
-            divimgPost.appendChild(divimgPost);
+            //divimgPost.appendChild(divimgPost);
         }
 
     })
@@ -469,9 +448,14 @@ formEditarPostagem.addEventListener('submit', function(e){
         let pgf = document.getElementById('pgf_'+ data[0].id);
         pgf.innerText = data[0].texto;
         if(data[0].imagem){
-            let img = document.getElementById('img_'+ data[0].id);
+            let imgDiv = document.getElementById('imgDiv' + data[0].id);
+            imgDiv.innerText = '';
+            let img = document.createElement('img');
+            img.setAttribute('id', 'img_'+ data[0].id);
             img.setAttribute('src', data[0].imagem);
-        }
+            img.setAttribute('class', 'imagem-postada');
+            imgDiv.appendChild(img);
+        } 
         document.getElementById('editar-postagem').classList.toggle('visivel');
     })
 

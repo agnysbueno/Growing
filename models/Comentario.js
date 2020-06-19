@@ -38,10 +38,10 @@ const Comentario = (sequelize, DataTypes) => {
     comentario.associate = (models) => {
         
         comentario.belongsTo(models.Usuario, {
-            foreignKey:'id', as: 'Usuario'
+            foreignKey:'fk_usuario', as: 'Usuario'
         });
         comentario.belongsTo(models.Post, {
-            foreignKey:'id', as: 'Post'
+            foreignKey:'fk_post', as: 'Post'
         });
 
     };

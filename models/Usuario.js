@@ -71,9 +71,9 @@ const Usuario = (sequelize, DataTypes) => {
             foreignKey:'id', as: 'Post'
         });
 
-        // usuario.hasMany(models.Comentario, {
-        //     foreignKey:'fk_usuario', as: 'Comentario'
-        // });
+        usuario.hasMany(models.Comentario, {
+            foreignKey:'fk_usuario', as: 'Comentario'
+        });
 
         usuario.hasMany(models.RegistroPortfolio, {
             foreignKey:'fk_usuario', as: 'registros'
@@ -86,8 +86,8 @@ const Usuario = (sequelize, DataTypes) => {
         });
 
         usuario.belongsToMany(models.ServicoEspecifico, {
-            through: models.UsuarioServicoEspecifico,
-            foreignKey:'fk_servico',
+            through: "UsuarioServicoEspecifico",
+            foreignKey:'fk_usuario',
             as: 'servicos_especificos'
         });
 
