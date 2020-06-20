@@ -24,8 +24,8 @@ const servicoController = {
         let dProf = await DadoProfissional.findOne({ where: {fk_usuario: id}});
         let dadoProfissional = dProf;
 
-        // let servico = await UsuarioServicoEspecifico.create({ fk_usuario: id, fk_servico, preco, imagem, descricao });
         console.log(`Rota criar serviço: ==>  ${id}, ${fk_servico}, ${preco}, ${imagem}, ${descricao} <==: , , , , `);
+        let servico = await UsuarioServicoEspecifico.create({ fk_usuario: id, fk_servico, preco, imagem, descricao });
 
         let listaProduto = await Produto.findAll();
         let listaServicoGeral = await ServicoGeral.findAll();
