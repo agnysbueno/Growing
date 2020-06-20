@@ -1,15 +1,16 @@
-let {sequelize, Usuario, ServicoGeral, UsuarioServicoGeral, Post } = require("../models");
+let {sequelize, Usuario, ServicoGeral, UsuarioServicoGeral, Post, Comentario } = require("../models");
 const multer = require('multer');
 const { Op } = require("sequelize");
 const usuariosController = {
     perfil: async(req, res) =>{
-        let usuarioLog = req.session.usuario;
-        let idUser = (req.params.id == 0) ? usuarioLog.id : req.params.id;
-        let usuario = await Usuario.findAll({ where: { id: idUser} });
+        let usuario = req.session.usuario;
+        let idUser = req.params.id;
+        let usuarioPerfil = await Usuario.findOne({ where: { id: idUser } });
 
-        let posts = await Post.findAll({ where: { fk_usuario: idUser }, order:[['id', 'DESC']] })
+        //let posts = await Post.findAll({ where: { fk_usuario: idUser }, order:[['id', 'DESC']] })
+        let posts = await Post.findAll({where:{ fk_usuario: idUser }, limit:50, include:[{model:Comentario, as:'Comentario', limit:4, include:[{model:Usuario, as:'Usuario'}]}, {model:Usuario, as:'Usuario'}], order:[['data_postagem', 'DESC']]});
         let preferencias = await UsuarioServicoGeral.findAll({include:'ServicoGeral', where: {fk_usuario: idUser }});
-        res.render('perfil', {title: 'Usuário', usuario, preferencias, posts});
+        res.render('perfil', {title: 'Usuário', usuario, usuarioPerfil, preferencias, posts});
     }, 
     atualizar:async(req, res) =>{
         let { id, nome_completo, nome_social, genero, cpf, data_nascimento, descricao_bio } = req.body;

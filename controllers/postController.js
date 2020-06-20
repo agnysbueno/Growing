@@ -40,9 +40,9 @@ const postController = {
     },
     feedgeral:async(req, res) => {
         //essa parte n funciona
-        let { id, nome_completo, foto_perfil } = req.session.usuario;
-        let usuario = await Usuario.findAll({ id });
-        let posts = await Post.findAll({limit:50, include:[{model:Comentario, as:'Comentario'}, {model:Usuario, as:'Usuario'}], order:[['data_postagem', 'DESC']]});
+        let usuario = req.session.usuario;
+        //let usuarioPerfil = await Usuario.findAll({ id:usuario.id });
+        let posts = await Post.findAll({limit:50, include:[{model:Comentario, as:'Comentario', limit:15, include:[{model:Usuario, as:'Usuario'}]}, {model:Usuario, as:'Usuario'}], order:[['data_postagem', 'DESC']]});
         //console.log(posts);
         //res.send(posts);
         res.render('feedGeral', { usuario, posts });

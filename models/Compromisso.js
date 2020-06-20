@@ -22,7 +22,7 @@ const Compromisso = (sequelize, DataTypes) => {
             },
             fk_avaliacao: {
               type: DataTypes.INTEGER,
-              allowNull: true
+              allowNull: false
             },
             horario_inicio: {
               type: DataTypes.DATE,

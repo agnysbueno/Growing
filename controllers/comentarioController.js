@@ -14,17 +14,25 @@ const comentarioController = {
             fk_post,
             fk_usuario: id
         });
-
+        console.log(commentario);
         let novoComentario = {
             id: commentario.id,
             texto: commentario.texto,
             imagem: commentario.imagem,
             data: commentario.data_comentario,
             nome: nome_completo,
-            perfil: foto_perfil
+            perfil: foto_perfil,
+            Userid: id,
+            idPost: fk_post
         }
         res.send(novoComentario);
-        console.log("salvando no banco de dados");
+        //console.log("salvando no banco de dados");
+    },
+    delete: async(req, res) => {
+        let { id } = req.body;
+        console.log(req.body);
+        await Comentario.destroy({where: { id }});
+        res.send(id);
     }
 }
 

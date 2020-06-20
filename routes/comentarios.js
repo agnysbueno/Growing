@@ -26,6 +26,6 @@ router.post('/salvarComentario', VerificaUsuarioLogado, comentarioController.sal
 // router.get('/', VerificaUsuarioLogado, postController.listarPost);
 // router.post('/carregar', VerificaUsuarioLogado, postController.carregaPost);
 // router.post('/update', VerificaUsuarioLogado, postController.update);
-// router.delete('/delete', VerificaUsuarioLogado, postController.delete);
+router.delete('/delete', VerificaUsuarioLogado, comentarioController.delete);
 
 module.exports = router;

@@ -16,7 +16,7 @@
                     
                 </div>
                 <div class="col-md-9">
-                    <h2 id='nomeUsuario'><%=usuario[0].nome_completo %> - <a href="#!" data-toggle="modal" data-target="#editPerfil"><i class="fas fa-user-edit"></i></a> - Area profissional</h2>
+                    <h2 id='nomeUsuario'><%=usuario[0].nome_completo %> - <a href="#!" data-toggle="modal" data-target="#editPerfil"><i class="fas fa-user-edit"></i></a></h2>
                     <p id='pDescricao'>
                         <%=usuario[0].descricao_bio %>
                     </p>
@@ -24,23 +24,33 @@
 
             </div>
         </div>
+        <!-- Duplicação Só pra eu não mexer no arquivo errado -->
         <div class="row row-status">
             <div class="col-md-6">
                 <div id="preferencias">
                     <p>Duplicação</p>
+
                 </div>
             </div>
             <div class="col-md-3">
                 <div id='prod-servicos'>
                     <p>É ta duplicado mesmo</p>
+
                 </div>
             </div>
             <div class="col-md-3">
                 <div id='btn-config-prof' class="bg-gradiente">
-                    <p>Informações sobre</p>
+                    <!--<button href="#!" id='btnMudarPerfil' data-toggle="modal" data-target="#mudarPerfil"><i class="far fa-clipboard fa-1x"></i></button>-->
+                    <p>Mudar tipo de perfil - <a href="#!" id='btnMudarPerfil2' data-toggle="modal" data-target="#mudarPerfil"><i class="far fa-clipboard fa-1x"></i></a></p>
+                    
+                    <!-- <button type="button" class="btn " data-toggle="modal" data-target="#modalExemplo">
+                        
+                      </button> -->
+                      <a href="/profissionais/verprofissional/<%=dProf.id%>" id="btnMudarPerfil2" class="btn">Ver Profissional</a>
                 </div>
             </div>
-        </div> <!--Fim Status-->
+        
+        </div> <!--Fim da duplicação-->
 
         <div class="row row-status">
           <div class="col-md-12">
@@ -180,264 +190,85 @@
                               </div>
                           </div>
                       </div>
-                  </div>
-                  <a class="carousel-control-prev pr-xl-5 pr-lg-5 mr-lg-5" href="#myCarousel1" role="button"
-                      data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next mr-xl-5 pr-xl-5 mr-md-3 pr-md-2 mr-lg-4 pr-lg-4" href="#myCarousel1"
-                      role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                  </a>
-              </div>
-          </div>
-        </div><!--Fim Meu Portfólio-->
-
-        <div class="container-fluid">
-          <div class="row">
-              <div class="col-md-6 ml-md-5 pl-md-5 pr-md-0 ml-xl-auto pl-xl-5 pr-xl-0 mr-xl-0 trocarLayout">
-                  <a href="#">
-                      <h4 class="alinhaTexto">Meus produtos</h4>
-                  </a>
-              </div>
-              <div class="col-md-6 ml-md-5 mr-md-0 pr-md-0 mr-xl-auto ml-xl-0 pr-xl-5 pl-xl-0 trocarLayout">
-                  <a href="#">
-                      <h4 id="alinhaTexto2">Meus Serviços</h4>
-                  </a>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-12 px-0 col-md-12 ml-md-auto mr-md-0 pl-md-5 pr-md-0">
-                  <div id="myCarousel2" class="carousel slide pl-xl-5 pl-md-0" data-ride="carousel">
-                      <div class="carousel-inner">
-                          <div class="carousel-item active">
-                              <div class="card cartaoCarrosel d-md-inline-block ml-md-2 mr-md-4">
-                                  <div class="card-body">
-                                      <h5 class="card-title"><a href="produtos.html" class="link-primary">Descrição produto 1</a></h5>
-                                      <img src="image/produtos/produto-um.png" class="card-img-top"
-                                          alt="Imagem servico">
-                                      <p class="card-text">R$44,00</p>
-                                      <p class="card-text">Cat ipsum dolor sit amet, mewl for food at 4am</p>
-                                      <p class="card-text">
-                                          <ul class="menu-status-puplic">
-                                              <li><a href="#!"><img src="image/icons/coracao-primary.png"
-                                                          alt="">32</a></li>
-                                              <li><a href="#!"><img src="image/icons/visibilidade-primary.png"
-                                                          alt="">76</a></li>
-                                              <li><a href="#!"><img src="image/icons/comente-primary.png"
-                                                          alt="">54</a></li>
-                                          </ul>
-                                      </p>
-                                      <a href="carrinho.html" class="btn bg-primary-color">Comprar</a>
-                                  </div>
-                              </div>
-                              <div class="card cartaoCarrosel d-md-inline-block ml-md-2 mr-md-4">
-                                  <div class="card-body">
-                                      <h5 class="card-title"><a href="produtos.html" class="link-primary">Descrição produto 2</a></h5>
-                                      <img src="image/produtos/produto-dois.png" class="card-img-top"
-                                          alt="Imagem servico">
-                                      <p class="card-text">R$182,00</p>
-                                      <p class="card-text">Cat ipsum dolor sit amet, mewl for food at 4am</p>
-                                      <p class="card-text">
-                                          <ul class="menu-status-puplic">
-                                              <li><a href="#!"><img src="image/icons/coracao-primary.png"
-                                                          alt="">32</a></li>
-                                              <li><a href="#!"><img src="image/icons/visibilidade-primary.png"
-                                                          alt="">76</a></li>
-                                              <li><a href="#!"><img src="image/icons/comente-primary.png"
-                                                          alt="">54</a></li>
-                                          </ul>
-                                      </p>
-                                      <a href="carrinho.html" class="btn bg-primary-color">Comprar</a>
-                                  </div>
-                              </div>
-                              <div class="card cartaoCarrosel d-md-inline-block ml-md-2 mr-md-4">
-                                  <div class="card-body">
-                                      <h5 class="card-title"><a href="produtos.html" class="link-primary">Descrição produto 3</a></h5>
-                                      <img src="image/produtos/produto-tres.png" class="card-img-top"
-                                          alt="Imagem servico">
-                                      <p class="card-text">R$41,00</p>
-                                      <p class="card-text">Cat ipsum dolor sit amet, mewl for food at 4am</p>
-                                      <p class="card-text">
-                                          <ul class="menu-status-puplic">
-                                              <li><a href="#!"><img src="image/icons/coracao-primary.png"
-                                                          alt="">32</a></li>
-                                              <li><a href="#!"><img src="image/icons/visibilidade-primary.png"
-                                                          alt="">76</a></li>
-                                              <li><a href="#!"><img src="image/icons/comente-primary.png"
-                                                          alt="">54</a></li>
-                                          </ul>
-                                      </p>
-                                      <a href="carrinho.html" class="btn bg-primary-color">Comprar</a>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="carousel-item">
-                              <div class="card cartaoCarrosel d-md-inline-block ml-md-2 mr-md-4">
-                                  <div class="card-body">
-                                      <h5 class="card-title"><a href="produtos.html" class="link-primary">Descrição produto 4</a></h5>
-                                      <img src="image/produtos/produto-tres.png" class="card-img-top"
-                                          alt="Imagem servico">
-                                      <p class="card-text">R$13,00</p>
-                                      <p class="card-text">Cat ipsum dolor sit amet, mewl for food at 4am</p>
-                                      <p class="card-text">
-                                          <ul class="menu-status-puplic">
-                                              <li><a href="#!"><img src="image/icons/coracao-primary.png"
-                                                          alt="">32</a></li>
-                                              <li><a href="#!"><img src="image/icons/visibilidade-primary.png"
-                                                          alt="">76</a></li>
-                                              <li><a href="#!"><img src="image/icons/comente-primary.png"
-                                                          alt="">54</a></li>
-                                          </ul>
-                                      </p>
-                                      <a href="carrinho.html" class="btn bg-primary-color">Comprar</a>
-                                  </div>
-                              </div>
-                              <div class="card cartaoCarrosel d-md-inline-block ml-md-2 mr-md-4">
-                                  <div class="card-body">
-                                      <h5 class="card-title"><a href="produtos.html" class="link-primary">Descrição produto 5</a></h5>
-                                      <img src="image/produtos/produto-dois.png" class="card-img-top"
-                                          alt="Imagem servico">
-                                      <p class="card-text">R$150,00</p>
-                                      <p class="card-text">Cat ipsum dolor sit amet, mewl for food at 4am</p>
-                                      <p class="card-text">
-                                          <ul class="menu-status-puplic">
-                                              <li><a href="#!"><img src="image/icons/coracao-primary.png"
-                                                          alt="">32</a></li>
-                                              <li><a href="#!"><img src="image/icons/visibilidade-primary.png"
-                                                          alt="">76</a></li>
-                                              <li><a href="#!"><img src="image/icons/comente-primary.png"
-                                                          alt="">54</a></li>
-                                          </ul>
-                                      </p>
-                                      <a href="carrinho.html" class="btn bg-primary-color">Comprar</a>
-                                  </div>
-                              </div>
-                              <div class="card cartaoCarrosel d-md-inline-block ml-md-2 mr-md-4">
-                                  <div class="card-body">
-                                      <h5 class="card-title"><a href="produtos.html" class="link-primary">Descrição produto 6</a></h5>
-                                      <img src="image/produtos/produto-um.png" class="card-img-top"
-                                          alt="Imagem servico">
-                                      <p class="card-text">R$300,44</p>
-                                      <p class="card-text">Cat ipsum dolor sit amet, mewl for food at 4am</p>
-                                      <p class="card-text">
-                                          <ul class="menu-status-puplic">
-                                              <li><a href="#!"><img src="image/icons/coracao-primary.png"
-                                                          alt="">32</a></li>
-                                              <li><a href="#!"><img src="image/icons/visibilidade-primary.png"
-                                                          alt="">76</a></li>
-                                              <li><a href="#!"><img src="image/icons/comente-primary.png"
-                                                          alt="">54</a></li>
-                                          </ul>
-                                      </p>
-                                      <a href="carrinho.html" class="btn bg-primary-color">Comprar</a>
-                                  </div>
-                              </div>
-                          </div>
+                      <div class="col-md-12">
+                          <label for="nome">Razão social</label>
+                          <input type="text" name="razao_social" id="razao_social" class="form-control" placeholder="Razão Social..." value="">
                       </div>
-                  </div>
-                  <a class="carousel-control-prev pr-xl-5 pr-lg-5 mr-lg-5" href="#myCarousel2" role="button"
-                      data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next mr-xl-5 pr-xl-5 mr-md-2 pr-md-4 mr-lg-4 pr-lg-4" href="#myCarousel2"
-                      role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                  </a>
-              </div>
-          </div>
-        </div><!--Fim Produtos-->
-
-        <div class="container-fluid pl-5 pr-0">
-          <div class="row">
-              <div class="col-12 col-md-12 mt-4 mx-md-auto estiloColuna">
-                  <img src="image/icons/feed-gray.png">
-                  <h4 style="display: inline-flex;">Depoimentos</h4>
-              </div>
-          </div>
-
-          <div class="row">
-              <div class="col-md-12 pl-0 pr-0">
-                  <div class="card w-75 mx-auto">
-                      <div id="myCarousel3" class="carousel slide" data-ride="carousel">
-                          <div class="carousel-inner">
-                              <div class="carousel-item active px-xl-auto px-md-auto mx-xl-auto">
-                                  <div class="card cartaoCarroselD w-xl-25 w-md-25 d-xl-inline-block ml-xl-5 mr-xl-5 ml-md-2 mr-md-2">
-                                      <div class="card-body">
-                                          <img src="image/avatares/perfil-um.jpg" class="fotoDepoimento">
-                                          <h5 class="card-title" style="display: inline-flex;">Usuario</h5>
-                                          <h6 class="card-subtitle text-muted">05/04/20</h6>
-                                          <p class="card-text">Cat ipsum dolor sit amet, mewl for food at 4am
-                                              terrorize
-                                              the
-                                              hundred-and-twenty-pound rottweiler and
-                                              steal his bed, not sorry and when in doubt, wash.</p>
-                                      </div>
-                                  </div>
-                                  <div class="card cartaoCarroselD w-xl-25 w-md-25 d-xl-inline-block ml-xl-5 mr-xl-5 ml-md-2 mr-md-2">
-                                      <div class="card-body">
-                                          <img src="image/avatares/perfil-quatro.jpg" class="fotoDepoimento">
-                                          <h5 class="card-title" style="display: inline-flex;">Usuario</h5>
-                                          <h6 class="card-subtitle text-muted">05/04/20</h6>
-                                          <p class="card-text">Cat ipsum dolor sit amet, mewl for food at 4am
-                                              terrorize
-                                              the
-                                              hundred-and-twenty-pound rottweiler and
-                                              steal his bed, not sorry and when in doubt, wash.</p>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="carousel-item px-xl-auto px-md-auto mx-xl-auto">
-                                  <div class="card cartaoCarroselD w-xl-25 w-md-25 d-xl-inline-block ml-xl-5 mr-xl-5 ml-md-2 mr-md-2">
-                                      <div class="card-body">
-                                          <img src="image/avatares/perfil-dois.jpg" class="fotoDepoimento">
-                                          <h5 class="card-title" style="display: inline-flex;">Usuario</h5>
-                                          <h6 class="card-subtitle text-muted">05/04/20</h6>
-                                          <p class="card-text">Cat ipsum dolor sit amet, mewl for food at 4am
-                                              terrorize
-                                              the
-                                              hundred-and-twenty-pound rottweiler and
-                                              steal his bed, not sorry and when in doubt, wash.</p>
-                                      </div>
-                                  </div>
-                                  <div class="card cartaoCarroselD w-xl-25 w-md-25 d-xl-inline-block ml-xl-5 mr-xl-5 ml-md-2 mr-md-2">
-                                      <div class="card-body">
-                                          <img src="image/avatares/perfil-tres.jpg" class="fotoDepoimento">
-                                          <h5 class="card-title" style="display: inline-flex;">Usuario</h5>
-                                          <h6 class="card-subtitle text-muted">05/04/20</h6>
-                                          <p class="card-text">Cat ipsum dolor sit amet, mewl for food at 4am
-                                              terrorize
-                                              the
-                                              hundred-and-twenty-pound rottweiler and
-                                              steal his bed, not sorry and when in doubt, wash.</p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
+                      <div class="col-md-12">
+                          <label for="nome">Nome fantasia</label>
+                          <input type="text" name="nome_fantasia" id="nome_fantasia" class="form-control" placeholder="Nome fantasia ..." value="">
                       </div>
+                      <div class="col-md-12">
+                          <label for="nome">Inscrição estadual</label>
+                          <input type="text" name="inscricao_estadual" id="inscricao_estadual" class="form-control" placeholder="Inscrição estadual ..." value="">
+                      </div>
+                      <div class="col-md-12">
+                          <label for="nome">Inscrição municipal</label>
+                          <input type="text" name="inscricao_municipal" id="inscricao_municipal" class="form-control" placeholder="Inscrição municipal ..." value="">
+                      </div>
+                    
                   </div>
-                  <a class="carousel-control-prev ml-xl-5 pl-xl-4 ml-lg-3 pl-lg-5 ml-md-4 pl-md-3" href="#myCarousel3"
-                      role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next mr-xl-5 pr-xl-4 mr-lg-4 pr-lg-4 mr-md-4 pr-md-4" href="#myCarousel3"
-                      role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                  </a>
-              </div>
+                  <button type="submit" class="btn bg-primary-color text-color-white" id="btnMudarPerfil2">Alterar meu perfil</button>
+                </div>
+              </form>
+            </div><!--Fim mudar prof-->
           </div>
-        </div><!--Fim Depoimentos-->
+        </div>
+        
+        <!-- <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Atualizar informações profissionais</h5>
+            <!-- Atualizar profissional -->
+            <!-- <div class="bg-white" id="janela-Atualiza-profissional">
+              <form action="profissionais/editarProfissional" method="POST" id="formAtualizaPerfil">
+              
+                  <div class="col-md-12">
+                  
+                    <div class="row">
+                      <div class="col-md-12">
+                          <input type="hidden" value="<%=usuario[0].id %>" name="id">
+                          <input type="hidden" value="" name="idProfissional">
+                          <label for="nome">CNPJ</label>
+                          <input type="text" name="cnpj" id="cnpj" class="form-control" placeholder="00.000.000/0000-00" value="">
+                      </div>
+                      <div class="col-md-12">
+                          <label for="nome">Razão social</label>
+                          <input type="text" name="razao_social" id="razao_social" class="form-control" placeholder="Razão Social..." value="">
+                      </div> -->
+                      <!-- <div class="col-md-12">
+                          <label for="nome">Nome fantasia</label>
+                          <input type="text" name="nome_fantasia" id="nome_fantasia" class="form-control" placeholder="Nome fantasia ..." value="">
+                      </div>
+                      <div class="col-md-12">
+                          <label for="nome">Inscrição estadual</label>
+                          <input type="text" name="inscricao_estadual" id="inscricao_estadual" class="form-control" placeholder="Inscrição estadual ..." value="">
+                      </div>
+                      <div class="col-md-12">
+                          <label for="nome">Inscrição municipal</label>
+                          <input type="text" name="inscricao_municipal" id="inscricao_municipal" class="form-control" placeholder="Inscrição municipal ..." value="">
+                      </div>
+                    
+                    </div>
+                    <button type="submit" class="btn bg-primary-color text-color-white" id="btnAtualizaPerfil2">Atualizar perfil</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div><!--Fim card Atualiza --> -->
 
-    </div><!--Fim do col-md-8 Seção central da pagina-->
+
+    </div>
+<!--
+    <div class="col-md-4" style="color: aquamarine;">
+     
+            <div id='btn-config-prof2' class="col-md-12 bg-gradiente">
+                <p id='btnMudarPerfil2'>Mudar tipo de perfil - <a href="#!" data-toggle="modal" data-target="#mudarPerfil"><i class="far fa-clipboard fa-1x"></i></a></p>
+            </div>
+ 
+    </div>
+-->
 </div>
 </div>
-
 <!-- Editar perfil -->
 <div class="modal fade" id="editPerfil" tabindex="-1" role="dialog" aria-labelledby="editPerfilLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -552,7 +383,7 @@
     </div>
   </div>
 
-<!--Modal Cria Profissional-->
+
 <div class="modal fade" id="mudarPerfil" tabindex="-1" role="dialog" aria-labelledby="mudarPerfilLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -563,7 +394,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="/profissionais" class="form-horizontal" method= "post" id='formMudarP'>
+          <form action="/salvarProfissional" class="form-horizontal" method= "post" id='formMudarP'>
              <div class="form-group">
                 <div class="row">
                     <div class="col-md-12">
@@ -594,8 +425,9 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn bg-primary-color icon-color-white" form= "formMudarP">Mudar tipo de Perfil</button>
-        </div>
+          <button type="button" class="btn bg-primary-color icon-color-white" onclick="mudarP('<%=usuario[0].id %>')" data-dismiss="modal">Mudar Perfil</button>
+          <!--<button type="submit" class="btn bg-primary-color icon-color-white" form= "formMudarP">Mudar tipo de Perfil</button>-->
+        <!--</div>
       </div>
     </div>
   </div>
