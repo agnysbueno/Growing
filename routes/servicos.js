@@ -22,13 +22,13 @@ const servicoController = require('../controllers/servicoController');
 const VerificaUsuarioLogado = require('../middlewares/VerificaUsuarioLogado');
 
 //Servicos
-router.get('/', servicoController.perfilCon); //Mostra todos
-router.get('/mostrarServicos', servicoController.mostrarServicos); //Mostra todos
-router.get('/criarServico', servicoController.criarServico); //Cadastrar Servico por form
-router.post('/salvarServico', servicoController.salvarServico); //Salva o form de cadastro
-router.get('/sucessoServico', servicoController.sucessoServico); //Mensagem de Sucesso ou erro.
-router.get('/verServico', servicoController.verServico); //Ver um Servico específico
-router.put('/editarServico', servicoController.editarServico); //Ver form edição de Servico
-router.delete('/deletarServico/:id', servicoController.deletarServico); //Deleta um Servico
+// router.get('/', servicoController.perfilCon); //Mostra todos
+// router.get('/mostrarServicos', servicoController.mostrarServicos); //Mostra todos
+router.post('/criarServico', servicoController.criarServico); //Cadastrar Servico por form
+// router.post('/salvarServico', servicoController.salvarServico); //Salva o form de cadastro
+// router.get('/sucessoServico', servicoController.sucessoServico); //Mensagem de Sucesso ou erro.
+// router.get('/verServico', servicoController.verServico); //Ver um Servico específico
+// router.put('/editarServico', servicoController.editarServico); //Ver form edição de Servico
+// router.delete('/deletarServico/:id', servicoController.deletarServico); //Deleta um Servico
 
 module.exports = router;

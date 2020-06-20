@@ -1,4 +1,4 @@
-const {sequelize, UsuarioProduto} = require("../models");
+const {sequelize, Usuario, UsuarioProduto, DadoProfissional, Produto, ServicoEspecifico, ServicoGeral} = require("../models");
 const produtoController = {
     mostrarProdutos: async (req, res) =>{
         let {id} = req.params; //pega id do usuario profissional que está renderizado na pagina.
@@ -11,13 +11,19 @@ const produtoController = {
     },
 
     criarProduto: async(req, res) => {
-        let usuario = req.session.usuario;
         let {id} = req.session.usuario;
         let {fk_produto, preco, imagem, descricao} = req.body;
-        let produto = await UsuarioProduto.create({
-            fk_usuario: id, fk_produto, preco, imagem, descricao
-        });
-        res.render("verProfissional" , {produto, usuario});
+
+        let usuario = await Usuario.findAll({ where: { id }});
+        let dProf = await DadoProfissional.findOne({ where: {fk_usuario: id}});
+        let dadoProfissional = dProf;
+
+        let produto = await UsuarioProduto.create({ fk_usuario: id, fk_produto, preco, imagem, descricao });
+
+        let listaProduto = await Produto.findAll();
+        let listaServicoGeral = await ServicoGeral.findAll();
+        let listaServicoEspecifico = await ServicoEspecifico.findAll();
+        res.render("verProfissional", {dProf, dadoProfissional, usuario, produto, listaProduto, listaServicoGeral, listaServicoEspecifico});
     },
 
     // sucessoProduto: (req, res) => {

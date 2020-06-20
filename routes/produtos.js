@@ -23,7 +23,7 @@ const VerificaUsuarioLogado = require('../middlewares/VerificaUsuarioLogado');
 
 //Produtos
 router.get('/mostrarProdutos', produtoController.mostrarProdutos); //Mostra todos
-router.post('/', produtoController.criarProduto); //Salva o form de cadastro
+router.post('/criarProduto', produtoController.criarProduto); //Salva o form de cadastro
 // router.get('/sucessoProduto', produtoController.sucessoProduto); //Mensagem de Sucesso ou erro.
 // router.get('/verProduto', produtoController.verProduto); //Ver um produto específico
 // router.put('/editarProduto', produtoController.editarProduto); //Ver form edição de produto
