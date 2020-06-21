@@ -80,19 +80,19 @@ const Usuario = (sequelize, DataTypes) => {
         });
 
         usuario.belongsToMany(models.ServicoGeral, {
-            through: "UsuarioServicoGeral",
+            through: models.UsuarioServicoGeral,
             foreignKey:'fk_usuario',
             as: 'servicos_gerais'
         });
 
         usuario.belongsToMany(models.ServicoEspecifico, {
-            through: "UsuarioServicoEspecifico",
+            through: models.UsuarioServicoEspecifico,
             foreignKey:'fk_usuario',
             as: 'servicos_especificos'
         });
 
         usuario.belongsToMany(models.Produto, {
-            through: "UsuarioProduto",
+            through: models.UsuarioProduto,
             foreignKey:'fk_usuario',
             as: 'produtos'
         });
@@ -101,9 +101,9 @@ const Usuario = (sequelize, DataTypes) => {
             foreignKey:'fk_usuario_consumidor', as: 'compromissos'
         });
 
-        usuario.hasMany(models.AvaliacaoUsuario, {
-            foreignKey:'fk_usuario', as: 'avaliacoes'
-        });
+        // usuario.hasMany(models.AvaliacaoUsuario, {
+        //     foreignKey:'fk_usuario', as: 'avaliacoes'
+        // });
     };
 
     return usuario;

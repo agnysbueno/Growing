@@ -20,10 +20,6 @@ const Compromisso = (sequelize, DataTypes) => {
               type: DataTypes.INTEGER,
               allowNull: false
             },
-            fk_avaliacao: {
-              type: DataTypes.INTEGER,
-              allowNull: false
-            },
             horario_inicio: {
               type: DataTypes.DATE,
               allowNull: false
@@ -45,25 +41,26 @@ const Compromisso = (sequelize, DataTypes) => {
 
     compromisso.associate = (models) => {
         
-        compromisso.hasOne(models.AvaliacaoUsuario, {
-            foreignKey:'fk_compromisso', as: 'avaliacao_usuario'
-        });
+        // compromisso.hasOne(models.AvaliacaoUsuario, {
+        //     foreignKey:'fk_compromisso', as: 'avaliacao_usuario'
+        // });
 
         compromisso.belongsTo(models.Usuario, {
             foreignKey:'fk_usuario_consumidor', as: 'usuario_consumidor'
         });
 
-        compromisso.belongsTo(models.AvaliacaoServico, {
-            foreignKey:'fk_avaliacao', as: 'avaliacao_servico'
-        });
+        // compromisso.hasOne(models.AvaliacaoServico, {
+        //     foreignKey:'fk_compromisso', as: 'avaliacao_servico'
+        // });
 
         compromisso.belongsTo(models.UsuarioServicoEspecifico, {
-            foreignKey:'fk_servico', as: 'servico'
+            targetKey:'fk_servico', as: 'servico',
+            targetKey: 'fk_usuario', as :'usuario_prestador'
         });
 
-        compromisso.belongsTo(models.UsuarioServicoEspecifico, {
-            foreignKey:'fk_usuario_prestador', as: 'usuario_prestador'
-        });
+        // compromisso.belongsTo(models.UsuarioServicoEspecifico, {
+        //     foreignKey:'fk_usuario_prestador', as: 'usuario_prestador'
+        // });
 
     };
 

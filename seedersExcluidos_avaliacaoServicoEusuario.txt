@@ -1,0 +1,169 @@
+// 'use strict';
+
+// const faker = require("faker");
+// faker.locale = "pt_BR";
+// //faker.setLocale("pt_BR");
+
+// module.exports = {
+//   up: (queryInterface, Sequelize) => {
+//     var avaliacaoUsuarios = [];
+//     var fakeAvaliacaoUsuario = {};
+
+//     var fakeId = 0;
+    
+//     for (let i=0; i <= 600; i++) {
+
+//       fakeAvaliacaoUsuario = {
+//         id: fakeId,
+//         fk_usuario: faker.random.number({'min': 1, 'max': 200}),
+//         fk_compromisso: faker.random.number({'min': 1, 'max': 20}),
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       }
+//       avaliacaoUsuarios.push(fakeAvaliacaoUsuario);
+//       fakeId+=1;
+//     }
+    
+//     return queryInterface.bulkInsert('avaliacao_usuario', avaliacaoUsuarios, {});
+//   },
+
+//   down: (queryInterface, Sequelize) => {
+//     return queryInterface.bulkDelete('avaliacao_usuario', null, {});
+//   }
+// };
+
+// 'use strict';
+
+// const faker = require("faker");
+// faker.locale = "pt_BR";
+// //faker.setLocale("pt_BR");
+
+// module.exports = {
+//   up: (queryInterface, Sequelize) => {
+//     return queryInterface.bulkInsert('avaliacao_servico', [
+//       {
+//         id: 1,
+//         fk_usuario_prestador: 186,
+//         fk_servico: 41,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 2,
+//         fk_usuario_prestador: 105,
+//         fk_servico: 73,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 3,
+//         fk_usuario_prestador: 194,
+//         fk_servico: 27,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 4,
+//         fk_usuario_prestador: 174,
+//         fk_servico: 36,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 5,
+//         fk_usuario_prestador: 141,
+//         fk_servico: 73,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 6,
+//         fk_usuario_prestador: 167,
+//         fk_servico: 52,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 7,
+//         fk_usuario_prestador: 159,
+//         fk_servico: 65,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 8,
+//         fk_usuario_prestador: 49,
+//         fk_servico: 69,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 9,
+//         fk_usuario_prestador: 5,
+//         fk_servico: 62,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 10,
+//         fk_usuario_prestador: 188,
+//         fk_servico: 28,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 11,
+//         fk_usuario_prestador: 127,
+//         fk_servico: 25,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 12,
+//         fk_usuario_prestador: 157,
+//         fk_servico: 60,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 13,
+//         fk_usuario_prestador: 180,
+//         fk_servico: 72,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 14,
+//         fk_usuario_prestador: 42,
+//         fk_servico: 48,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 15,
+//         fk_usuario_prestador: 79,
+//         fk_servico: 7,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 16,
+//         fk_usuario_prestador: 66,
+//         fk_servico: 27,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 17,
+//         fk_usuario_prestador: 126,
+//         fk_servico: 28,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 18,
+//         fk_usuario_prestador: 28,
+//         fk_servico: 57,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 19,
+//         fk_usuario_prestador: 107,
+//         fk_servico: 66,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//       {
+//         id: 20,
+//         fk_usuario_prestador: 138,
+//         fk_servico: 71,
+//         nota: faker.random.number({'min': 1, 'max': 5}),
+//       },
+//     ], {});
+//   },
+
+//   down: (queryInterface, Sequelize) => {
+//     return queryInterface.bulkDelete('avaliacao_servico', null, {});
+//   }
+// };

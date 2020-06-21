@@ -14,9 +14,9 @@ module.exports = {
     
     var opcoesGenero = ['F', 'M', 'O']
 
-    var fakeId = 55;
+    var fakeId = 1;
     
-    for (let i=55; i <= 200; i++) {
+    for (let i=1; i <= 200; i++) {
       fakeUsuario = {
         id: fakeId,
         nome_completo: faker.name.findName(),

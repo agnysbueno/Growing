@@ -8,4 +8,3 @@ $('.clockpicker').clockpicker({
     placement: "top",
     default: 'now'
 });
-

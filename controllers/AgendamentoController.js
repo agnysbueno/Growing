@@ -40,6 +40,7 @@ const AgendamentoController = {
         let dateTrans = stringToDate(data, "dd/MM/yyyy", "/");
         let horinic = toDate(horainicial, "h:m");
         let horfin = toDate(horafinal, "h:m");
+        
         console.log(dateTrans)
         console.log(horinic)
         console.log(horfin)

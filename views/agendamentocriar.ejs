@@ -103,7 +103,7 @@
                             <select name="pkProfissional" id="titulo1" class="form-control" required>">
                                 <option value="" selected disabled hidden>Selecione...</option>
                                 <% profissionais.forEach(profissional => { %>
-                                    <option value="<%= profissional.id %>"> <%= profissional.nome_social %>, CPF: <%= profissional.cpf %></option>
+                                    <option data-img-src= "<%= profissional.foto_perfil %>" value="<%= profissional.id %>"> <%= profissional.nome_social %>, CPF: <%= profissional.cpf %></option>
                                 <% }) %>
                             </select>
                         </div>

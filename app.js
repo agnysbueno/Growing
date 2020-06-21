@@ -14,6 +14,8 @@ var produtosRouter = require('./routes/produtos');
 var servicosRouter = require('./routes/servicos');
 var profissionaisRouter = require('./routes/profissionais');
 var portfoliosRouter = require('./routes/portfolios');
+var agendamentosRouter = require('./routes/agendamentos');
+
 
 var app = express();
 
@@ -42,6 +44,7 @@ app.use('/produtos', produtosRouter);
 app.use('/servicos', servicosRouter);
 app.use('/profissionais', profissionaisRouter);
 app.use('/portfolios', portfoliosRouter);
+app.use('/agendamentos', agendamentosRouter);
 
 
 // catch 404 and forward to error handler

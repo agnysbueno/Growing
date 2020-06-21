@@ -26,7 +26,7 @@ const ServicoEspecifico = (sequelize, DataTypes) => {
     servicoEspecifico.associate = (models) => {
         
         servicoEspecifico.belongsToMany(models.Usuario, {
-            through: "UsuarioServicoEspecifico",
+            through: models.UsuarioServicoEspecifico,
             foreignKey:'fk_servico',
             as: 'usuario'
         });

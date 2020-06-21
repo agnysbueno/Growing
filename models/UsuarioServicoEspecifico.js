@@ -34,7 +34,13 @@ const UsuarioServicoEspecifico = (sequelize, DataTypes) => {
             timestamps: false 
         }
     );
-   
+
+    usuarioServicoEspecifico.associate = (models) => {
+        
+      usuarioServicoEspecifico.hasOne(models.Compromisso, {
+          foreignKey:'fk_usuario', as: 'Usuario'
+      });
+  };
     return usuarioServicoEspecifico;
 }
 

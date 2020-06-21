@@ -6,7 +6,7 @@ faker.locale = "pt_BR";
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('avaliacao_servico', [
+    return queryInterface.bulkInsert('usuario_servico_especifico', [
       {
         id: 1,
         fk_usuario: 186,
