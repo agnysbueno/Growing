@@ -41,6 +41,16 @@ module.exports = {
           onDelete: 'CASCADE',
           allowNull: false
         },
+        fk_avaliacao: {
+          type: Sequelize.INTEGER,
+          references: {
+            model: 'avaliacao_servico',
+            key: 'fk_servico'
+          },
+          onUpdate: 'CASCADE',
+          onDelete: 'CASCADE',
+          allowNull: false
+        },
         horario_inicio: {
           type: Sequelize.DATE,
           allowNull: false

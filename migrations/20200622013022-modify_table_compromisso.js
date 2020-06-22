@@ -5,6 +5,7 @@ module.exports = {
     return Promise.all([
     queryInterface.removeColumn('compromisso', 'fk_usuario_prestador'),
     queryInterface.removeColumn('compromisso', 'fk_servico'),
+    queryInterface.removeColumn('compromisso', 'fk_avaliacao'),
     queryInterface.addColumn('compromisso', 'fk_usuario_servico_especifico',{
       type: Sequelize.INTEGER,
       references: {
@@ -49,7 +50,19 @@ module.exports = {
       onDelete: 'CASCADE',
       allowNull: false
     }),
-    queryInterface.removeColumn('compromisso', 'date')
+    queryInterface.removeColumn('compromisso', 'date'),
+    queryInterface.addColumn('compromisso', 'fk_avaliacao', {
+      type: Sequelize.INTEGER,
+      references: {
+        model: 'avaliacao_servico',
+        key: 'fk_servico'
+      },
+      after: 'fk_servico',
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
+      allowNull: false
+    })
+
     ])
   }
 };
