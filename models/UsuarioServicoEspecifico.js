@@ -37,8 +37,8 @@ const UsuarioServicoEspecifico = (sequelize, DataTypes) => {
 
     usuarioServicoEspecifico.associate = (models) => {
         
-      usuarioServicoEspecifico.hasOne(models.Compromisso, {
-          foreignKey:'fk_usuario', as: 'Usuario'
+      usuarioServicoEspecifico.hasMany(models.Compromisso, {
+        foreignKey:'fk_usuario_servico_especifico', as: 'usuarioservicoespecifico'
       });
   };
     return usuarioServicoEspecifico;

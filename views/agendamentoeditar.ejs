@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agendamentos</title>
+  <title>Editar Agendamento</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/55fcd42dc6.js"></script>
@@ -92,27 +92,18 @@
     <div class="bg-ligth-color" id="main">
         <div class="cointainer portfolioph">
             <div align="center" class="text-color-primary tituloprincipal">
-                <h1>Agende agora</h1>
+                <h1>Edite seu agendamento</h1>
             </div>
               <br><br><br>
-              <form action = "/agendamentos/criar" id='formPortfolio' method= "post">
+              <form action="<%= compromisso.dataValues.id %>?_method=PUT" id='formPortfolio' method= "post">
                 <div class="form-group">
                     <div class="row">
-                        <br><br><br>
                         <div class="col-md-12">
-                            <label for="categoria1">Selecione Profissionais e seus serviços oferecidos</label>
-                            <select name="idusuarioservicoespecifico" id="categoria1" class="form-control" autofocus required>">
-                                    <option value="" selected disabled hidden>Selecione...</option>
-                                    <% servicosEspec.forEach(servico => { %>
-                                        <% servico.dataValues.usuario.forEach(usuario => { %>
-                                            <option value="<%= usuario.UsuarioServicoEspecifico.dataValues.id%>"> Serviço: <%= servico.dataValues.servico %>, Profissional: <%= usuario.dataValues.nome_completo %></option>
-                                        <% }) %>
-                                    <% }) %>
-                            </select>
+                            <p>Editando o serviço: <i><%= servicoespecifico.dataValues.servico %></i> do Profissional <i><%= profissional.dataValues.nome_social %></i></p>
+                            <p>Dúvidas? entre em contato diretamente com o email do seu profissional: <i><%= profissional.dataValues.email %></i></p>
                         </div>
-                        <br><br><br>
                         <div class="col-md-12">
-                            <label for="calendar">Escolha a data do serviço:</label>
+                            <label for="calendar">Reescolha a data do serviço:</label>
                             <span class="glyphicon glyphicon-th"></span>
                             <div class="input-group date">
                                 <input type="text" class="form-control" id = "calendar" name = "data" required>
@@ -123,7 +114,7 @@
                         </div>
                         <br><br><br>
                         <div class="col-md-12">
-                            <label for="horainicio">Escolha a hora de inicio do serviço:</label>
+                            <label for="horainicio">Reescolha a hora de inicio do serviço:</label>
                             <div class="input-group clockpicker">
                                 <input type="text" class="form-control" id = "horainicio" name = "horainicial" required>
                                 <span class="input-group-addon">
@@ -133,7 +124,7 @@
                         </div>
                         <br><br><br>
                         <div class="col-md-12">
-                            <label for="horafinal">Escolha a hora do fim do serviço:</label>
+                            <label for="horafinal">Reescolha a hora do fim do serviço:</label>
                             <div class="input-group clockpicker">
                                 <input type="text" class="form-control" id = "horafinal" name = "horafinal"required>
                                 <span class="input-group-addon">
@@ -143,14 +134,14 @@
                         </div>
                         <br><br><br>
                         <div class="col-md-12">
-                            <label for="comentario">Deixe aqui sua observação para o profissional:</label>
+                            <label for="comentario">Edite seu comentário</label>
                             <div>
-                                <textarea class = "form-control" id = "comentario" name="message" rows="5" cols="100" placeholder = "Deixe aqui seu comentário...  "></textarea>
+                                <textarea class = "form-control" id = "comentario" name="message" rows="5" cols="100"><%= compromisso.dataValues.observacoes%></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button align = "center" class="btn bg-primary-color icon-color-white" type="submit" form= "formPortfolio">Agendar</button> 
+                <button align = "center" class="btn bg-primary-color icon-color-white" type="submit" form= "formPortfolio">Reagendar</button> 
             </form>
         </div>
         

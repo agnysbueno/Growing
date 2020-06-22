@@ -12,12 +12,12 @@ const Compromisso = (sequelize, DataTypes) => {
               type: DataTypes.INTEGER,
               allowNull: false
             },
-            fk_usuario_prestador: {
+            fk_usuario_servico_especifico: {
               type: DataTypes.INTEGER,
               allowNull: false
             },
-            fk_servico: {
-              type: DataTypes.INTEGER,
+            date: {
+              type: DataTypes.DATE,
               allowNull: false
             },
             horario_inicio: {
@@ -54,8 +54,7 @@ const Compromisso = (sequelize, DataTypes) => {
         // });
 
         compromisso.belongsTo(models.UsuarioServicoEspecifico, {
-            targetKey:'fk_servico', as: 'servico',
-            targetKey: 'fk_usuario', as :'usuario_prestador'
+            foreignKey:'fk_usuario_servico_especifico', as: 'usuarioservicoespecifico'
         });
 
         // compromisso.belongsTo(models.UsuarioServicoEspecifico, {
